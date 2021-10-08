@@ -1,0 +1,7 @@
+// @import "./styles/example.scss"; // import the file from our styles so it will be bundled
+
+// #main {
+//     color: $color; // $color was defined in example.scss, which we can use because it's imported before we hit this
+// }
+
+@import "./styles/game_canvas.scss";
