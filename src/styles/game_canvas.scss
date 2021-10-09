@@ -1,4 +1,6 @@
  // Define a SCSS variable
 #game-canvas {
+    display: block;
     border: 4px solid purple; // Use the variable we defined
+    margin: auto;
 }

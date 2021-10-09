@@ -1,4 +1,5 @@
-import Example from "./scripts/example"
+// import Example from "./scripts/example"
+import Button from "./scripts/button"
 import GameCanvas from "./scripts/game_canvas"
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -6,5 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // new Example(main)
     // const canvas = document.getElementById('game-canvas');
     // const ctx = canvas.getContext('2d');
-    new GameCanvas()
+    new GameCanvas();
+    new Button();
 })
