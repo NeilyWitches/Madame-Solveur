@@ -4,4 +4,5 @@
 //     color: $color; // $color was defined in example.scss, which we can use because it's imported before we hit this
 // }
 
-@import "./styles/game_canvas.scss";
+@import "./styles/start_game_canvas.scss";
+@import "./styles/level-1.scss";

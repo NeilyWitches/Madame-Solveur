@@ -1,17 +1,14 @@
-class GameCanvas {
+class StartGameCanvas {
     constructor () {
-        this.canvas = document.getElementById('game-canvas');
+        this.canvas = document.getElementById('start-game-canvas');
         this.ctx = this.draw();
         this.canv_dims = this.canv_dim();
         
     }
 
     draw() {
-        // const canvas = document.getElementById('game-canvas');
         if (this.canvas.getContext) {
             const ctx = this.canvas.getContext('2d');
-            // ctx.fillStyle = 'rgb(200, 0, 0)';
-            // ctx.fillRect(10, 10, 50, 50);
             return ctx;
         }
     }
@@ -40,4 +37,4 @@ class GameCanvas {
     }
 }
 
-export default GameCanvas;
+export default StartGameCanvas;
