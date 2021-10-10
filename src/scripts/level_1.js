@@ -61,6 +61,14 @@ class Level1 {
         const button_centered_dims = this.center_box(this.canvas.width, this.canvas.height, button_width, button_height);
         this.ctx.fillRect(button_centered_dims[0], button_y, button_width, button_height);
         this.getClicked(button_centered_dims[0], button_y, button_width, button_height);
+        
+        const next_txt = "Next";
+        this.ctx.fillStyle = "black";
+        const font = "bold " + button_centered_dims[3] + "px Arial";
+        this.ctx.font = font;
+        this.ctx.textBaseline = "top";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText(next_txt, this.canv_dims[0] / 2, button_y);
     }
 
     getClicked(xpoint, ypoint, rect_width, rect_height) {
