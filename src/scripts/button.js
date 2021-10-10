@@ -1,5 +1,5 @@
+import Level1 from "./level_1";
 import StartGameCanvas from "./start_game_canvas";
-import TextBox from "./text_box";
 
 class Button extends StartGameCanvas {
     constructor() {
@@ -30,10 +30,9 @@ class Button extends StartGameCanvas {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             if (x > xpoint && x < xpoint + rect_width && y > ypoint && y < ypoint + rect_height) {
-                 console.log('inside button')
-                 this.canvas.parentNode.removeChild(this.canvas);
-                 const dialogue_1 = `On one typical Autumn morning, Mme Solveur had been sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. Startled, but warm the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student had heard about Mme Solveur's ability to solve puzzles...`;
-                 new TextBox(dialogue_1);
+                console.log('inside button')
+                this.canvas.parentNode.removeChild(this.canvas);
+                new Level1();
             } else {
                 console.log('outside button');
             }

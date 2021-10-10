@@ -29,6 +29,7 @@ class Level1 {
 
     renderLevel() {
         this.renderTitles();
+        this.renderDialogue();
         this.nextButton();
     }
 
@@ -84,6 +85,44 @@ class Level1 {
         let xOffset = newWidth < outer_width ? ((outer_width - newWidth) / 2) : 0;
         let yOffset = newHeight < outer_height ? ((outer_height - newHeight) / 2) : 0;
         return [xOffset, yOffset, newWidth, newHeight];
+    }
+
+    renderDialogue(text) {
+        const dialogue_1 = `On one typical Autumn morning, Mme Solveur had been sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. Startled, but warm the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student had heard about Mme Solveur's ability to solve puzzles...`;
+        this.ctx.fillStyle = 'lavender';
+        const box_width = 400;
+        const box_height = 400;
+        const box_centered_dims = this.center_box(this.canvas.width, this.canvas.height, box_width, box_height);
+        this.ctx.fillRect(...box_centered_dims);
+        this.ctx.fillStyle = "black";
+        this.ctx.font = "20px Arial";
+        this.ctx.textAlign = 'left';
+        const lineHeight = 25;
+        const padding = 5;
+        let x = ((this.canvas.width - box_width) / 2) + padding;
+        let y = box_centered_dims[1] + padding;
+        this.wrapText(dialogue_1, x, y, box_width - padding, lineHeight);
+    }
+
+    wrapText(text, x, y, maxWidth, lineHeight) {
+        let words = text.split(" ");
+        let line = '';
+
+        for (let n = 0; n < words.length; n++) {
+            let testLine = line + words[n] + ' ';
+            let metrics = this.ctx.measureText(testLine);
+            let testWidth = metrics.width;
+            if (testWidth > maxWidth && n > 0) {
+                this.ctx.fillText(line, x, y);
+                line = words[n] + ' ';
+                line = words[n] + ' ';
+                y += lineHeight;
+            }
+            else {
+                line = testLine;
+            }
+        }
+        this.ctx.fillText(line, x, y);
     }
 }
 
