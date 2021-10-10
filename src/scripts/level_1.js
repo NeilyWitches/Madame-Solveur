@@ -1,3 +1,5 @@
+import Level1Proper from "./level_1_proper";
+
 class Level1 {
     constructor () {
         this.canvas = document.createElement('canvas');
@@ -83,7 +85,10 @@ class Level1 {
                     this.clicked = true;
                     console.log("clicked once");
                     this.renderIntructions();
-                } 
+                } else if (this.clicked === true) {
+                    this.canvas.parentNode.removeChild(this.canvas);
+                    new Level1Proper();
+                }
             } else {
                 console.log('outside button');
             }

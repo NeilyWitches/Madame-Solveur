@@ -3,7 +3,7 @@ class StartGameCanvas {
         this.canvas = document.getElementById('start-game-canvas');
         this.ctx = this.draw();
         this.canv_dims = this.canv_dim();
-        
+        this.renderTitles();
     }
 
     draw() {
@@ -34,6 +34,22 @@ class StartGameCanvas {
         let xOffset = newWidth < outer_width ? ((outer_width - newWidth) / 2) : 0;
         let yOffset = newHeight < outer_height ? ((outer_height - newHeight) / 2) : 0;
         return [xOffset, yOffset, newWidth, newHeight];
+    }
+
+    renderTitles() {
+        const text_h1 = "Madame Solveur:";
+        this.ctx.fillStyle = "black";
+        this.ctx.font = "bold 45px Arial";
+        this.ctx.textBaseLine = "top";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText(text_h1, this.canvas.width / 2, 45);
+
+        const text_h2 = "A game about solving puzzles!";
+        this.ctx.fillStyle = "purple";
+        this.ctx.font = "bold 25px Arial";
+        this.ctx.textBaseLine = "top";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText(text_h2, this.canvas.width / 2, 80);
     }
 }
 
