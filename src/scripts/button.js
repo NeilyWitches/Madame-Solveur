@@ -1,3 +1,4 @@
+import Level1 from "./level_1";
 import StartGameCanvas from "./start_game_canvas";
 
 class Button extends StartGameCanvas {
@@ -31,6 +32,7 @@ class Button extends StartGameCanvas {
             if (x > xpoint && x < xpoint + rect_width && y > ypoint && y < ypoint + rect_height) {
                  console.log('inside button')
                  this.canvas.parentNode.removeChild(this.canvas);
+                 new Level1();
             } else {
                 console.log('outside button');
             }

@@ -1,6 +1,9 @@
 class Level1 {
     constructor () {
-        this.canvas = document.getElementById('start-game-canvas');
+        this.canvas = document.createElement('canvas');
+        document.getElementById('body').appendChild(this.canvas);
+        // body.appendChild(body);
+        this.canvas.setAttribute('id', 'level-1');
         this.ctx = this.draw();
         this.canv_dims = this.canv_dim();
     }
@@ -8,6 +11,8 @@ class Level1 {
     draw() {
         if (this.canvas.getContext) {
             const ctx = this.canvas.getContext('2d');
+            this.canvas.setAttribute('width', '600');
+            this.canvas.setAttribute('height', '700');
             return ctx;
         }
     }
