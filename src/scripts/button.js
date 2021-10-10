@@ -29,7 +29,8 @@ class Button extends StartGameCanvas {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             if (x > xpoint && x < xpoint + rect_width && y > ypoint && y < ypoint + rect_height) {
-                 console.log('inside button.');
+                 console.log('inside button')
+                 this.canvas.parentNode.removeChild(this.canvas);
             } else {
                 console.log('outside button');
             }
