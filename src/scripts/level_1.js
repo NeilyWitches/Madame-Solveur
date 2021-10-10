@@ -6,6 +6,7 @@ class Level1 {
         this.canvas.setAttribute('id', 'level-1');
         this.ctx = this.draw();
         this.canv_dims = this.canv_dim();
+        this.renderLevel();
     }
 
     draw() {
@@ -25,6 +26,17 @@ class Level1 {
         dims.push(canv_width, canv_height);
 
         return dims;
+    }
+
+    renderLevel() {
+        const text_header = "Level 1:"
+        this.ctx.fillStyle = "black";
+        const font = "bold 45px Arial";
+        this.ctx.font = font;
+        this.ctx.textBaseline = "top";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText(text_header, this.canv_dims[0] / 2, 25);
+
     }
 }
 
