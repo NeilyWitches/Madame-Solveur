@@ -40,7 +40,6 @@ This project will be implemented with the following technologies:
 - The Canvas API to render each game screen including the start menu, level 1 (which itself includes dialogue), level 2 (which also includes dialogue boxes), and level 3.
 - Webpack and Babel to bundle and transpile the source JavaScript code
 - npm to manage project dependencies
-- Canvas Konva for drag and drop in level 1.
 
 ## Implementation Timeline
 
