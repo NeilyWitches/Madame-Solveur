@@ -71,8 +71,9 @@ class Level1 {
             if (x > xpoint && x < xpoint + rect_width && y > ypoint && y < ypoint + rect_height) {
                 console.log('inside button')
                 if (this.clicked === false){
-                    this.ctx.clearRect();
+                    this.ctx.clearRect(...this.box_centered_dims);
                     this.clicked = true;
+                    console.log("clicked once");
                 } 
             } else {
                 console.log('outside button');
