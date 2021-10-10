@@ -2,7 +2,7 @@
 
 ## Background
 
-The game is heavily inspired by the Professor Layton Seriea of games. The game will involve two levels, but more levels will be added eventually. Each level is a small puzzle. The first puzzle will involve dragging and dropping ball bearings onto either side of a scale to figure out which ball is the heaviest one. The player is awarded with the next level if a small number of moves were used. The second level involves competing against a computer player at a number game.
+The game is heavily inspired by the Professor Layton Series of games. The game will involve two levels, but more levels will be added eventually. Each level is a small puzzle. The first puzzle will involve dragging and dropping ball bearings onto either side of a scale to figure out which ball is the heaviest one. The player is awarded with the next level if a small number of moves were used. The second level involves competing against a computer player at a number game.
 
 ## Functionality & MVPSs
 
