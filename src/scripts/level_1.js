@@ -29,13 +29,19 @@ class Level1 {
     }
 
     renderLevel() {
-        const text_header = "Level 1:"
+        const text_h1 = "Level 1:";
         this.ctx.fillStyle = "black";
-        const font = "bold 45px Arial";
-        this.ctx.font = font;
+        this.ctx.font = "bold 45px Arial";
         this.ctx.textBaseline = "top";
         this.ctx.textAlign = "center";
-        this.ctx.fillText(text_header, this.canv_dims[0] / 2, 25);
+        this.ctx.fillText(text_h1, this.canv_dims[0] / 2, 25);
+
+        const text_h2 = "Find the heavier ball bearing!";
+        this.ctx.fillStyle = "purple";
+        this.ctx.font = "bold 25px Arial";
+        this.ctx.textBaseLine = "top";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText(text_h2, this.canv_dims[0] / 2, 80);
 
     }
 }
