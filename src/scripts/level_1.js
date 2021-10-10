@@ -82,6 +82,7 @@ class Level1 {
                     this.ctx.clearRect(...this.box_centered_dims);
                     this.clicked = true;
                     console.log("clicked once");
+                    this.renderIntructions();
                 } 
             } else {
                 console.log('outside button');
@@ -100,6 +101,20 @@ class Level1 {
         let xOffset = newWidth < outer_width ? ((outer_width - newWidth) / 2) : 0;
         let yOffset = newHeight < outer_height ? ((outer_height - newHeight) / 2) : 0;
         return [xOffset, yOffset, newWidth, newHeight];
+    }
+
+    renderIntructions() {
+        const instructions = `INSTRUCTIONS: The student approaches you with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Try to click the "weigh" button as little as possible. When you think you have figured out which ball is the heavy one, drag that ball to the student...`;
+        this.ctx.fillStyle = 'lavender';
+        this.ctx.fillRect(...this.box_centered_dims);
+        this.ctx.fillStyle = "black";
+        this.ctx.font = "20px Arial";
+        this.ctx.textAlign = 'left';
+        const lineHeight = 25;
+        const padding = 5;
+        let x = ((this.canvas.width - this.box_width) / 2) + padding;
+        let y = this.box_centered_dims[1] + padding;
+        this.wrapText(instructions, x, y, this.box_width - padding, lineHeight);
     }
 
     renderDialogue(text) {
