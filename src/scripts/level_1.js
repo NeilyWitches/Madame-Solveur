@@ -5,6 +5,10 @@ class Level1 {
         this.canvas.setAttribute('id', 'level-1');
         this.ctx = this.draw();
         this.canv_dims = this.canv_dim();
+        this.clicked = false;
+        this.box_width = 400;
+        this.box_height = 400;
+        this.box_centered_dims = this.center_box(this.canvas.width, this.canvas.height, this.box_width, this.box_height);
         this.renderLevel();
     }
 
@@ -66,8 +70,10 @@ class Level1 {
             const y = e.clientY - rect.top;
             if (x > xpoint && x < xpoint + rect_width && y > ypoint && y < ypoint + rect_height) {
                 console.log('inside button')
-                this.canvas.parentNode.removeChild(this.canvas);
-                this.ctx.clearRect();
+                if (this.clicked === false){
+                    this.ctx.clearRect();
+                    this.clicked = true;
+                } 
             } else {
                 console.log('outside button');
             }
@@ -90,18 +96,15 @@ class Level1 {
     renderDialogue(text) {
         const dialogue_1 = `On one typical Autumn morning, Mme Solveur had been sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. Startled, but warm the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student had heard about Mme Solveur's ability to solve puzzles...`;
         this.ctx.fillStyle = 'lavender';
-        const box_width = 400;
-        const box_height = 400;
-        const box_centered_dims = this.center_box(this.canvas.width, this.canvas.height, box_width, box_height);
-        this.ctx.fillRect(...box_centered_dims);
+        this.ctx.fillRect(...this.box_centered_dims);
         this.ctx.fillStyle = "black";
         this.ctx.font = "20px Arial";
         this.ctx.textAlign = 'left';
         const lineHeight = 25;
         const padding = 5;
-        let x = ((this.canvas.width - box_width) / 2) + padding;
-        let y = box_centered_dims[1] + padding;
-        this.wrapText(dialogue_1, x, y, box_width - padding, lineHeight);
+        let x = ((this.canvas.width - this.box_width) / 2) + padding;
+        let y = this.box_centered_dims[1] + padding;
+        this.wrapText(dialogue_1, x, y, this.box_width - padding, lineHeight);
     }
 
     wrapText(text, x, y, maxWidth, lineHeight) {
