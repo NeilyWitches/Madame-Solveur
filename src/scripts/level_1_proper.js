@@ -1,3 +1,5 @@
+import Ball from './ball'
+
 class Level1Proper {
     constructor () {
         this.canvas = document.createElement('canvas');
@@ -36,7 +38,9 @@ class Level1Proper {
     }
 
     renderBalls() {
+        const balls = [];
         for (let i = 0; i < 9; i++) {
+            balls.push(new Ball ());
             this.ctx.beginPath();
             this.ctx.arc(100 + i * 30, 150, 10, 0, Math.PI * 2);
             this.ctx.fillStyle = "gray";
@@ -44,6 +48,8 @@ class Level1Proper {
             this.ctx.stroke();
             this.ctx.closePath();
         }
+        balls[Math.floor(Math.random() * 9)].heavy = true;
+        console.log(balls);
     }
 
     renderImages() {
@@ -58,8 +64,6 @@ class Level1Proper {
         student_cite.src = 'assets/student_cite.jpg';
         const student_cite_scale_factor = 1 / 4;
         student.addEventListener('load', function () {
-            console.log(student_cite.width);
-            console.log(student_cite.height);
             that.ctx.drawImage(student_cite, 395, 375, student_cite.width * student_cite_scale_factor, student_cite.height * student_cite_scale_factor);
         }, false);
     }
