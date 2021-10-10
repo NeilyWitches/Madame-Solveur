@@ -6,7 +6,7 @@ The game is heavily inspired by the Professor Layton Series of games. The game w
 
 ## Functionality & MVPSs
 
-In Maadame Solveur, users will be able to:
+In Madame Solveur, users will be able to:
 
 - click start game
 - click drag and drop ball bearings onto either side of a scale
