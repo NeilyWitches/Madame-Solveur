@@ -1,3 +1,5 @@
+import Level2Proper from "./level_2_proper";
+
 class Level2 {
     constructor() {
         this.canvas = document.createElement('canvas');
