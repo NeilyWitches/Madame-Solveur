@@ -79,11 +79,9 @@ class Level1 {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             if (x > xpoint && x < xpoint + rect_width && y > ypoint && y < ypoint + rect_height) {
-                console.log('inside button')
                 if (this.clicked === false){
                     this.ctx.clearRect(...this.box_centered_dims);
                     this.clicked = true;
-                    console.log("clicked once");
                     this.renderIntructions();
                 } else if (this.clicked === true) {
                     this.canvas.parentNode.removeChild(this.canvas);
