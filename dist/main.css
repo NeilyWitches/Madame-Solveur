@@ -41,3 +41,35 @@ h2 {
   text-align: center;
   color: purple;
 }
+
+li {
+  margin: 20px;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+  font: 40px Arial;
+}
+
+.student {
+  color: orange;
+}
+
+.mme {
+  color: purple;
+}
+
+input {
+  height: 50px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.number {
+  font-style: italic;
+}
