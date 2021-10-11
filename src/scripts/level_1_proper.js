@@ -105,7 +105,13 @@ class Level1Proper {
             console.log(pos);
             if (pos.x >= studentX && pos.x <= studentX + studentWidth 
                 && pos.y >= studentY && pos.y <= studentY + studentHeight) {
-                    console.log("ur mom")
+                    if (e.target.attrs.name !== 'heavy') {
+                        console.log('lightball');
+                        const divs = document.getElementsByTagName("div");
+                        document.getElementById('body').removeChild(divs[0]);
+                    } else {
+                        console.log('heavy ball');
+                    }
                 }
         })
     }
