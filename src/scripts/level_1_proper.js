@@ -1,6 +1,7 @@
 // import Ball from './ball'
 
 import Konva from "konva";
+import Ball from "./ball";
 
 // class Level1Proper {
 //     constructor () {
@@ -73,27 +74,60 @@ class Level1Proper {
     constructor() {
         this.stage = new Konva.Stage({
             container: 'body',
-            width: 500,
-            height: 500
+            width: 600,
+            height: 700
         });
-
-        this.test();
+        this.renderLevel();
     }
 
-    test() {
+    renderLevel() {
+        this.renderTitles();
+        this.renderBalls();
+    }
+
+    renderTitles() {
         const layer = new Konva.Layer();
-        const circle = new Konva.Circle({
+
+        const title = new Konva.Text({
             x: this.stage.width() / 2,
-            y: this.stage.height() / 2,
-            radius: 70,
-            fill: 'red',
-            stroke: 'black',
-            strokeWidth: 4
+            y: 25,
+            text: 'Level 1:',
+            fontSize: 45,
+            fontFamily: 'Arial',
+            fill: 'black',
+            fontStyle: 'bold',
         });
-        layer.add(circle);
+        title.offsetX(title.width() / 2);
+        layer.add(title);
+
+        const subTitle = new Konva.Text({
+            x: this.stage.width() / 2,
+            y: 80,
+            text: 'Find the heavier ball bearing!',
+            fontSize: 25,
+            fill: 'purple',
+            fontStyle: 'bold'
+        });
+        subTitle.offsetX(subTitle.width() / 2);
+        layer.add(subTitle);
         this.stage.add(layer);
-        layer.draw();
     }
+
+    renderBalls() {
+        const balls = [];
+        const layer = new Konva.Layer();
+        const group = new Konva.Group({
+            x: 100,
+            y: 150
+        })
+        for (let i = 0; i < 9; i++) {
+            balls.push(new Ball(group, i));
+        }
+        layer.add(group);
+        this.stage.add(layer);
+        balls[Math.floor(Math.random() * 9)].heavy = true;
+    }
+
 }
 
 export default Level1Proper;
