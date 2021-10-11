@@ -1,6 +1,7 @@
 import Konva from "konva";
 import Ball from "./ball";
 import Level1 from "./level_1";
+import Level2 from "./level_2";
 
 class Level1Proper {
     constructor() {
@@ -97,19 +98,20 @@ class Level1Proper {
 
     guessingBall(group) {
         const that = this;
+        const divs = document.getElementsByTagName("div");
         this.stage.on('dragend', function (e) {
             let pos = that.stage.getPointerPosition();
+            console.log(e.target.attrs.name);
             if (pos.x >= 450 && pos.x <= 450 + 68.5
                 && pos.y >= 150 && pos.y <= 150 + 217.5) {
                     console.log("inside student");
                     if (e.target.attrs.name !== 'heavy') {
-                        console.log('lightball');
-                        const divs = document.getElementsByTagName("div");
                         document.getElementById('body').removeChild(divs[0]);
                         new Level1();
                         alert("That was not the heavier ball! Restart the level.")
                     } else {
-                        console.log('heavy ball');
+                        document.getElementById('body').removeChild(divs[0]);
+                        new Level2();
                     }
                 }
         })

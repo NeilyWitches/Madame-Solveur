@@ -1,12 +1,9 @@
-import Level1Proper from "./level_1_proper";
-
-class Level1 {
-    constructor () {
+class Level2 {
+    constructor() {
         this.canvas = document.createElement('canvas');
         document.getElementById('body').appendChild(this.canvas);
-        this.canvas.setAttribute('id', 'level-1');
+        this.canvas.setAttribute('id', 'level-2');
         this.ctx = this.draw();
-        this.canv_dims = this.canv_dim();
         this.clicked = false;
         this.box_width = 400;
         this.box_height = 400;
@@ -23,16 +20,6 @@ class Level1 {
         }
     }
 
-    canv_dim() {
-        const dims = [];
-
-        const canv_width = this.canvas.getAttribute('width');
-        const canv_height = this.canvas.getAttribute('height');
-        dims.push(canv_width, canv_height);
-
-        return dims;
-    }
-
     renderLevel() {
         this.renderTitles();
         this.renderDialogue();
@@ -40,19 +27,19 @@ class Level1 {
     }
 
     renderTitles() {
-        const text_h1 = "Level 1:";
+        const text_h1 = "Level 2:";
         this.ctx.fillStyle = "black";
         this.ctx.font = "bold 45px Arial";
         this.ctx.textBaseline = "top";
         this.ctx.textAlign = "center";
-        this.ctx.fillText(text_h1, this.canv_dims[0] / 2, 25);
+        this.ctx.fillText(text_h1, this.canvas.width / 2, 25);
 
-        const text_h2 = "Find the heavier ball bearing!";
+        const text_h2 = "Be the first to say 50!";
         this.ctx.fillStyle = "purple";
         this.ctx.font = "bold 25px Arial";
         this.ctx.textBaseLine = "top";
         this.ctx.textAlign = "center";
-        this.ctx.fillText(text_h2, this.canv_dims[0] / 2, 80);
+        this.ctx.fillText(text_h2, this.canvas.width / 2, 80);
     }
 
     nextButton() {
@@ -63,14 +50,14 @@ class Level1 {
         const button_centered_dims = this.center_box(this.canvas.width, this.canvas.height, button_width, button_height);
         this.ctx.fillRect(button_centered_dims[0], button_y, button_width, button_height);
         this.getClicked(button_centered_dims[0], button_y, button_width, button_height);
-        
-        const next_txt = "Next";
+
+        const next_text = "Next";
         this.ctx.fillStyle = "black";
         const font = "bold " + button_centered_dims[3] + "px Arial";
         this.ctx.font = font;
         this.ctx.textBaseline = "top";
         this.ctx.textAlign = "center";
-        this.ctx.fillText(next_txt, this.canv_dims[0] / 2, button_y);
+        this.ctx.fillText(next_text, this.canvas.width / 2, button_y);
     }
 
     getClicked(xpoint, ypoint, rect_width, rect_height) {
@@ -79,13 +66,13 @@ class Level1 {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             if (x > xpoint && x < xpoint + rect_width && y > ypoint && y < ypoint + rect_height) {
-                if (this.clicked === false){
+                if (this.clicked === false) {
                     this.ctx.clearRect(...this.box_centered_dims);
                     this.clicked = true;
                     this.renderIntructions();
                 } else if (this.clicked === true) {
                     this.canvas.parentNode.removeChild(this.canvas);
-                    new Level1Proper();
+                    new Level2Proper();
                 }
             } else {
                 console.log('outside button');
@@ -107,7 +94,7 @@ class Level1 {
     }
 
     renderIntructions() {
-        const instructions = `INSTRUCTIONS: The student approaches the Mme with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Try to click the "weigh" button as little as possible. When you think you have figured out which ball is the heavy one, drag that ball to the student...`;
+        const instructions = `INSTRUCTIONS: Mme Solveur and the student are playing a game. The winner of the game is the first to say the number 50, but there are rules. She and the student will take turns saying aloud numbers. The first number spoken must be a number from 1 to 10. The next number spoken must be 1 to 10 larger than the previous number. The student allows the Mme to go first every time. Input your number into the box and click 'Say' to say aloud that number...`;
         this.ctx.fillStyle = 'lavender';
         this.ctx.fillRect(...this.box_centered_dims);
         this.ctx.fillStyle = "black";
@@ -120,8 +107,8 @@ class Level1 {
         this.wrapText(instructions, x, y, this.box_width - padding, lineHeight);
     }
 
-    renderDialogue(text) {
-        const dialogue_1 = `On one typical Autumn morning, Mme Solveur had been sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. Startled, but warm the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student had heard about Mme Solveur's ability to solve puzzles...`;
+    renderDialogue() {
+        const dialogue_1 = `"The student gleefully thanks the Mme for finding the heavier ball and mosies out of her office. Shortly afterwards, the professor had felt hungry so she made her way to the quad and sat down at the café. Upon sitting, she ran into one of her graduate students. After they exchanged pleasantries, the grad student presented the physicist with a game she had come up with.`;
         this.ctx.fillStyle = 'lavender';
         this.ctx.fillRect(...this.box_centered_dims);
         this.ctx.fillStyle = "black";
@@ -156,4 +143,4 @@ class Level1 {
     }
 }
 
-export default Level1;
+export default Level2;
