@@ -83,6 +83,7 @@ class Level1Proper {
     renderLevel() {
         this.renderTitles();
         this.renderBalls();
+        // this.renderImages();
     }
 
     renderTitles() {

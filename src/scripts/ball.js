@@ -88,6 +88,7 @@ class Ball {
             x: i * 30,
             radius: 10,
             fill: 'gray',
+            draggable: true
         })
         this.group.add(ball);
     }
