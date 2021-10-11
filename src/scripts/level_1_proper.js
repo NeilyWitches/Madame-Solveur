@@ -1,74 +1,5 @@
-// import Ball from './ball'
-
 import Konva from "konva";
 import Ball from "./ball";
-
-// class Level1Proper {
-//     constructor () {
-//         this.canvas = document.createElement('canvas');
-//         document.getElementById('body').appendChild(this.canvas);
-//         this.canvas.setAttribute('id', 'level-1-proper');
-//         this.ctx = this.draw();
-//         this.renderLevel();
-//     }
-
-//     draw() {
-//         this.canvas.setAttribute('width', '600');
-//         this.canvas.setAttribute('height', '700');
-//         return this.canvas.getContext('2d');
-//     }
-
-//     renderLevel() {
-//         this.renderTitles();
-//         this.renderBalls();
-//         this.renderImages();
-//     }
-
-//     renderTitles() {
-//         const text_h1 = "Level 1:";
-//         this.ctx.fillStyle = "black";
-//         this.ctx.font = "bold 45px Arial";
-//         this.ctx.textBaseline = "top";
-//         this.ctx.textAlign = "center";
-//         this.ctx.fillText(text_h1, this.canvas.width / 2, 25);
-
-//         const text_h2 = "Find the heavier ball bearing!";
-//         this.ctx.fillStyle = "purple";
-//         this.ctx.font = "bold 25px Arial";
-//         this.ctx.textBaseLine = "top";
-//         this.ctx.textAlign = "center";
-//         this.ctx.fillText(text_h2, this.canvas.width / 2, 80);
-//     }
-
-//     renderBalls() {
-//         // const balls = [];
-//         // for (let i = 0; i < 9; i++) {
-//         //     balls.push(new Ball(i));
-//         // }
-//         // balls[Math.floor(Math.random() * 9)].heavy = true;
-//         new Ball(0);
-//     }
-
-//     renderImages() {
-//         const that = this;
-//         const student = new Image();
-//         student.src = 'assets/student_lvl_1.jpg';
-//         const student_scale_factor = 1 / 8;
-//         student.addEventListener('load', function() {
-//             that.ctx.drawImage(student, 450, 150, student.width * student_scale_factor, student.height * student_scale_factor);
-//         }, false);
-//         const student_cite = new Image();
-//         student_cite.src = 'assets/student_cite.jpg';
-//         const student_cite_scale_factor = 1 / 4;
-//         student.addEventListener('load', function () {
-//             that.ctx.drawImage(student_cite, 395, 375, student_cite.width * student_cite_scale_factor, student_cite.height * student_cite_scale_factor);
-//         }, false);
-//     }
-
-// }
-
-// export default Level1Proper;
-
 
 class Level1Proper {
     constructor() {
@@ -82,8 +13,8 @@ class Level1Proper {
 
     renderLevel() {
         this.renderTitles();
+        this.renderImages();
         this.renderBalls();
-        // this.renderImages();
     }
 
     renderTitles() {
@@ -120,13 +51,63 @@ class Level1Proper {
         const group = new Konva.Group({
             x: 100,
             y: 150
-        })
+        });
         for (let i = 0; i < 9; i++) {
             balls.push(new Ball(group, i));
         }
         layer.add(group);
         this.stage.add(layer);
-        balls[Math.floor(Math.random() * 9)].heavy = true;
+        const randomNum = Math.floor(Math.random() * 9);
+        group.children[randomNum].attrs.name = 'heavy';
+        this.guessingBall(group);
+    }
+
+    renderImages() {
+        const layer = new Konva.Layer();
+        this.stage.add(layer);
+        const studentImg = new Image();
+        const studentScaleFactor = 1 / 8;
+        studentImg.onload = function () {
+            const student = new Konva.Image({
+                x: 450,
+                y: 150,
+                image: studentImg,
+                width: studentImg.width * studentScaleFactor,
+                height: studentImg.height * studentScaleFactor
+            });
+            layer.add(student);
+        };
+        studentImg.src = 'assets/student_lvl_1.jpg';
+
+        const studentCiteImg = new Image();
+        const studentCiteScaleFactor = 1 / 4;
+        studentCiteImg.onload = function () {
+            const studentCite = new Konva.Image({
+                x: 395,
+                y: 375,
+                image: studentCiteImg,
+                width: studentCiteImg.width * studentCiteScaleFactor,
+                height: studentCiteImg.height * studentCiteScaleFactor,
+            });
+            layer.add(studentCite);
+        };
+        studentCiteImg.src = 'assets/student_cite.jpg';
+    }
+
+    guessingBall(group) {
+        const that = this;
+        this.stage.on('dragend', function (e) {
+            let pos = that.stage.getPointerPosition();
+            const studentX = that.stage.children[1].children[1].attrs.x
+            const studentWidth = that.stage.children[1].children[1].attrs.width
+            const studentY = that.stage.children[1].children[1].attrs.y
+            const studentHeight = that.stage.children[1].children[1].attrs.height
+            console.log(pos);
+            if (pos.x >= studentX && pos.x <= studentX + studentWidth 
+                && pos.y >= studentY && pos.y <= studentY + studentHeight) {
+                    console.log("ur mom")
+                }
+        })
     }
 
 }

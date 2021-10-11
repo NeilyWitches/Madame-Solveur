@@ -78,20 +78,21 @@ import Konva from "konva";
 
 class Ball {
     constructor(group, i) {
-        this.heavy = false;
         this.group = group;
         this.renderBall(i);
     }
   
     renderBall(i) {
-        const ball = new Konva.Circle({
+        let ball = new Konva.Circle({
             x: i * 30,
             radius: 10,
             fill: 'gray',
-            draggable: true
+            draggable: true,
+            name: "lightBall " + i
         })
         this.group.add(ball);
     }
+
 }
 
 export default Ball;
