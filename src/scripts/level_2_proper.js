@@ -69,28 +69,26 @@ class Level2Proper {
         this.handleInput(button, this.studNums[0], li_4, li_2);
     }
 
-    handleInput(button, studNum, prevNum, studPrevNum) {
-        button.addEventListener('click', (e) => {
+    handleInput(button, studNum, mmePrevNum, studPrevNum) {
+        button.addEventListener('click', handleClick);
+        function handleClick(e) {
             let inputVal = document.getElementById('input').value;
             inputVal = parseInt(inputVal);
             // let studNums = [0, 6, 17, 28, 39, 50];
             // const prevNum = document.getElementById('mme-num');
             // const studPrevNum = document.getElementById('stud-num');
             // for (let i = 0; i < studNums.length; i++){
-                if (!Number.isInteger(inputVal)) {
-                    alert("Please enter a number.");
-                } else if (inputVal <= studNum || inputVal > studNum + 10) {
-                    alert("The number must be 1 to 10 larger than the Student's number.")
-                } else {
-                    button.removeEventListener('click');
-                    // prevNum.innerText = inputVal
-                    // studPrevNum.innerText = studNums[i + 1]
-                }
-            // }
-        })
+            if (!Number.isInteger(inputVal)) {
+                alert("Please enter a number.");
+            } else if (inputVal <= studNum || inputVal > studNum + 10) {
+                alert("The number must be 1 to 10 larger than the Student's number.")
+            } else {
+                button.removeEventListener('click', handleClick);
+                // prevNum.innerText = inputVal
+                // studPrevNum.innerText = studNums[i + 1]
+            }
+        }
     }
-
-
 }
 
 export default Level2Proper;
