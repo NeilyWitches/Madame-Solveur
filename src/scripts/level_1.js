@@ -1,4 +1,5 @@
-import Level1Proper from "./level_1_proper";
+// import Level1Proper from "./level_1_proper";
+import Level1Redo from "./level_1_redo";
 
 class Level1 {
     constructor () {
@@ -85,7 +86,7 @@ class Level1 {
                     this.renderIntructions();
                 } else if (this.clicked === true) {
                     this.canvas.parentNode.removeChild(this.canvas);
-                    new Level1Proper();
+                    new Level1Redo();
                 }
             } else {
                 console.log('outside button');
