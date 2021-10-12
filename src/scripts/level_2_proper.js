@@ -1,3 +1,4 @@
+import Level2 from "./level_2";
 import Level3 from "./level_3";
 
 class Level2Proper {
@@ -72,19 +73,18 @@ class Level2Proper {
     }
 
     handleInput(button, i, mmePrevNum, studPrevNum) {
-        console.log(button);
-        console.log(i);
-        console.log(mmePrevNum);
-        console.log(studPrevNum);
+        let studPrevNumVal = parseInt(studPrevNum.innerText);
+        if (studPrevNumVal === 50) {
+            alert("The student says 50! You lose! Restart the level.");
+            button.removeEventListener('click', handleClick);
+            document.getElementById('body').removeChild(this.level);
+            new Level2();
+        }
         button.addEventListener('click', handleClick);
         const that = this;
         function handleClick(e) {
             let inputVal = document.getElementById('input').value;
-            console.log(inputVal);
             inputVal = parseInt(inputVal);
-            console.log(inputVal);
-            let studPrevNumVal = parseInt(studPrevNum.innerText);
-            console.log(studPrevNumVal);
             if (!Number.isInteger(inputVal)) {
                 alert("Please enter a number.");
             } else if (inputVal <= studPrevNumVal || inputVal > studPrevNumVal + 10) {
@@ -101,8 +101,10 @@ class Level2Proper {
                     that.handleInput(button, i + 1, mmePrevNum, studPrevNum);
                 } else if (inputVal > that.studNums[i + 1]) {
                     studPrevNum.innerText = that.studNums[i + 2];
+                    that.handleInput(button, i + 2, mmePrevNum, studPrevNum);
                 } else {
                     studPrevNum.innerText = that.studNums[i + 1]
+                    that.handleInput(button, i + 1, mmePrevNum, studPrevNum);
                 }
             } 
         }

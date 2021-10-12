@@ -96,7 +96,7 @@ class Level2 {
     }
 
     renderIntructions() {
-        const instructions = `INSTRUCTIONS: Mme Solveur and the student are playing a game. The winner of the game is the first to say the number 50, but there are rules. She and the student will take turns saying aloud numbers. The first number spoken must be a number from 1 to 10. The next number spoken must be 1 to 10 larger than the previous number. The student allows the Mme to go first every time. Input your number into the box and click 'Say' to say aloud that number...`;
+        const instructions = `INSTRUCTIONS: Mme Solveur and the student are playing a game. The winner of the game is the first to say the number 50, but there are rules. She and the student will take turns saying aloud numbers. The first number spoken must be a number from 1 to 10. The next number spoken must be 1 to 10 larger than the previous number. The student allows the Mme to go first. Input your number into the box and click 'Say' to say aloud that number...`;
         this.ctx.fillStyle = 'lavender';
         this.ctx.fillRect(...this.box_centered_dims);
         this.ctx.fillStyle = "black";
