@@ -1,3 +1,5 @@
+import Level3 from "./level_3";
+
 class Level2Proper {
     constructor() {
         this.level = document.createElement('div');
@@ -70,20 +72,33 @@ class Level2Proper {
     }
 
     handleInput(button, i, mmePrevNum, studPrevNum) {
+        console.log(button);
+        console.log(i);
+        console.log(mmePrevNum);
+        console.log(studPrevNum);
         button.addEventListener('click', handleClick);
         const that = this;
         function handleClick(e) {
             let inputVal = document.getElementById('input').value;
+            console.log(inputVal);
             inputVal = parseInt(inputVal);
+            console.log(inputVal);
+            let studPrevNumVal = parseInt(studPrevNum.innerText);
+            console.log(studPrevNumVal);
             if (!Number.isInteger(inputVal)) {
                 alert("Please enter a number.");
-            } else if (inputVal <= that.studNums[i] || inputVal > that.studNums[i] + 10) {
+            } else if (inputVal <= studPrevNumVal || inputVal > studPrevNumVal + 10) {
                 alert("The number must be 1 to 10 larger than the Student's number.")
             } else {
                 button.removeEventListener('click', handleClick);
+                if (inputVal === 50) {
+                    document.getElementById('body').removeChild(that.level);
+                    new Level3();
+                }
                 mmePrevNum.innerText = inputVal;
                 if (inputVal === that.studNums[i + 1]) {
                     studPrevNum.innerText = Math.floor(Math.random() * 10) + inputVal + 1;
+                    that.handleInput(button, i + 1, mmePrevNum, studPrevNum);
                 } else if (inputVal > that.studNums[i + 1]) {
                     studPrevNum.innerText = that.studNums[i + 2];
                 } else {

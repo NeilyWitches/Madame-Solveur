@@ -57,13 +57,14 @@ ul {
 }
 
 .mme {
-  color: purple;
+  color: #995099;
 }
 
 input {
   height: 50px;
   font-size: 50px;
   text-align: center;
+  width: 100px;
 }
 
 .label {
