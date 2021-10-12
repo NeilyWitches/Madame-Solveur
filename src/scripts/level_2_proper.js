@@ -3,6 +3,7 @@ class Level2Proper {
         this.level = document.createElement('div');
         document.getElementById('body').appendChild(this.level);
         this.level.setAttribute('id', 'level-2');
+        this.studNums = [0, 6, 17, 28, 39, 50];
         this.renderLevel();
     }
 
@@ -30,7 +31,7 @@ class Level2Proper {
         li_2.setAttribute('id', 'stud-num');
         li_2.setAttribute('class', 'student');
         li_2.classList.add('number');
-        li_2.innerText = "You go first!";
+        li_2.innerText = 0;
 
         const li_3 = document.createElement('li');
         ul.appendChild(li_3);
@@ -44,7 +45,7 @@ class Level2Proper {
         li_4.setAttribute('id', "mme-num");
         li_4.setAttribute('class', 'mme');
         li_4.classList.add('number');
-        li_4.innerText = "Say a number from 1 to 10!";
+        li_4.innerText = "(Your number will go here)";
 
         const li_5 = document.createElement('li');
         ul.appendChild(li_5);
@@ -59,13 +60,33 @@ class Level2Proper {
         li_6.appendChild(button);
         button.setAttribute('type', 'button');
         button.innerText = "Say";
-        this.handleInput(button);
+
+        const li_7 = document.createElement('li');
+        ul.appendChild(li_7);
+        li_7.setAttribute('id', 'instructions');
+        li_7.innerText = "Say a number 1 to 10 larger than the Student's number!"
+
+        this.handleInput(button, this.studNums[0], li_4, li_2);
     }
 
-    handleInput(button) {
+    handleInput(button, studNum, prevNum, studPrevNum) {
         button.addEventListener('click', (e) => {
-            const inputVal = document.getElementById('input').value;
-            alert(inputVal);
+            let inputVal = document.getElementById('input').value;
+            inputVal = parseInt(inputVal);
+            // let studNums = [0, 6, 17, 28, 39, 50];
+            // const prevNum = document.getElementById('mme-num');
+            // const studPrevNum = document.getElementById('stud-num');
+            // for (let i = 0; i < studNums.length; i++){
+                if (!Number.isInteger(inputVal)) {
+                    alert("Please enter a number.");
+                } else if (inputVal <= studNum || inputVal > studNum + 10) {
+                    alert("The number must be 1 to 10 larger than the Student's number.")
+                } else {
+                    button.removeEventListener('click');
+                    // prevNum.innerText = inputVal
+                    // studPrevNum.innerText = studNums[i + 1]
+                }
+            // }
         })
     }
 
