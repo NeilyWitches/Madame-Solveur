@@ -75,10 +75,6 @@ class Level2Proper {
         function handleClick(e) {
             let inputVal = document.getElementById('input').value;
             inputVal = parseInt(inputVal);
-            // let studNums = [0, 6, 17, 28, 39, 50];
-            // const prevNum = document.getElementById('mme-num');
-            // const studPrevNum = document.getElementById('stud-num');
-            // for (let i = 0; i < studNums.length; i++){
             if (!Number.isInteger(inputVal)) {
                 alert("Please enter a number.");
             } else if (inputVal <= that.studNums[i] || inputVal > that.studNums[i] + 10) {
@@ -87,13 +83,13 @@ class Level2Proper {
                 button.removeEventListener('click', handleClick);
                 mmePrevNum.innerText = inputVal;
                 if (inputVal === that.studNums[i + 1]) {
-                    studPrevNum.innerText = Math.floor(Math.random() * 11) + inputVal;
+                    studPrevNum.innerText = Math.floor(Math.random() * 10) + inputVal + 1;
                 } else if (inputVal > that.studNums[i + 1]) {
                     studPrevNum.innerText = that.studNums[i + 2];
                 } else {
                     studPrevNum.innerText = that.studNums[i + 1]
                 }
-            }
+            } 
         }
     }
 }
