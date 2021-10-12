@@ -19,8 +19,9 @@ class Level1Redo {
         h2.innerText = "Find the heavier ball bearing!"
 
         this.renderBalls();
+        // this.renderScale();
         this.renderScale();
-        this.renderStudent();
+        // this.renderStudent();
         this.renderButton();
     }
 
@@ -39,7 +40,7 @@ class Level1Redo {
 
     }
 
-    renderScale() {
+    renderScaleOld() {
         const li_2 = document.createElement('li');
         li_2.setAttribute('id', 'li_2');
         document.getElementById('ul').appendChild(li_2);
@@ -62,6 +63,31 @@ class Level1Redo {
         scale_right.src = 'assets/scale_right.png';
     }
 
+    renderScale() {
+        const ul = document.getElementById('ul');
+        const li_2 = document.createElement('li');
+        li_2.classList.add('scale');
+        ul.appendChild(li_2);
+        const scale_top = new Image();
+        li_2.appendChild(scale_top);
+        const scale_factor = 1 /4;
+        scale_top.onload = function () {
+            this.width = this.width * scale_factor;
+        }
+        scale_top.src = 'assets/scale_top.png';
+
+        const li_3 = document.createElement('li');
+        li_3.classList.add('scale');
+        ul.appendChild(li_3);
+        const scale_1 = new Image();
+        scale_1.setAttribute('id', 'scale-1');
+        li_3.appendChild(scale_1);
+        scale_1.onload = function () {
+            this.width = this.width * scale_factor;
+        }
+        scale_1.src = 'assets/scale_1.png';
+    }
+
     renderStudent() {
         const student = new Image();
         student.setAttribute('id', 'student');
@@ -75,18 +101,18 @@ class Level1Redo {
     }
 
     renderButton() {
-        const li_3 = document.createElement('li');
-        li_3.setAttribute('id', 'li_3');
+        const li_6 = document.createElement('li');
+        li_6.setAttribute('id', 'li_6');
         const ul = document.getElementById('ul');
-        ul.appendChild(li_3);
+        ul.appendChild(li_6);
 
         const weighButton = document.createElement('button');
-        li_3.appendChild(weighButton);
+        li_6.appendChild(weighButton);
         weighButton.setAttribute('type', 'button');
         weighButton.innerText = "Weigh";
 
         const counter = document.createElement('p');
-        li_3.appendChild(counter);
+        li_6.appendChild(counter);
         counter.innerText = 0;
     }
 
