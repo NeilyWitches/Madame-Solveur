@@ -96,7 +96,7 @@ class Level2 {
     }
 
     renderIntructions() {
-        const instructions = `INSTRUCTIONS: Mme Solveur and the student are playing a game. The winner of the game is the first to say the number 50, but there are rules. She and the student will take turns saying aloud numbers. The first number spoken must be a number from 1 to 10. The next number spoken must be 1 to 10 larger than the previous number. The student allows the Mme to go first. Input your number into the box and click 'Say' to say aloud that number...`;
+        const instructions = `INSTRUCTIONS: Mme Solveur and the student are playing the game. The winner of the game is the first to say the number 50, but there are rules. She and the student will take turns saying aloud numbers. The first number spoken must be a number from 1 to 10. The next number spoken must be 1 to 10 larger than the previous number. The student allows the Mme to go first. Input your number into the box and click 'Say' to say aloud that number...`;
         this.ctx.fillStyle = 'lavender';
         this.ctx.fillRect(...this.box_centered_dims);
         this.ctx.fillStyle = "black";
@@ -110,7 +110,7 @@ class Level2 {
     }
 
     renderDialogue() {
-        const dialogue_1 = `"The student gleefully thanks the Mme for finding the heavier ball and mosies out of her office. Shortly afterwards, the professor had felt hungry so she made her way to the quad and sat down at the café. Upon sitting, she ran into one of her graduate students. After they exchanged pleasantries, the grad student presented the physicist with a game she had come up with.`;
+        const dialogue_1 = `The student gleefully thanked the Mme for finding the heavier ball and mosied out of her office. Shortly afterwards, the professor had felt hungry so she'd made her way to the quad and sat down at the café. Upon sitting, she ran into one of her graduate students. After they exchanged pleasantries, the student presented the physicist with a game she had come up with.`;
         this.ctx.fillStyle = 'lavender';
         this.ctx.fillRect(...this.box_centered_dims);
         this.ctx.fillStyle = "black";
