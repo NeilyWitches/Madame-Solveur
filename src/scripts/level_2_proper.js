@@ -37,21 +37,39 @@ class Level2Proper {
         li_3.setAttribute('id', 'mme-num-label');
         li_3.setAttribute('class', "mme");
         li_3.classList.add('label');
-        li_3.innerText = "Mme Solveur's Number:";
+        li_3.innerText = "Mme Solveur's Previous Number:";
 
         const li_4 = document.createElement('li');
         ul.appendChild(li_4);
         li_4.setAttribute('id', "mme-num");
         li_4.setAttribute('class', 'mme');
         li_4.classList.add('number');
-        li_4.innerText = "Input a number from 1 to 10!";
+        li_4.innerText = "Say a number from 1 to 10!";
 
         const li_5 = document.createElement('li');
         ul.appendChild(li_5);
         const input = document.createElement('input');
         li_5.appendChild(input);
-        li_5.setAttribute('type', 'text');
+        input.setAttribute('type', 'text');
+        input.setAttribute('id', 'input')
+
+        const li_6 = document.createElement('li');
+        ul.appendChild(li_6);
+        const button = document.createElement('button');
+        li_6.appendChild(button);
+        button.setAttribute('type', 'button');
+        button.innerText = "Say";
+        this.handleInput(button);
     }
+
+    handleInput(button) {
+        button.addEventListener('click', (e) => {
+            const inputVal = document.getElementById('input').value;
+            alert(inputVal);
+        })
+    }
+
+
 }
 
 export default Level2Proper;

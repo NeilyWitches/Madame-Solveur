@@ -73,3 +73,7 @@ input {
 .number {
   font-style: italic;
 }
+
+button {
+  font-size: 50px;
+}
