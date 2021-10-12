@@ -66,11 +66,12 @@ class Level2Proper {
         li_7.setAttribute('id', 'instructions');
         li_7.innerText = "Say a number 1 to 10 larger than the Student's number!"
 
-        this.handleInput(button, this.studNums[0], li_4, li_2);
+        this.handleInput(button, 0, li_4, li_2);
     }
 
-    handleInput(button, studNum, mmePrevNum, studPrevNum) {
+    handleInput(button, i, mmePrevNum, studPrevNum) {
         button.addEventListener('click', handleClick);
+        const that = this;
         function handleClick(e) {
             let inputVal = document.getElementById('input').value;
             inputVal = parseInt(inputVal);
@@ -80,12 +81,18 @@ class Level2Proper {
             // for (let i = 0; i < studNums.length; i++){
             if (!Number.isInteger(inputVal)) {
                 alert("Please enter a number.");
-            } else if (inputVal <= studNum || inputVal > studNum + 10) {
+            } else if (inputVal <= that.studNums[i] || inputVal > that.studNums[i] + 10) {
                 alert("The number must be 1 to 10 larger than the Student's number.")
             } else {
                 button.removeEventListener('click', handleClick);
-                // prevNum.innerText = inputVal
-                // studPrevNum.innerText = studNums[i + 1]
+                mmePrevNum.innerText = inputVal;
+                if (inputVal === that.studNums[i + 1]) {
+                    studPrevNum.innerText = Math.floor(Math.random() * 11) + inputVal;
+                } else if (inputVal > that.studNums[i + 1]) {
+                    studPrevNum.innerText = that.studNums[i + 2];
+                } else {
+                    studPrevNum.innerText = that.studNums[i + 1]
+                }
             }
         }
     }
