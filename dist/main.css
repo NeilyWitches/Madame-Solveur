@@ -149,7 +149,7 @@ p {
   right: -11px;
 }
 
-.dropzone {
+#div-left {
   width: 75px;
   height: 70px;
   border: 5px solid black;
@@ -162,6 +162,7 @@ p {
 
 #li_balls {
   border: 4px solid black;
-  width: fit-content;
+  width: 200px;
+  height: 50px;
   display: inline-block;
 }

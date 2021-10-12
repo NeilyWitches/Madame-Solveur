@@ -19,7 +19,6 @@ class Level1Redo {
         h2.innerText = "Find the heavier ball bearing!"
 
         this.renderBalls();
-        // this.renderScale();
         this.renderScale();
         // this.renderStudent();
         this.renderButton();
@@ -42,28 +41,28 @@ class Level1Redo {
 
     }
 
-    renderScaleOld() {
-        const li_2 = document.createElement('li');
-        li_2.setAttribute('id', 'li_2');
-        document.getElementById('ul').appendChild(li_2);
+    // renderScaleOld() {
+    //     const li_2 = document.createElement('li');
+    //     li_2.setAttribute('id', 'li_2');
+    //     document.getElementById('ul').appendChild(li_2);
 
-        const scale_left = new Image();
-        const scale_right = new Image();
-        scale_left.classList.add('dropzone');
-        scale_right.classList.add('dropzone');
+    //     const scale_left = new Image();
+    //     const scale_right = new Image();
+    //     scale_left.classList.add('dropzone');
+    //     scale_right.classList.add('dropzone');
 
-        li_2.appendChild(scale_left);
-        li_2.appendChild(scale_right);
-        const scale_factor = 1 / 4;
-        scale_left.onload = function () {
-            this.width = this.width * scale_factor;
-        }
-        scale_right.onload = function () {
-            this.width = this.width * scale_factor;
-        }
-        scale_left.src = 'assets/scale_left.png';
-        scale_right.src = 'assets/scale_right.png';
-    }
+    //     li_2.appendChild(scale_left);
+    //     li_2.appendChild(scale_right);
+    //     const scale_factor = 1 / 4;
+    //     scale_left.onload = function () {
+    //         this.width = this.width * scale_factor;
+    //     }
+    //     scale_right.onload = function () {
+    //         this.width = this.width * scale_factor;
+    //     }
+    //     scale_left.src = 'assets/scale_left.png';
+    //     scale_right.src = 'assets/scale_right.png';
+    // }
 
     renderScale() {
         const ul = document.getElementById('ul');
@@ -113,6 +112,7 @@ class Level1Redo {
         const div_left = document.createElement('div');
         div_left.classList.add('dropzone');
         li_4.appendChild(div_left);
+        div_left.setAttribute('id', 'div-left');
         
     }
 
