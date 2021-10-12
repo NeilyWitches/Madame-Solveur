@@ -43,13 +43,19 @@ class Level1Redo {
         li_2.setAttribute('id', 'li_2');
         document.getElementById('ul').appendChild(li_2);
 
-        const scale = new Image();
-        li_2.appendChild(scale);
+        const scale_left = new Image();
+        const scale_right = new Image();
+        li_2.appendChild(scale_left);
+        li_2.appendChild(scale_right);
         const scale_factor = 1 / 4;
-        scale.onload = function () {
+        scale_left.onload = function () {
             this.width = this.width * scale_factor;
         }
-        scale.src = 'assets/scale_balanced.png';
+        scale_right.onload = function () {
+            this.width = this.width * scale_factor;
+        }
+        scale_left.src = 'assets/scale_left.png';
+        scale_right.src = 'assets/scale_right.png';
     }
 
     renderStudent() {

@@ -14,6 +14,8 @@ class Ball {
         img.src = 'assets/ball.jpg';
         img.classList.add('ball');
         img.setAttribute('id', `lightBall ${i}`);
+        img.setAttribute('draggable', true);
+        img.setAttribute('ondragstart', "event.dataTransfer.setData('text/plain',null)");
     }
 }
 
