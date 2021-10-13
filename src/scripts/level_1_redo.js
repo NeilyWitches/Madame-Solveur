@@ -33,14 +33,6 @@ class Level1Redo {
         li_balls.setAttribute('id', "li_balls");
         ul.appendChild(li_balls);
 
-        const divs = [];
-        // for (let i = 0; i < 9; i++) {
-        //     let div = document.createElemenet('div');
-        //     divs.push(div);
-        //     li_balls.appendChild(div);
-
-        // }
-        
         const balls = [];
         for (let i = 0; i < 9; i++) {
             balls.push(new Ball(li_balls, i));

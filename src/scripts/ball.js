@@ -5,8 +5,14 @@ class Ball {
     }
 
     renderBall(i) {
+        const div = document.createElement('div');
+        this.li.appendChild(div);
+        div.classList.add('dropzone');
+        div.classList.add('ball-div');
         const img = new Image();
-        this.li.appendChild(img);
+        div.appendChild(img);
+        
+
         const scale_factor = 1 / 100;
         img.onload = function() {
             this.width = this.width * scale_factor;
