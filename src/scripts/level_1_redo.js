@@ -20,8 +20,8 @@ class Level1Redo {
 
         this.renderBalls();
         this.renderScale();
+        this.renderButton();
         // this.renderStudent();
-        // this.renderButton();
     }
 
     renderBalls() {
@@ -129,18 +129,18 @@ class Level1Redo {
     }
 
     renderButton() {
-        const li_7 = document.createElement('li');
-        li_7.setAttribute('id', 'li_7');
+        const li_6 = document.createElement('li');
+        li_6.setAttribute('id', 'li_6');
         const ul = document.getElementById('ul');
-        ul.appendChild(li_7);
+        ul.appendChild(li_6);
 
         const weighButton = document.createElement('button');
-        li_7.appendChild(weighButton);
+        li_6.appendChild(weighButton);
         weighButton.setAttribute('type', 'button');
         weighButton.innerText = "Weigh";
 
         const counter = document.createElement('p');
-        li_7.appendChild(counter);
+        li_6.appendChild(counter);
         counter.innerText = 0;
     }
 

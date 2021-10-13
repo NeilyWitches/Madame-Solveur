@@ -123,8 +123,10 @@ button {
   font-size: 50px;
 }
 
-#li_7 {
+#li_6 {
   text-align: left;
+  position: relative;
+  top: -200px;
 }
 
 p {
