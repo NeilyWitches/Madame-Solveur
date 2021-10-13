@@ -19,7 +19,6 @@ class Level1Instructions {
         h2.innerText = "Find the heavier ball bearing!"
 
         this.renderDialogue();
-        // this.renderInstructions();
         this.renderNextButton();
     }
 
