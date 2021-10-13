@@ -36,7 +36,7 @@ class Level3 {
         li_1.appendChild(myGitHub);
 
         const gitHubIcon = new Image();
-        gitHubIcon.setAttribute('id', 'github');
+        gitHubIcon.setAttribute('id', 'github-3');
         myGitHub.appendChild(gitHubIcon);
         gitHubIcon.onload = function () {
             this.width = this.width;
@@ -48,7 +48,7 @@ class Level3 {
         li_1.appendChild(myLinkedIn);
 
         const linkedInIcon = new Image();
-        linkedInIcon.setAttribute('id', 'linkedin');
+        linkedInIcon.setAttribute('id', 'linkedin-3');
         myLinkedIn.appendChild(linkedInIcon);
         const scaleFactorLinkedIn = 1 / 5;
         linkedInIcon.onload = function () {
@@ -59,6 +59,40 @@ class Level3 {
         const h3 = document.createElement('h3');
         li_1.appendChild(h3);
         h3.innerText = "Attributions:"
+        const a_1 = document.createElement('a');
+        h3.appendChild(a_1);
+        a_1.setAttribute('href', "http://www.freepik.com");
+        a_1.innerText = "Freepik";
+
+        const li_2 = document.createElement('li');
+        ul.appendChild(li_2);
+        li_2.setAttribute('id', 'attributions');
+
+
+        const ball = new Image();
+        ball.setAttribute('id', 'ball-3');
+        li_2.appendChild(ball);
+        const scaleFactorBall = 1 / 30;
+        ball.onload = function () {
+            this.width = this.width * scaleFactorBall;
+        }
+        ball.src = 'assets/ball.jpg';
+        const ball_p = document.createElement('div');
+        li_2.appendChild(ball_p);
+        ball_p.innerText = "Designed by vectorpouch";
+
+        const student = new Image();
+        student.setAttribute('id', 'student-3');
+        li_2.appendChild(student);
+        const scaleFactorStudent = 1 / 10;
+        student.onload = function () {
+            this.width = this.width * scaleFactorStudent;
+        }
+        student.src = 'assets/student_lvl_1.jpg';
+        const student_p = document.createElement('div');
+        li_2.appendChild(student_p);
+        student_p.innerText = "Designed by pikisuperstar";
+
     }
 
     renderButton() {
