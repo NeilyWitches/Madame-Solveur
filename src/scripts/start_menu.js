@@ -1,4 +1,4 @@
-import Level1 from "./level_1_instructions";
+import Level1Instructions from "./level_1_instructions";
 
 class StartMenu {
     constructor() {
@@ -81,7 +81,7 @@ class StartMenu {
             while (body.firstChild) {
                 body.removeChild(body.firstChild);
             }
-            new Level1();
+            new Level1Instructions();
         }
     }
 }

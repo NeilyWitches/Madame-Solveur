@@ -1,4 +1,4 @@
-import Level2 from "./level_2";
+import Level2Instructions from "./level_2";
 import Level3 from "./level_3";
 
 class Level2Proper {
@@ -78,7 +78,7 @@ class Level2Proper {
             alert("The student says 50! You lose! Restart the level.");
             button.removeEventListener('click', handleClick);
             document.getElementById('body').removeChild(this.level);
-            new Level2();
+            new Level2Instructions();
         }
         button.addEventListener('click', handleClick);
         const that = this;

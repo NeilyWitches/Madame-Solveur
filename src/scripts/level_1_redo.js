@@ -1,6 +1,6 @@
 import Ball from "./ball.js"
-import Level1 from "./level_1.js";
-import Level2 from "./level_2.js";
+import Level1Instructions from "./level_1_instructions.js";
+import Level2Instructions from "./level_2.js";
 
 class Level1Redo {
     constructor() {
@@ -205,7 +205,7 @@ class Level1Redo {
                     while (body.firstChild) {
                         body.removeChild(body.firstChild);
                     }
-                    new Level1();
+                    new Level1Instructions();
                     // console.log('alert')
                     alert("That was not the heavy ball! Restart the level!");
                 } else if (mass === 101) {
@@ -214,7 +214,7 @@ class Level1Redo {
                     while (body.firstChild) {
                         body.removeChild(body.firstChild);
                     }
-                    new Level2();
+                    new Level2Instructions();
                 }
             }
         }
@@ -258,7 +258,7 @@ class Level1Redo {
                     document.removeEventListener('click', handleClick);
                     alert("You weighed too many times! Restart the level.")
                     document.getElementById('body').removeChild(that.level);
-                    new Level1();
+                    new Level1Instructions();
                 }
             }
         }
