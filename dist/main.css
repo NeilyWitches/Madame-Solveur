@@ -156,8 +156,19 @@ p {
   margin: 0;
   padding: 0;
   position: relative;
-  top: -18px;
+  top: -23px;
   right: -5px;
+}
+
+#div-right {
+  width: 75px;
+  height: 70px;
+  border: 5px solid black;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -200px;
+  right: -180px;
 }
 
 .ball-div {
@@ -165,4 +176,10 @@ p {
   height: 30px;
   border: 2px solid black;
   display: inline-block;
+}
+
+#scale-5 {
+  position: relative;
+  top: -105px;
+  right: -129px;
 }

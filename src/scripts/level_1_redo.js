@@ -90,6 +90,18 @@ class Level1Redo {
         li_4.appendChild(div_left);
         div_left.setAttribute('id', 'div-left');
         
+        const scale_5 = new Image();
+        scale_5.setAttribute('id', 'scale-5');
+        li_4.appendChild(scale_5);
+        scale_5.onload = function () {
+            this.width = this.width * scale_factor;
+        }
+        scale_5.src = 'assets/scale_5.png';
+
+        const div_right = document.createElement('div');
+        div_right.classList.add('dropzone');
+        li_4.appendChild(div_right);
+        div_right.setAttribute('id', 'div-right');
     }
 
     renderStudent() {
