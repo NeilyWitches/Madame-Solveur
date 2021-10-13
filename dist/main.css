@@ -27,10 +27,29 @@ body {
   margin-top: 40px;
 }
 
-#level-1 {
-  display: block;
+#level-1-instructions {
+  background-color: white;
+  width: 600px;
+  height: 700px;
   border: 4px solid purple;
   margin: auto;
+}
+
+#level-1-dialogue {
+  border: 4px solid purple;
+  font: 20px Arial;
+  background-color: lavender;
+  width: 500px;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: left;
+}
+
+#next-button {
+  margin-top: 30px;
 }
 
 #level-2 {

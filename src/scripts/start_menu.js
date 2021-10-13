@@ -1,4 +1,4 @@
-import Level1 from "./level_1";
+import Level1 from "./level_1_instructions";
 
 class StartMenu {
     constructor() {

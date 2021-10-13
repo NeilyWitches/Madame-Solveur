@@ -1,4 +1,3 @@
-// import Level1Proper from "./level_1_proper";
 import Level1Redo from "./level_1_redo";
 
 class Level1 {
