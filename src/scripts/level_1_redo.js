@@ -1,4 +1,6 @@
 import Ball from "./ball.js"
+import Level1 from "./level_1.js";
+import Level2 from "./level_2.js";
 
 class Level1Redo {
     constructor() {
@@ -7,6 +9,8 @@ class Level1Redo {
         this.level.setAttribute('id', 'level-1-redo');
         this.renderLevel();
         this.dragAndDrop();
+        this.clickWeigh();
+        this.reset();
     }
 
     renderLevel() {
@@ -20,7 +24,7 @@ class Level1Redo {
 
         this.renderBalls();
         this.renderScale();
-        this.renderButton();
+        this.renderButtons();
         this.renderStudent();
     }
 
@@ -43,7 +47,6 @@ class Level1Redo {
         let mass = heavy_ball.getAttribute('mass');
         mass = parseInt(mass) + 1;
         heavy_ball.setAttribute('mass', mass);
-        console.log(heavy_ball);
     }
 
     renderScale() {
@@ -96,6 +99,9 @@ class Level1Redo {
         div_left.classList.add('dropzone');
         li_4.appendChild(div_left);
         div_left.setAttribute('id', 'div-left');
+        div_left.style.position = "relative";
+        div_left.style.top = "-23px";
+        div_left.style.right = "-5px";
         
         const scale_5 = new Image();
         scale_5.setAttribute('id', 'scale-5');
@@ -109,6 +115,9 @@ class Level1Redo {
         div_right.classList.add('dropzone');
         li_4.appendChild(div_right);
         div_right.setAttribute('id', 'div-right');
+        div_right.style.position = "relative";
+        div_right.style.top = "-200px";
+        div_right.style.right = "-180px";
 
         const li_5 = document.createElement('li');
         li_5.classList.add('scale');
@@ -135,24 +144,39 @@ class Level1Redo {
         student.src = 'assets/student_lvl_1.jpg';
     }
 
-    renderButton() {
+    renderButtons() {
         const li_6 = document.createElement('li');
         li_6.setAttribute('id', 'li_6');
+        li_6.style.position = "relative";
+        li_6.style.top = "-500px";
         const ul = document.getElementById('ul');
         ul.appendChild(li_6);
 
         const weighButton = document.createElement('button');
         li_6.appendChild(weighButton);
+        weighButton.setAttribute('id', 'weighButton');
         weighButton.setAttribute('type', 'button');
         weighButton.innerText = "Weigh";
 
         const counter = document.createElement('p');
+        counter.setAttribute('id', 'counter');
         li_6.appendChild(counter);
         counter.innerText = 0;
+
+        const resetButton = document.createElement('button');
+        li_6.appendChild(resetButton);
+        resetButton.setAttribute('id', 'resetButton');
+        resetButton.setAttribute('type', 'button');
+        resetButton.innerText = "Reset";
     }
+
+    // renderReset() {
+    //     const
+    // }
 
     dragAndDrop() {
         let dragged;
+        const that = this;
 
         // document.addEventListener('mousedown', function(event_1) {
         //     if (dragged.getAttribute('draggable') === "true") {
@@ -174,9 +198,82 @@ class Level1Redo {
             if (event.target.className.includes("dropzone")) {
                 dragged.parentNode.removeChild(dragged);
                 event.target.appendChild(dragged);
+            } 
+            else if (event.target.id === 'student') {
+                let mass = parseInt(dragged.getAttribute('mass'));
+                if (mass < 101) {
+                    alert("That was not the heavy ball! Restart the level!");
+                    document.getElementById('body').removeChild(that.level);
+                    new Level1();
+                } else {
+                    let count = document.getElementById('counter').innerText;
+                    if (count === "2") {
+                        alert(`Amazing! You found the heavy ball using the scale the fewest amount of times as possible!`);
+                    } else {
+                        alert('Good work, professor! But did you know you can find the heavy ball in only two clicks of the weigh button?');
+                    }
+                    document.getElementById('body').removeChild(that.level);
+                    new Level2 ();
+                }
             }
 
         }, false);
+    }
+
+    clickWeigh() {
+        const button = document.getElementById('weighButton');
+        button.addEventListener('click', handleClick);
+        const that = this;
+
+        function handleClick(e) {
+            let div_left = document.getElementById('div-left');
+            let div_right = document.getElementById('div-right');
+            let left_pos = div_left.style.top;
+            let right_pos = div_right.style.top;
+            if (left_pos !== "-23px" || right_pos !== "-200px") {
+                alert("Please click 'Reset' to reset the scale.");
+            } else {
+                const left = document.getElementById('div-left').children;
+                const right = document.getElementById('div-right').children;
+                let mass_left = 0;
+                let mass_right = 0;
+                for (let i = 0; i < left.length; i++) {
+                    mass_left += parseInt(left[i].getAttribute('mass'));
+                }
+                for (let i = 0; i < right.length; i++) {
+                    mass_right += parseInt(right[i].getAttribute('mass'));
+                }
+                if (mass_left < mass_right) {
+                    let y_pos_right = parseInt(div_right.style.top);
+                    div_right.style.top = y_pos_right + 100 + "px";
+                } else if (mass_left > mass_right) {
+                    let y_pos_left = parseInt(div_left.style.top);
+                    div_left.style.top = y_pos_left + 100 + "px";
+                }
+                let counter = document.getElementById('counter');
+                let count = counter.innerText;
+                let new_count = parseInt(count) + 1;
+                counter.innerText = new_count;
+                if (new_count > 4) {
+                    alert("You weighed too many times! Restart the level.")
+                    document.getElementById('body').removeChild(that.level);
+                    new Level1();
+                }
+            }
+        }
+    }
+
+    reset() {
+        const button = document.getElementById('resetButton');
+        button.addEventListener('click', handleClick);
+        const div_left = document.getElementById('div-left');
+        const div_right = document.getElementById('div-right');
+        const that = this;
+
+        function handleClick(e) {
+            div_left.style.top = "-23px";
+            div_right.style.top = "-200px";
+        }
     }
 
 }

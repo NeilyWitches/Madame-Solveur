@@ -117,7 +117,7 @@ ul {
 
 #student {
   position: relative;
-  top: -400px;
+  top: -450px;
   right: -400px;
 }
 
@@ -125,10 +125,12 @@ button {
   font-size: 50px;
 }
 
+#resetButton {
+  margin-left: 100px;
+}
+
 #li_6 {
   text-align: left;
-  position: relative;
-  top: -500px;
 }
 
 p {
@@ -159,9 +161,6 @@ p {
   border: 5px solid black;
   margin: 0;
   padding: 0;
-  position: relative;
-  top: -23px;
-  right: -5px;
 }
 
 #div-right {
@@ -170,9 +169,6 @@ p {
   border: 5px solid black;
   margin: 0;
   padding: 0;
-  position: relative;
-  top: -200px;
-  right: -180px;
 }
 
 .ball-div {
