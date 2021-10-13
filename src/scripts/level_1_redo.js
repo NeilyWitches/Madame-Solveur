@@ -21,7 +21,7 @@ class Level1Redo {
         this.renderBalls();
         this.renderScale();
         this.renderButton();
-        // this.renderStudent();
+        this.renderStudent();
     }
 
     renderBalls() {
@@ -83,6 +83,7 @@ class Level1Redo {
 
         const li_4 = document.createElement('li');
         li_4.classList.add('scale');
+        li_4.setAttribute('id', 'li_4');
         ul.appendChild(li_4);
 
         const div_left = document.createElement('div');
@@ -119,8 +120,8 @@ class Level1Redo {
     renderStudent() {
         const student = new Image();
         student.setAttribute('id', 'student');
-        const li_2 = document.getElementById('li_2');
-        li_2.appendChild(student);
+        const li_4 = document.getElementById('li_4');
+        li_4.appendChild(student);
         const scale_factor = 1 / 5;
         student.onload = function () {
             this.width = this.width * scale_factor;

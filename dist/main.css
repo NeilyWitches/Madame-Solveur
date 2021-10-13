@@ -116,7 +116,9 @@ ul {
 }
 
 #student {
-  margin-left: 80px;
+  position: relative;
+  top: -400px;
+  right: -400px;
 }
 
 button {
@@ -126,7 +128,7 @@ button {
 #li_6 {
   text-align: left;
   position: relative;
-  top: -200px;
+  top: -500px;
 }
 
 p {
@@ -188,6 +190,6 @@ p {
 
 #scale-8 {
   position: relative;
-  top: -195px;
+  top: -550px;
   right: -97px;
 }
