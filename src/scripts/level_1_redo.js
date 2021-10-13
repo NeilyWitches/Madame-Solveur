@@ -38,6 +38,12 @@ class Level1Redo {
             balls.push(new Ball(li_balls, i));
         }
 
+        const random_num = Math.floor(Math.random() * 9);
+        let heavy_ball = li_balls.children[random_num].children[0];
+        let mass = heavy_ball.getAttribute('mass');
+        mass = parseInt(mass) + 1;
+        heavy_ball.setAttribute('mass', mass);
+        console.log(heavy_ball);
     }
 
     renderScale() {
