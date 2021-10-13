@@ -255,6 +255,7 @@ class Level1Redo {
                 let new_count = parseInt(count) + 1;
                 counter.innerText = new_count;
                 if (new_count > 4) {
+                    document.removeEventListener('click', handleClick);
                     alert("You weighed too many times! Restart the level.")
                     document.getElementById('body').removeChild(that.level);
                     new Level1();
