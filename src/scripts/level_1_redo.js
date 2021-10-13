@@ -32,7 +32,14 @@ class Level1Redo {
         const li_balls = document.createElement('li');
         li_balls.setAttribute('id', "li_balls");
         ul.appendChild(li_balls);
-        li_balls.classList.add('dropzone');
+
+        const divs = [];
+        // for (let i = 0; i < 9; i++) {
+        //     let div = document.createElemenet('div');
+        //     divs.push(div);
+        //     li_balls.appendChild(div);
+
+        // }
         
         const balls = [];
         for (let i = 0; i < 9; i++) {
@@ -40,29 +47,6 @@ class Level1Redo {
         }
 
     }
-
-    // renderScaleOld() {
-    //     const li_2 = document.createElement('li');
-    //     li_2.setAttribute('id', 'li_2');
-    //     document.getElementById('ul').appendChild(li_2);
-
-    //     const scale_left = new Image();
-    //     const scale_right = new Image();
-    //     scale_left.classList.add('dropzone');
-    //     scale_right.classList.add('dropzone');
-
-    //     li_2.appendChild(scale_left);
-    //     li_2.appendChild(scale_right);
-    //     const scale_factor = 1 / 4;
-    //     scale_left.onload = function () {
-    //         this.width = this.width * scale_factor;
-    //     }
-    //     scale_right.onload = function () {
-    //         this.width = this.width * scale_factor;
-    //     }
-    //     scale_left.src = 'assets/scale_left.png';
-    //     scale_right.src = 'assets/scale_right.png';
-    // }
 
     renderScale() {
         const ul = document.getElementById('ul');
@@ -164,7 +148,7 @@ class Level1Redo {
 
         document.addEventListener('drop', function(event) {
             event.preventDefault();
-            if (event.target.className == "dropzone") {
+            if (event.target.className.includes("dropzone")) {
                 dragged.parentNode.removeChild(dragged);
                 event.target.appendChild(dragged);
             }
