@@ -7,6 +7,10 @@
   margin: auto;
 }
 
+body {
+  background-color: lavender;
+}
+
 #level-1 {
   display: block;
   border: 4px solid purple;
