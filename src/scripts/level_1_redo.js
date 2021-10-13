@@ -170,10 +170,6 @@ class Level1Redo {
         resetButton.innerText = "Reset";
     }
 
-    // renderReset() {
-    //     const
-    // }
-
     dragAndDrop() {
         let dragged;
         const that = this;
@@ -192,32 +188,6 @@ class Level1Redo {
         document.addEventListener('dragover', function(event) {
             event.preventDefault();
         }, false);
-
-        // document.addEventListener('drop', (event) => {
-        //     event.preventDefault();
-        //     if (event.target.className.includes("dropzone")) {
-        //         dragged.parentNode.removeChild(dragged);
-        //         event.target.appendChild(dragged);
-        //     } 
-        //     else if (event.target.id === 'student') {
-        //         let mass = parseInt(dragged.getAttribute('mass'));
-        //         let body = document.getElementById('body');
-        //         if (mass === 100) {
-        //             while (body.firstChild) {
-        //                 body.removeChild(body.firstChild);
-        //             }
-                    
-        //             new Level1();
-        //             console.log('alert')
-        //             // alert("That was not the heavy ball! Restart the level!");
-        //         } else if (mass === 101){
-        //             alert('Good work, professor! Did you know you can be certain of which ball is the heavy one in only two clicks of the weigh button?');
-        //             body.removeChild(this.level);
-        //             new Level2 ();
-        //         }
-        //     }
-
-        // });
 
         document.addEventListener('drop', handleDrop);
         function handleDrop(event) {
@@ -240,7 +210,9 @@ class Level1Redo {
                     alert("That was not the heavy ball! Restart the level!");
                 } else if (mass === 101) {
                     alert('Good work, professor! Did you know you can be certain of which ball is the heavy one in only two clicks of the weigh button?');
-                    body.removeChild(that.level);
+                    while (body.firstChild) {
+                        body.removeChild(body.firstChild);
+                    }
                     new Level2();
                 }
             }
