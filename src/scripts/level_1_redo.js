@@ -209,6 +209,7 @@ class Level1Redo {
                     // console.log('alert')
                     alert("That was not the heavy ball! Restart the level!");
                 } else if (mass === 101) {
+                    document.removeEventListener('drop', handleDrop);
                     alert('Good work, professor! Did you know you can be certain of which ball is the heavy one in only two clicks of the weigh button?');
                     while (body.firstChild) {
                         body.removeChild(body.firstChild);
