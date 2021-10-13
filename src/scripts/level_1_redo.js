@@ -146,12 +146,16 @@ class Level1Redo {
 
     dragAndDrop() {
         let dragged;
-        document.addEventListener('drag', function(event) {
 
-        }, false);
+        // document.addEventListener('mousedown', function(event_1) {
+        //     if (dragged.getAttribute('draggable') === "true") {
+                
+        //     }
+        // })
 
         document.addEventListener('dragstart', function(event) {
             dragged = event.target;
+    
         }, false);
 
         document.addEventListener('dragover', function(event) {
