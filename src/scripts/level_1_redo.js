@@ -193,31 +193,58 @@ class Level1Redo {
             event.preventDefault();
         }, false);
 
-        document.addEventListener('drop', function(event) {
+        // document.addEventListener('drop', (event) => {
+        //     event.preventDefault();
+        //     if (event.target.className.includes("dropzone")) {
+        //         dragged.parentNode.removeChild(dragged);
+        //         event.target.appendChild(dragged);
+        //     } 
+        //     else if (event.target.id === 'student') {
+        //         let mass = parseInt(dragged.getAttribute('mass'));
+        //         let body = document.getElementById('body');
+        //         if (mass === 100) {
+        //             while (body.firstChild) {
+        //                 body.removeChild(body.firstChild);
+        //             }
+                    
+        //             new Level1();
+        //             console.log('alert')
+        //             // alert("That was not the heavy ball! Restart the level!");
+        //         } else if (mass === 101){
+        //             alert('Good work, professor! Did you know you can be certain of which ball is the heavy one in only two clicks of the weigh button?');
+        //             body.removeChild(this.level);
+        //             new Level2 ();
+        //         }
+        //     }
+
+        // });
+
+        document.addEventListener('drop', handleDrop);
+        function handleDrop(event) {
+            const that = this;
             event.preventDefault();
             if (event.target.className.includes("dropzone")) {
                 dragged.parentNode.removeChild(dragged);
                 event.target.appendChild(dragged);
-            } 
+            }
             else if (event.target.id === 'student') {
                 let mass = parseInt(dragged.getAttribute('mass'));
-                if (mass < 101) {
-                    alert("That was not the heavy ball! Restart the level!");
-                    document.getElementById('body').removeChild(that.level);
-                    new Level1();
-                } else {
-                    let count = document.getElementById('counter').innerText;
-                    if (count === "2") {
-                        alert(`Amazing! You found the heavy ball using the scale the fewest amount of times as possible!`);
-                    } else {
-                        alert('Good work, professor! But did you know you can find the heavy ball in only two clicks of the weigh button?');
+                let body = document.getElementById('body');
+                if (mass === 100) {
+                    document.removeEventListener('drop', handleDrop);
+                    while (body.firstChild) {
+                        body.removeChild(body.firstChild);
                     }
-                    document.getElementById('body').removeChild(that.level);
-                    new Level2 ();
+                    new Level1();
+                    // console.log('alert')
+                    alert("That was not the heavy ball! Restart the level!");
+                } else if (mass === 101) {
+                    alert('Good work, professor! Did you know you can be certain of which ball is the heavy one in only two clicks of the weigh button?');
+                    body.removeChild(that.level);
+                    new Level2();
                 }
             }
-
-        }, false);
+        }
     }
 
     clickWeigh() {
