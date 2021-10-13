@@ -21,7 +21,7 @@ class Level1Redo {
         this.renderBalls();
         this.renderScale();
         // this.renderStudent();
-        this.renderButton();
+        // this.renderButton();
     }
 
     renderBalls() {
@@ -102,6 +102,18 @@ class Level1Redo {
         div_right.classList.add('dropzone');
         li_4.appendChild(div_right);
         div_right.setAttribute('id', 'div-right');
+
+        const li_5 = document.createElement('li');
+        li_5.classList.add('scale');
+        ul.appendChild(li_5);
+
+        const scale_8 = new Image();
+        scale_8.setAttribute('id', 'scale-8');
+        li_5.appendChild(scale_8);
+        scale_8.onload = function () {
+            this.width = this.width * scale_factor;
+        }
+        scale_8.src = 'assets/scale_8.png';
     }
 
     renderStudent() {
