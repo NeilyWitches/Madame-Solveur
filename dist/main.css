@@ -116,6 +116,11 @@ button:hover {
   bottom: 20px;
 }
 
+#instructions-label-1 {
+  color: black;
+  text-decoration: underline;
+}
+
 #level-2-instructions {
   width: 600px;
   height: 700px;
@@ -138,6 +143,11 @@ button:hover {
 
 #next-button {
   margin-top: 30px;
+}
+
+#instructions-label-2 {
+  color: black;
+  text-decoration: underline;
 }
 
 #level-2 {
