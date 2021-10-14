@@ -73,9 +73,9 @@ button:hover {
   transition-duration: 0.4s;
   cursor: pointer;
   margin-left: 20px;
-  position: absolute;
-  top: 600px;
-  right: 270px;
+  position: relative;
+  top: 0px;
+  right: 0px;
 }
 
 #next-button:hover {
@@ -92,24 +92,25 @@ button:hover {
 #student-instructions-1 {
   position: relative;
   right: 450px;
-  bottom: 25px;
+  bottom: 35px;
 }
 
 #scale-instructions-1 {
   position: relative;
-  left: 210px;
+  left: 240px;
   bottom: 20px;
 }
 
 #lvl-1-instructions-1 {
-  position: absolute;
-  left: 260px;
-  bottom: 170px;
+  position: relative;
+  left: 230px;
+  bottom: 25px;
 }
 
 #lvl-1-instructions-2 {
   position: relative;
   left: 200px;
+  bottom: 20px;
 }
 
 #level-2-instructions {

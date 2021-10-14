@@ -180,24 +180,18 @@ class Level1Redo {
         let dragged;
         const that = this;
 
-        // document.addEventListener('mousedown', function(event_1) {
-        //     if (dragged.getAttribute('draggable') === "true") {
-                
-        //     }
-        // })
-
-        document.addEventListener('dragstart', function(event) {
+        document.addEventListener('dragstart', handleDragStart);
+        function handleDragStart(event) {
             dragged = event.target;
-    
-        }, false);
+        };
 
-        document.addEventListener('dragover', function(event) {
+        document.addEventListener('dragover', handleDragOver);
+        function handleDragOver(event) {
             event.preventDefault();
-        }, false);
+        }
 
         document.addEventListener('drop', handleDrop);
         function handleDrop(event) {
-            const that = this;
             event.preventDefault();
             if (event.target.className.includes("dropzone")) {
                 dragged.parentNode.removeChild(dragged);
@@ -206,15 +200,18 @@ class Level1Redo {
             else if (event.target.id === 'student') {
                 let mass = parseInt(dragged.getAttribute('mass'));
                 let body = document.getElementById('body');
+                document.removeEventListener('dragstart', handleDragStart);
+                document.removeEventListener('dragover', handleDragOver);
+                document.removeEventListener('drop', handleDrop);
                 if (mass === 100) {
-                    document.removeEventListener('drop', handleDrop);
                     while (body.firstChild) {
                         body.removeChild(body.firstChild);
                     }
-                    new Level1Instructions();
+                    
                     alert("That was not the heavy ball! Restart the level!");
+                    new Level1Instructions();
+                    return false;
                 } else if (mass === 101) {
-                    document.removeEventListener('drop', handleDrop);
                     alert('Good work, professor! Did you know you can be certain of which ball is the heavy one in only two clicks of the weigh button?');
                     while (body.firstChild) {
                         body.removeChild(body.firstChild);
@@ -288,10 +285,7 @@ class Level1Redo {
         const that = this;
         
         function handleClick(e) {
-            button.removeEventListener('click', handleClick);
-            
-            document.getElementById('body').removeChild(that.level);
-            new Level1Instructions();
+            alert(`The student approaches the Mme with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle! When you think you have figured out which ball is the heavy one, drag that ball to the student...`);
         }
     }
 

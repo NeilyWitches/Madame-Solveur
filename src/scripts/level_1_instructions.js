@@ -30,7 +30,7 @@ class Level1Instructions {
         const dialogue = document.createElement('div');
         li_1.appendChild(dialogue);
         dialogue.setAttribute('id', 'level-1-dialogue');
-        dialogue.innerText = `On one typical Autumn morning, Mme Solveur was sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. Startle but warm, the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student heard about Mme Solveur's ability to solve puzzles...`;
+        dialogue.innerText = `On one typical Autumn morning, Mme Solveur was sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. Startled but warm, the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student heard about Mme Solveur's ability to solve puzzles...`;
     }
 
     renderNextButton() {
@@ -54,7 +54,6 @@ class Level1Instructions {
         function handleClick(event) {
             clicked += 1
             if (clicked === 1) {
-                console.log(event);
                 const instructions_label = document.createElement('h2');
                 instructions_label.setAttribute('id', 'instructions-label-1');
                 const h1 = document.getElementById('h1');
@@ -94,7 +93,7 @@ class Level1Instructions {
                 const scale = new Image();
                 scale.setAttribute('id', 'scale-instructions-1');
                 that.screen.appendChild(scale);
-                const scaleFactorScale = 1 / 3;
+                const scaleFactorScale = 1 / 4;
                 scale.onload = function () {
                     this.width = this.width * scaleFactorScale;
                 }
@@ -109,7 +108,7 @@ class Level1Instructions {
                 const gif_instructions_1 = new Image();
                 gif_instructions_1.setAttribute('id', 'lvl-1-instructions-1');
                 that.screen.appendChild(gif_instructions_1);
-                const scaleFactorGifInstructions1 = 1 / 3;
+                const scaleFactorGifInstructions1 = 1 / 4;
                 gif_instructions_1.onload = function () {
                     this.width = this.width * scaleFactorGifInstructions1;
                 }
