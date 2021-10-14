@@ -26,13 +26,10 @@ class Level1Instructions {
         this.screen.appendChild(this.ul);
         const li_1 = document.createElement('li');
         this.ul.appendChild(li_1);
-        const dialogue_box = document.createElement('div');
-        li_1.appendChild(dialogue_box);
-        const dialogue = document.createElement('p');
-        dialogue.setAttribute('id', 'level-1-dialogue-text');
-        dialogue_box.setAttribute('id', 'level-1-dialogue');
-        dialogue_box.appendChild(dialogue);
-        dialogue.innerText = `On one typical Autumn morning, Mme Solveur had been sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. Startled, but warm the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student had heard about Mme Solveur's ability to solve puzzles...`;
+        const dialogue = document.createElement('div');
+        li_1.appendChild(dialogue);
+        dialogue.setAttribute('id', 'level-1-dialogue');
+        dialogue.innerText = `On one typical Autumn morning, Mme Solveur was sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. Startle but warm, the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student heard about Mme Solveur's ability to solve puzzles...`;
     }
 
     renderNextButton() {
@@ -49,12 +46,14 @@ class Level1Instructions {
     clickNext() {
         const button = document.getElementById('next-button');
         let clicked = false;
+        const that = this;
         button.addEventListener('click', handleClick);
 
         function handleClick(event) {
             console.log(clicked);
             if (!clicked) {
-                let dialogue = document.getElementById("level-1-dialogue-text");
+                // that.renderInstructions();
+                let dialogue = document.getElementById("level-1-dialogue");
                 dialogue.innerText = `INSTRUCTIONS: 
                 The student approaches the Mme with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Try to click the "weigh" button as little as possible. When you think you have figured out which ball is the heavy one, drag that ball to the student...`
                 clicked = true;
@@ -67,6 +66,10 @@ class Level1Instructions {
                 new Level1Redo();
             }
         }
+    }
+
+    renderInstructions() {
+        docum
     }
 
 }

@@ -6,21 +6,6 @@
     background-color: white;
 }
 
-h1 {
-    font: bold 45px Arial;
-    text-align: center;
-}
-
-h2 {
-    font: bold 25px Arial;
-    text-align: center;
-    color: purple;
-}
-
-ul {
-    padding: 0;
-}
-
 .ball {
     margin: 0px;
     border: 0px;
@@ -40,21 +25,16 @@ ul {
     right: -400px;
 }
 
-button {
-    font-size: 50px;
-}
-
-#resetButton {
-    margin-left: 100px;
-}
-
 #li_6 {
     text-align: left;
+    position: relative;
+    top: -550px;
 }
 
-p {
+#counter {
     display: inline;
-    margin-left: 100px;
+    margin-left: 50px;
+    margin-right: 70px;
 }
 
 #scale-1 {
@@ -108,4 +88,3 @@ p {
     top: -550px;
     right: -97px;
 }
-

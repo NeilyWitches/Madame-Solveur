@@ -23,3 +23,14 @@ body {
 #start-button {
     margin-top: 40px;
 }
+
+button {
+    background-color: rgb(52, 5, 114);
+    border-radius: 10px;
+    color: white;
+    padding: 16px 32px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {background-color: #e7e7e7;}

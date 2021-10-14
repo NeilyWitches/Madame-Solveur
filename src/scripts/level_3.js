@@ -25,10 +25,10 @@ class Level3 {
 
         const ul = document.createElement('ul');
         this.screen.appendChild(ul);
-        ul.setAttribute('id', 'socials');
+        ul.setAttribute('id', 'lvl3-ul');
 
         const li_1 = document.createElement('li');
-        li_1.setAttribute('id', 'li-1')
+        li_1.setAttribute('id', 'lvl3-li-1')
         ul.appendChild(li_1);
 
         const myGitHub = document.createElement('a');
@@ -56,41 +56,53 @@ class Level3 {
         }
         linkedInIcon.src = 'assets/linkedin.png';
 
-        const h3 = document.createElement('h3');
-        li_1.appendChild(h3);
-        h3.innerText = "Attributions:"
-        const a_1 = document.createElement('a');
-        h3.appendChild(a_1);
-        a_1.setAttribute('href', "http://www.freepik.com");
-        a_1.innerText = "Freepik";
-
         const li_2 = document.createElement('li');
         ul.appendChild(li_2);
-        li_2.setAttribute('id', 'attributions');
+        const att_label = document.createElement('p');
+        att_label.setAttribute('id', 'att-label');
+        li_2.appendChild(att_label);
+        att_label.innerText = "Attributions:"
 
+        const freepik = document.createElement('a');
+        li_2.appendChild(freepik);
+        freepik.setAttribute('id', 'freepik');
+        freepik.setAttribute('href', "http://www.freepik.com");
+        freepik.innerText = "Freepik";
+
+        const li_3 = document.createElement('li');
+        ul.appendChild(li_3);
+        li_3.setAttribute('id', 'attributions');
 
         const ball = new Image();
         ball.setAttribute('id', 'ball-3');
-        li_2.appendChild(ball);
+        li_3.appendChild(ball);
         const scaleFactorBall = 1 / 30;
         ball.onload = function () {
             this.width = this.width * scaleFactorBall;
         }
         ball.src = 'assets/ball.jpg';
-        const ball_p = document.createElement('div');
-        li_2.appendChild(ball_p);
-        ball_p.innerText = "Designed by vectorpouch";
 
         const student = new Image();
         student.setAttribute('id', 'student-3');
-        li_2.appendChild(student);
+        li_3.appendChild(student);
         const scaleFactorStudent = 1 / 10;
         student.onload = function () {
             this.width = this.width * scaleFactorStudent;
         }
         student.src = 'assets/student_lvl_1.jpg';
-        const student_p = document.createElement('div');
-        li_2.appendChild(student_p);
+
+        const li_4 = document.createElement('li');
+        ul.appendChild(li_4);
+        li_4.setAttribute('id', 'li-4');
+
+        const ball_p = document.createElement('p');
+        ball_p.setAttribute('id', 'ball-p');
+        li_4.appendChild(ball_p);
+        ball_p.innerText = "Designed by vectorpouch";
+       
+        const student_p = document.createElement('p');
+        student_p.setAttribute('id', 'student-p');
+        li_4.appendChild(student_p);
         student_p.innerText = "Designed by pikisuperstar";
 
     }

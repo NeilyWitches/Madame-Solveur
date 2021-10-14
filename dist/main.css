@@ -27,6 +27,19 @@ body {
   margin-top: 40px;
 }
 
+button {
+  background-color: #340572;
+  border-radius: 10px;
+  color: white;
+  padding: 16px 32px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e7e7e7;
+}
+
 #level-1-instructions {
   background-color: white;
   width: 600px;
@@ -50,6 +63,20 @@ body {
 
 #next-button {
   margin-top: 30px;
+}
+
+#next-button {
+  background-color: #340572;
+  border-radius: 10px;
+  color: white;
+  padding: 16px 32px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+#next-button:hover {
+  background-color: #e7e7e7;
 }
 
 #level-2-instructions {
@@ -86,8 +113,9 @@ body {
 }
 
 h1 {
-  font: bold 45px Arial;
   text-align: center;
+  font: bold 45px Lucida Handwriting;
+  font-family: cursive;
 }
 
 h2 {
@@ -142,21 +170,6 @@ button {
   background-color: white;
 }
 
-h1 {
-  font: bold 45px Arial;
-  text-align: center;
-}
-
-h2 {
-  font: bold 25px Arial;
-  text-align: center;
-  color: purple;
-}
-
-ul {
-  padding: 0;
-}
-
 .ball {
   margin: 0px;
   border: 0px;
@@ -176,21 +189,16 @@ ul {
   right: -400px;
 }
 
-button {
-  font-size: 50px;
-}
-
-#resetButton {
-  margin-left: 100px;
-}
-
 #li_6 {
   text-align: left;
+  position: relative;
+  top: -550px;
 }
 
-p {
+#counter {
   display: inline;
-  margin-left: 100px;
+  margin-left: 50px;
+  margin-right: 70px;
 }
 
 #scale-1 {
@@ -260,16 +268,34 @@ p {
   margin-left: 40px;
 }
 
-a {
-  font-size: 35px;
+#att-label {
+  display: inline-block;
+}
+
+#freepik {
   margin-left: 20px;
 }
 
 #ball-3 {
-  display: block;
-  margin: 0 auto;
+  margin-right: 100px;
 }
 
-#attributions {
-  font-size: 20px;
+#student-3 {
+  margin-left: 100px;
+}
+
+#ball-p {
+  font-size: 15px;
+  display: inline-block;
+  margin-right: 40px;
+  position: relative;
+  top: -20px;
+}
+
+#student-p {
+  font-size: 15px;
+  display: inline-block;
+  margin-left: 40px;
+  position: relative;
+  top: -20px;
 }

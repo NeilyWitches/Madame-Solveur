@@ -22,3 +22,15 @@
 #next-button {
     margin-top: 30px;
 }
+
+#next-button {
+    background-color: rgb(52, 5, 114);
+    border-radius: 10px;
+    color: white;
+    padding: 16px 32px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+#next-button:hover {background-color: #e7e7e7;}

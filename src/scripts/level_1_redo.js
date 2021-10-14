@@ -147,8 +147,6 @@ class Level1Redo {
     renderButtons() {
         const li_6 = document.createElement('li');
         li_6.setAttribute('id', 'li_6');
-        li_6.style.position = "relative";
-        li_6.style.top = "-500px";
         const ul = document.getElementById('ul');
         ul.appendChild(li_6);
 
