@@ -78,7 +78,7 @@ class Level1Instructions {
                 student.onload = function () {
                     this.width = this.width * scaleFactorStudent;
                 }
-                student.src = "assets/student_lvl_1.jpg";
+                student.src = "assets/student_lvl_1.png";
             }
             else if (clicked === 2) {
                 dialogue.innerText = "They all weigh exactly the same except for one which is slightly heavier."

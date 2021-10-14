@@ -80,16 +80,25 @@ class Level3 {
         ball.onload = function () {
             this.width = this.width * scaleFactorBall;
         }
-        ball.src = 'assets/ball.jpg';
+        ball.src = 'assets/ball.png';
 
         const student = new Image();
         student.setAttribute('id', 'student-3');
         li_3.appendChild(student);
-        const scaleFactorStudent = 1 / 10;
+        const scaleFactorStudent = 1 / 20;
         student.onload = function () {
             this.width = this.width * scaleFactorStudent;
         }
-        student.src = 'assets/student_lvl_1.jpg';
+        student.src = 'assets/student_lvl_1.png';
+
+        const mme = new Image();
+        mme.setAttribute('id', 'mme-3');
+        li_3.appendChild(mme);
+        const scaleFactorMme = 1 / 4;
+        mme.onload = function () {
+            this.width = this.width * scaleFactorMme;
+        }
+        mme.src = 'assets/mme_solveur.png';
 
         const li_4 = document.createElement('li');
         ul.appendChild(li_4);
@@ -98,13 +107,17 @@ class Level3 {
         const ball_p = document.createElement('p');
         ball_p.setAttribute('id', 'ball-p');
         li_4.appendChild(ball_p);
-        ball_p.innerText = "Designed by vectorpouch";
+        ball_p.innerText = "vectorpouch";
        
         const student_p = document.createElement('p');
         student_p.setAttribute('id', 'student-p');
         li_4.appendChild(student_p);
-        student_p.innerText = "Designed by pikisuperstar";
+        student_p.innerText = "pikisuperstar";
 
+        const mme_p = document.createElement('p');
+        mme_p.setAttribute('id', 'mme-p');
+        li_4.appendChild(mme_p);
+        mme_p.innerText = "Freepik";
     }
 
     renderButton() {

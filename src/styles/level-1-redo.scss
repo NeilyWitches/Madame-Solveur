@@ -3,7 +3,6 @@
     height: 700px;
     border: 4px solid purple;
     margin: auto;
-    background-color: white;
 }
 
 .ball {
@@ -40,33 +39,35 @@
 #scale-1 {
     position: relative;
     top: -10px;
+    right: -23px;
 }
 
 #scale-2 {
     position: relative;
-    top: -13px;
-    right: -5px;
+    top: -20px;
+    right: -71px;
 }
 
 #scale-3 {
     position: relative;
     top: -8px;
-    right: -11px;
+    right: -108px;
 }
 
 #div-left {
     width: 75px;
     height: 70px;
     border: 5px solid black;
-    margin: 0;
-    padding: 0;
+    margin-left: 15px;
+    // padding: 0;
 }
 
 #div-right {
     width: 75px;
     height: 70px;
     border: 5px solid black;
-    margin: 0;
+    margin-left: 18px;
+    margin-top: 10px;
     padding: 0;
 }
 
@@ -79,14 +80,14 @@
 
 #scale-5 {
     position: relative;
-    top: -105px;
-    right: -129px;
+    top: -110px;
+    right: -153px;
 }
 
 #scale-8 {
     position: relative;
     top: -550px;
-    right: -97px;
+    right: -114px;
 }
 
 #instructions-1-button {
@@ -94,4 +95,9 @@
     position: relative;
     left: 410px;
     bottom: 1235px;
+}
+
+#scale-top {
+    position: relative;
+    right: -50px;
 }

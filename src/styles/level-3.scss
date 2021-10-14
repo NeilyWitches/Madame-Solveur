@@ -22,25 +22,38 @@
 }
 
 #ball-3 {
-    margin-right: 100px;
+    margin-right: 50px;
 }
 
 #student-3 {
-    margin-left: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#mme-3 {
+    margin-left: 50px;
 }
 
 #ball-p {
     font-size: 15px;
     display: inline-block;
-    margin-right: 40px;
     position: relative;
     top: -20px;
+    left: -65px;
 }
 
 #student-p {
     font-size: 15px;
     display: inline-block;
-    margin-left: 40px;
     position: relative;
     top: -20px;
+    left: -15px;
+}
+
+#mme-p {
+    display: inline-block;
+    font-size: 15px;
+    position: relative;
+    top: -20px;
+    right: -55px;
 }

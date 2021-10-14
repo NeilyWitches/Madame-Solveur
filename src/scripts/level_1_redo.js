@@ -57,6 +57,7 @@ class Level1Redo {
         li_2.classList.add('scale');
         ul.appendChild(li_2);
         const scale_top = new Image();
+        scale_top.setAttribute('id', 'scale-top');
         li_2.appendChild(scale_top);
         const scale_factor = 1 /4;
         scale_top.onload = function () {
@@ -143,7 +144,7 @@ class Level1Redo {
         student.onload = function () {
             this.width = this.width * scale_factor;
         }
-        student.src = 'assets/student_lvl_1.jpg';
+        student.src = 'assets/student_lvl_1.png';
     }
 
     renderButtons() {

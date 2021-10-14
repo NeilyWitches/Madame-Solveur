@@ -17,7 +17,7 @@ class Ball {
         img.onload = function() {
             this.width = this.width * scale_factor;
         }
-        img.src = 'assets/ball.jpg';
+        img.src = 'assets/ball.png';
         img.classList.add('ball');
         img.setAttribute('mass', 100);
         img.setAttribute('draggable', true);
