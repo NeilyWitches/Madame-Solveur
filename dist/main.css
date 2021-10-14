@@ -73,10 +73,43 @@ button:hover {
   transition-duration: 0.4s;
   cursor: pointer;
   margin-left: 20px;
+  position: absolute;
+  top: 600px;
+  right: 270px;
 }
 
 #next-button:hover {
   background-color: #e7e7e7;
+}
+
+#nine-balls {
+  margin-left: 100px;
+  position: relative;
+  top: -150px;
+  left: 50px;
+}
+
+#student-instructions-1 {
+  position: relative;
+  right: 450px;
+  bottom: 25px;
+}
+
+#scale-instructions-1 {
+  position: relative;
+  left: 210px;
+  bottom: 20px;
+}
+
+#lvl-1-instructions-1 {
+  position: absolute;
+  left: 260px;
+  bottom: 170px;
+}
+
+#lvl-1-instructions-2 {
+  position: relative;
+  left: 200px;
 }
 
 #level-2-instructions {
@@ -251,6 +284,13 @@ button {
   position: relative;
   top: -550px;
   right: -97px;
+}
+
+#instructions-1-button {
+  font-size: medium;
+  position: relative;
+  left: 410px;
+  bottom: 1235px;
 }
 
 #level-3 {

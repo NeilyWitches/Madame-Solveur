@@ -11,10 +11,12 @@ class Level1Redo {
         this.dragAndDrop();
         this.clickWeigh();
         this.reset();
+        this.instructions();
     }
 
     renderLevel() {
         const h1 = document.createElement('h1');
+        h1.setAttribute('id', 'h1');
         this.level.appendChild(h1);
         h1.innerText = "Level 1:";
 
@@ -166,6 +168,12 @@ class Level1Redo {
         resetButton.setAttribute('id', 'resetButton');
         resetButton.setAttribute('type', 'button');
         resetButton.innerText = "Reset";
+
+        const instructions = document.createElement('button');
+        this.level.appendChild(instructions);
+        instructions.setAttribute('id', 'instructions-1-button');
+        instructions.setAttribute('type', 'button');
+        instructions.innerText = "Instructions";
     }
 
     dragAndDrop() {
@@ -204,7 +212,6 @@ class Level1Redo {
                         body.removeChild(body.firstChild);
                     }
                     new Level1Instructions();
-                    // console.log('alert')
                     alert("That was not the heavy ball! Restart the level!");
                 } else if (mass === 101) {
                     document.removeEventListener('drop', handleDrop);
@@ -272,6 +279,19 @@ class Level1Redo {
         function handleClick(e) {
             div_left.style.top = "-23px";
             div_right.style.top = "-200px";
+        }
+    }
+
+    instructions() {
+        const button = document.getElementById("instructions-1-button");
+        button.addEventListener('click', handleClick);
+        const that = this;
+        
+        function handleClick(e) {
+            button.removeEventListener('click', handleClick);
+            
+            document.getElementById('body').removeChild(that.level);
+            new Level1Instructions();
         }
     }
 

@@ -12,8 +12,9 @@ class Level1Instructions {
 
     renderScreen() {
         const h1 = document.createElement('h1');
+        h1.setAttribute('id', 'h1');
         this.screen.appendChild(h1);
-        h1.innerText = 'Level 1:';
+        h1.innerText = 'Level 1';
         const h2 = document.createElement('h2');
         h1.appendChild(h2);
         h2.innerText = "Find the heavier ball bearing!"
@@ -45,19 +46,95 @@ class Level1Instructions {
 
     clickNext() {
         const button = document.getElementById('next-button');
-        let clicked = false;
+        let clicked = 0;
         const that = this;
         button.addEventListener('click', handleClick);
+        let dialogue = document.getElementById("level-1-dialogue");
 
         function handleClick(event) {
-            console.log(clicked);
-            if (!clicked) {
-                // that.renderInstructions();
-                let dialogue = document.getElementById("level-1-dialogue");
-                dialogue.innerText = `INSTRUCTIONS: 
-                The student approaches the Mme with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Try to click the "weigh" button as little as possible. When you think you have figured out which ball is the heavy one, drag that ball to the student...`
-                clicked = true;
-            } else {
+            clicked += 1
+            if (clicked === 1) {
+                console.log(event);
+                const instructions_label = document.createElement('h2');
+                instructions_label.setAttribute('id', 'instructions-label-1');
+                const h1 = document.getElementById('h1');
+                h1.appendChild(instructions_label);
+                instructions_label.innerText = "INSTRUCTIONS:"
+
+                dialogue.innerText = "The student approaches the Mme with 9 ball bearings, all of them identical in appearance.";
+
+                const nine_balls = new Image();
+                nine_balls.setAttribute('id', 'nine-balls');
+                that.screen.appendChild(nine_balls);
+                const scaleFactorNineBalls = 1 / 2;
+                nine_balls.onload = function () {
+                    this.width = this.width * scaleFactorNineBalls;
+                }
+                nine_balls.src = 'assets/nine_balls.png';
+
+                const student = new Image();
+                student.setAttribute('id', 'student-instructions-1');
+                that.screen.appendChild(student);
+                const scaleFactorStudent = 1 / 8;
+                student.onload = function () {
+                    this.width = this.width * scaleFactorStudent;
+                }
+                student.src = "assets/student_lvl_1.jpg";
+            }
+            else if (clicked === 2) {
+                dialogue.innerText = "They all weigh exactly the same except for one which is slightly heavier."
+            }
+            else if (clicked === 3) {
+                dialogue.innerText = "Your task is to use the scale provided to find which ball is heavier than the rest."
+                let student = document.getElementById('student-instructions-1');
+                let nine_balls = document.getElementById('nine-balls');
+                student.parentNode.removeChild(student);
+                nine_balls.parentNode.removeChild(nine_balls);
+
+                const scale = new Image();
+                scale.setAttribute('id', 'scale-instructions-1');
+                that.screen.appendChild(scale);
+                const scaleFactorScale = 1 / 3;
+                scale.onload = function () {
+                    this.width = this.width * scaleFactorScale;
+                }
+                scale.src = 'assets/scale_instructions.png';
+            }
+            else if (clicked === 4) {
+                dialogue.innerText = `Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip.`
+
+                let scale = document.getElementById('scale-instructions-1');
+                scale.parentNode.removeChild(scale);
+
+                const gif_instructions_1 = new Image();
+                gif_instructions_1.setAttribute('id', 'lvl-1-instructions-1');
+                that.screen.appendChild(gif_instructions_1);
+                const scaleFactorGifInstructions1 = 1 / 3;
+                gif_instructions_1.onload = function () {
+                    this.width = this.width * scaleFactorGifInstructions1;
+                }
+                gif_instructions_1.src = 'assets/lvl_1_instructions_1.gif';
+            }
+            else if (clicked === 5) {
+                dialogue.innerText = `Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle!`;
+            }
+
+            else if (clicked === 6) {
+                dialogue.innerText = `When you think you have figured out which ball is the heavy one, drag that ball to the student...`;
+
+                let gif_instructions_1 = document.getElementById('lvl-1-instructions-1');
+                gif_instructions_1.parentNode.removeChild(gif_instructions_1);
+
+                const gif_instructions_2 = new Image();
+                gif_instructions_2.setAttribute('id', 'lvl-1-instructions-2');
+                that.screen.appendChild(gif_instructions_2);
+                const scaleFactorGifInstructions2 = 1 / 3;
+                gif_instructions_2.onload = function () {
+                    this.width = this.width * scaleFactorGifInstructions2;
+                }
+                gif_instructions_2.src = 'assets/lvl_1_instructions_2.gif';
+            }
+            else if (clicked === 7) {
                 button.removeEventListener('click', handleClick);
                 const body = document.getElementById('body');
                 while (body.firstChild) {
@@ -66,10 +143,6 @@ class Level1Instructions {
                 new Level1Redo();
             }
         }
-    }
-
-    renderInstructions() {
-        docum
     }
 
 }
