@@ -9,9 +9,22 @@ class StartMenu {
         this.clickStart();
     }
 
+    renderChars() {
+        const mme = new Image();
+        mme.setAttribute('id', 'mme-start');
+        const li_2 = document.getElementById('start-li_2');
+        li_2.appendChild(mme);
+        const mmeScaleFactor = 1;
+        mme.onload = function () {
+            this.width = this.width * mmeScaleFactor;
+        }
+        mme.src = "assets/mme_solveur.png";
+    }
+
     renderScreen() {
         this.renderLinks();
         this.renderButton();
+        this.renderChars();
     }
 
     renderLinks() {
@@ -45,6 +58,7 @@ class StartMenu {
 
         const li_2 = document.createElement('li');
         ul.appendChild(li_2);
+        li_2.setAttribute('id', 'start-li_2');
 
         const myLinkedIn = document.createElement('a');
         myLinkedIn.setAttribute('href', 'https://www.linkedin.com/in/neil-pandya-610588187/');

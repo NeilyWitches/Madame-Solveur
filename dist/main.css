@@ -1,3 +1,346 @@
-body{background-color:#e6e6fa;margin-top:40px}#start-menu{width:600px;height:700px;border:4px solid purple;margin:auto}#github{margin-top:20px}#linkedin{position:relative;right:-10px;margin-top:35px}#start-button{margin-top:40px}button{background-color:#340572;border-radius:10px;color:#fff;padding:16px 32px;transition-duration:.4s;cursor:pointer}button:hover{background-color:#e7e7e7}#level-1-instructions{background-color:#fff;width:600px;height:700px;border:4px solid purple;margin:auto}#level-1-dialogue{border:4px solid purple;font:20px Arial;background-color:#e6e6fa;width:500px;margin:auto;margin-top:40px;border-radius:20px;box-sizing:border-box;padding:20px;text-align:left}#next-button{margin-top:30px}#next-button{background-color:#340572;border-radius:10px;color:#fff;padding:16px 32px;transition-duration:.4s;cursor:pointer;margin-left:20px;position:relative;top:0px;right:0px}#next-button:hover{background-color:#e7e7e7}#nine-balls{margin-left:100px;position:relative;top:-150px;left:50px}#student-instructions-1{position:relative;right:450px;bottom:35px}#scale-instructions-1{position:relative;left:240px;bottom:20px}#lvl-1-instructions-1{position:relative;left:230px;bottom:25px}#lvl-1-instructions-2{position:relative;left:200px;bottom:20px}#level-2-instructions{background-color:#fff;width:600px;height:700px;border:4px solid purple;margin:auto}#level-2-dialogue{border:4px solid purple;font:20px Arial;background-color:#e6e6fa;width:500px;margin:auto;margin-top:40px;border-radius:20px;box-sizing:border-box;padding:20px;text-align:left}#next-button{margin-top:30px}#level-2{width:600px;height:700px;border:4px solid purple;margin:auto;background-color:#fff}h1{text-align:center;font:bold 45px Lucida Handwriting;font-family:cursive}h2{font:bold 25px Arial;text-align:center;color:purple}li{margin:20px}ul{text-align:center;list-style-type:none;font:35px Arial;padding:0}.student{color:orange}.mme{color:#995099}input{height:50px;font-size:50px;text-align:center;width:100px}.label{font-weight:bold}.number{font-style:italic}button{font-size:50px}#level-1-redo{width:600px;height:700px;border:4px solid purple;margin:auto;background-color:#fff}.ball{margin:0px;border:0px;padding:0px}.scale{text-align:left;margin:0;padding:0;border:0}#student{position:relative;top:-450px;right:-400px}#li_6{text-align:left;position:relative;top:-550px}#counter{display:inline;margin-left:50px;margin-right:70px}#scale-1{position:relative;top:-10px}#scale-2{position:relative;top:-13px;right:-5px}#scale-3{position:relative;top:-8px;right:-11px}#div-left{width:75px;height:70px;border:5px solid #000;margin:0;padding:0}#div-right{width:75px;height:70px;border:5px solid #000;margin:0;padding:0}.ball-div{width:30px;height:30px;border:2px solid #000;display:inline-block}#scale-5{position:relative;top:-105px;right:-129px}#scale-8{position:relative;top:-550px;right:-97px}#instructions-1-button{font-size:medium;position:relative;left:410px;bottom:1235px}#level-3{width:600px;height:700px;border:4px solid purple;margin:auto}#github-3{margin-right:40px}#linkedin-3{margin-left:40px}#att-label{display:inline-block}#freepik{margin-left:20px}#ball-3{margin-right:100px}#student-3{margin-left:100px}#ball-p{font-size:15px;display:inline-block;margin-right:40px;position:relative;top:-20px}#student-p{font-size:15px;display:inline-block;margin-left:40px;position:relative;top:-20px}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+body {
+  background-color: lavender;
+  margin-top: 40px;
+}
 
-/*# sourceMappingURL=main.css.map*/
+#start-menu {
+  width: 600px;
+  height: 700px;
+  border: 4px solid purple;
+  margin: auto;
+  overflow: hidden;
+}
+
+#linkedin {
+  position: relative;
+  bottom: 270px;
+  left: 90px;
+}
+
+#start-button {
+  position: relative;
+  bottom: 250px;
+}
+
+button {
+  background-color: #340572;
+  border-radius: 10px;
+  color: white;
+  padding: 16px 32px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#mme-start {
+  position: relative;
+  right: 350px;
+  transform: rotate(20deg);
+}
+
+button:hover {
+  background-color: #e7e7e7;
+}
+
+#level-1-instructions {
+  background-color: white;
+  width: 600px;
+  height: 700px;
+  border: 4px solid purple;
+  margin: auto;
+}
+
+#level-1-dialogue {
+  border: 4px solid purple;
+  font: 20px Arial;
+  background-color: lavender;
+  width: 500px;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: left;
+}
+
+#next-button {
+  margin-top: 30px;
+}
+
+#next-button {
+  background-color: #340572;
+  border-radius: 10px;
+  color: white;
+  padding: 16px 32px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin-left: 20px;
+  position: relative;
+  top: 0px;
+  right: 0px;
+}
+
+#next-button:hover {
+  background-color: #e7e7e7;
+}
+
+#nine-balls {
+  margin-left: 100px;
+  position: relative;
+  top: -150px;
+  left: 50px;
+}
+
+#student-instructions-1 {
+  position: relative;
+  right: 450px;
+  bottom: 35px;
+}
+
+#scale-instructions-1 {
+  position: relative;
+  left: 240px;
+  bottom: 20px;
+}
+
+#lvl-1-instructions-1 {
+  position: relative;
+  left: 230px;
+  bottom: 25px;
+}
+
+#lvl-1-instructions-2 {
+  position: relative;
+  left: 200px;
+  bottom: 20px;
+}
+
+#level-2-instructions {
+  background-color: white;
+  width: 600px;
+  height: 700px;
+  border: 4px solid purple;
+  margin: auto;
+}
+
+#level-2-dialogue {
+  border: 4px solid purple;
+  font: 20px Arial;
+  background-color: lavender;
+  width: 500px;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 20px;
+  text-align: left;
+}
+
+#next-button {
+  margin-top: 30px;
+}
+
+#level-2 {
+  width: 600px;
+  height: 700px;
+  border: 4px solid purple;
+  margin: auto;
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+  font: bold 45px Lucida Handwriting;
+  font-family: cursive;
+}
+
+h2 {
+  font: bold 25px Arial;
+  text-align: center;
+  color: purple;
+}
+
+li {
+  margin: 20px;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+  font: 35px Arial;
+  padding: 0;
+}
+
+.student {
+  color: orange;
+}
+
+.mme {
+  color: #995099;
+}
+
+input {
+  height: 50px;
+  font-size: 50px;
+  text-align: center;
+  width: 100px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.number {
+  font-style: italic;
+}
+
+button {
+  font-size: 50px;
+}
+
+#level-1-redo {
+  width: 600px;
+  height: 700px;
+  border: 4px solid purple;
+  margin: auto;
+  background-color: white;
+}
+
+.ball {
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+}
+
+.scale {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#student {
+  position: relative;
+  top: -450px;
+  right: -400px;
+}
+
+#li_6 {
+  text-align: left;
+  position: relative;
+  top: -550px;
+}
+
+#counter {
+  display: inline;
+  margin-left: 50px;
+  margin-right: 70px;
+}
+
+#scale-1 {
+  position: relative;
+  top: -10px;
+}
+
+#scale-2 {
+  position: relative;
+  top: -13px;
+  right: -5px;
+}
+
+#scale-3 {
+  position: relative;
+  top: -8px;
+  right: -11px;
+}
+
+#div-left {
+  width: 75px;
+  height: 70px;
+  border: 5px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+#div-right {
+  width: 75px;
+  height: 70px;
+  border: 5px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+.ball-div {
+  width: 30px;
+  height: 30px;
+  border: 2px solid black;
+  display: inline-block;
+}
+
+#scale-5 {
+  position: relative;
+  top: -105px;
+  right: -129px;
+}
+
+#scale-8 {
+  position: relative;
+  top: -550px;
+  right: -97px;
+}
+
+#instructions-1-button {
+  font-size: medium;
+  position: relative;
+  left: 410px;
+  bottom: 1235px;
+}
+
+#level-3 {
+  width: 600px;
+  height: 700px;
+  border: 4px solid purple;
+  margin: auto;
+}
+
+#github-3 {
+  margin-right: 40px;
+}
+
+#linkedin-3 {
+  margin-left: 40px;
+}
+
+#att-label {
+  display: inline-block;
+}
+
+#freepik {
+  margin-left: 20px;
+}
+
+#ball-3 {
+  margin-right: 100px;
+}
+
+#student-3 {
+  margin-left: 100px;
+}
+
+#ball-p {
+  font-size: 15px;
+  display: inline-block;
+  margin-right: 40px;
+  position: relative;
+  top: -20px;
+}
+
+#student-p {
+  font-size: 15px;
+  display: inline-block;
+  margin-left: 40px;
+  position: relative;
+  top: -20px;
+}
