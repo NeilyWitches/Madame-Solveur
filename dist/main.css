@@ -14,7 +14,7 @@ body {
   display: flex;
   width: 600px;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 2%;
   margin-top: 2%;
   background-color: lavender;
@@ -30,6 +30,12 @@ body {
 }
 
 .social {
+  height: auto;
+  width: 70px;
+  margin-bottom: 25%;
+}
+
+.angel-list {
   height: auto;
   width: 50px;
   margin-bottom: 25%;
