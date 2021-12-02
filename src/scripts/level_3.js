@@ -6,12 +6,10 @@ class Level3 {
         document.getElementById('body').appendChild(this.screen);
         this.screen.setAttribute('id', 'level-3');
         this.renderScreen();
-        // this.clickStart();
     }
 
     renderScreen() {
         this.renderLinks();
-        // this.renderButton();
     }
 
     renderLinks() {
