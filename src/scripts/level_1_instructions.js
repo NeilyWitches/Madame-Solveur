@@ -21,20 +21,13 @@ class Level1Instructions {
     }
 
     renderDialogue() {
-        this.screen.appendChild(this.ul);
-        const li_1 = document.createElement('li');
-        this.ul.appendChild(li_1);
         const dialogue = document.createElement('div');
-        li_1.appendChild(dialogue);
+        this.screen.appendChild(dialogue);
         dialogue.setAttribute('id', 'level-1-dialogue');
         dialogue.innerText = `On one typical Autumn morning, Mme Solveur was sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. `
         const mme = new Image();
         mme.setAttribute('id', 'mme-1');
         this.screen.appendChild(mme);
-        const scaleFactorMme = 1;
-        mme.onload = function () {
-            this.width = this.width * scaleFactorMme;
-        }
         mme.src = "assets/mme_solveur.png";
             // As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. 
             // Startled but warm, the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student heard about Mme Solveur's ability to solve puzzles...`;
