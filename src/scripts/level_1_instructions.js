@@ -2,21 +2,18 @@ import Level1Redo from "./level_1_redo";
 
 class Level1Instructions {
     constructor() {
-        this.screen = document.createElement('div');
-        document.getElementById('body').appendChild(this.screen);
-        this.screen.setAttribute('id', 'level-1-instructions');
-        this.ul = document.createElement('ul');
-        this.renderScreen();
+        this.screen = document.getElementById('screen')
+        this.renderPreLevel();
         this.clickNext();
     }
 
-    renderScreen() {
+    renderPreLevel() {
         const h1 = document.createElement('h1');
         h1.setAttribute('id', 'h1');
         this.screen.appendChild(h1);
         h1.innerText = 'Level 1';
         const h2 = document.createElement('h2');
-        h1.appendChild(h2);
+        this.screen.appendChild(h2);
         h2.innerText = "Find the heavier ball bearing!"
 
         this.renderDialogue();

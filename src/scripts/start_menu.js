@@ -29,10 +29,17 @@ class StartMenu {
         this.screen.appendChild(h2);
         h2.innerText = "A game about solving puzzles!"
 
+        const descriptionContainer = document.createElement('div');
+        this.screen.appendChild(descriptionContainer);
+        descriptionContainer.setAttribute('id', 'start-menu-game-description')
         const description = document.createElement('div');
-        this.screen.appendChild(description);
-        description.setAttribute('id', 'start-menu-game-description')
-        description.innerText = 'Welcome to Madame Solveur. In this game, each level is itself a minigame! Although each minigame shares the common property of being a puzzle, each puzzle is very different. I hope you enjoy solving puzzles as much as I do and half as much as I did making this game.'
+        description.innerText = 'Welcome to Madame Solveur. In this game, each level is itself a minigame! Although each minigame shares the common property of being a puzzle, each puzzle is very different. I hope you enjoy solving puzzles as much as I do and half as much as I did'
+        descriptionContainer.appendChild(description);
+        const repo = document.createElement('a');
+        repo.innerText = 'making this game.'
+        descriptionContainer.appendChild(repo);
+        repo.setAttribute('href', 'https://github.com/NeilyWitches/Madame-Solveur')
+        
     }
 
     renderButton() {
@@ -45,12 +52,12 @@ class StartMenu {
     clickStart() {
         const button = document.getElementById('start-button');
         button.addEventListener('click', handleClick);
+        let that = this;
 
-        function handleClick(event) {
+        function handleClick() {
             button.removeEventListener('click', handleClick);
-            const body = document.getElementById('body');
-            while (body.firstChild) {
-                body.removeChild(body.firstChild);
+            while (that.screen.firstChild) {
+                that.screen.removeChild(that.screen.firstChild);
             }
             new Level1Instructions();
         }
