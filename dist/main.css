@@ -1,6 +1,5 @@
-/*!*************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
-  \*************************************************************************************************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Gwendolyn&family=Outfit:wght@700&display=swap');
+
 body {
   text-decoration: none;
   display: flex;
@@ -75,15 +74,16 @@ h1 {
 }
 
 h2 {
-  font: bold 25px Arial;
+  font-family: 'Outfit', sans-serif;
   color: purple;
   margin-top: 3%;
+  font-size: 25px;
 }
 
 #start-menu-game-description {
   font: 17px Monaco;
   width: 50%;
-  margin-top: 10%;
+  margin-top: 8%;
   padding: 5%;
   border-radius: 40px;
   background-color: pink;
@@ -97,6 +97,8 @@ button {
   padding: 16px 32px;
   transition-duration: 0.4s;
   cursor: pointer;
+  font: bold 45px Lucida Handwriting;
+  font-family: cursive;
 }
 
 button:hover {
