@@ -1,8 +1,40 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Gwendolyn&family=Outfit:wght@700&display=swap);
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
+  \*****************************************************************************************************************************************/
+#start-button {
+  margin-top: 10%;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Gwendolyn&family=Outfit:wght@700&display=swap');
+button {
+  background-color: #340572;
+  border-radius: 40px;
+  color: white;
+  padding: 16px 32px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font: bold 45px Lucida Handwriting;
+  font-family: cursive;
+}
+
+#mme-start {
+  position: relative;
+  right: 350px;
+  transform: rotate(20deg);
+}
+
+button:hover {
+  background-color: purple;
+}
+
+.social-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 body {
   text-decoration: none;
@@ -26,12 +58,6 @@ body {
   border-radius: 40px;
 }
 
-.social-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .social {
   height: auto;
   width: 70px;
@@ -45,7 +71,7 @@ body {
 }
 
 .social-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 a {
@@ -78,7 +104,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif !important;
   color: purple;
   margin-top: 3%;
   font-size: 25px;
@@ -92,25 +118,6 @@ h2 {
   border-radius: 40px;
   background-color: pink;
   box-shadow: 5px 10px;
-}
-
-button {
-  background-color: #340572;
-  border-radius: 40px;
-  color: white;
-  padding: 16px 32px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  font: bold 45px Lucida Handwriting;
-  font-family: cursive;
-}
-
-button:hover {
-  background-color: purple;
-}
-
-#start-button {
-  margin-top: 10%;
 }
 
 #mme-start {
