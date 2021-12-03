@@ -151,10 +151,8 @@ h2 {
 }
 
 #nine-balls {
-  margin-left: 100px;
-  position: relative;
-  top: -150px;
-  left: 50px;
+  height: auto;
+  width: 50%;
 }
 
 #student-instructions-1 {
@@ -181,7 +179,7 @@ h2 {
   bottom: 20px;
 }
 
-#instructions-label-1 {
+.instructions-label {
   color: black;
   text-decoration: underline;
 }

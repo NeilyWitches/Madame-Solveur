@@ -9,7 +9,6 @@ class Level1Instructions {
 
     renderPreLevel() {
         const h1 = document.createElement('h1');
-        h1.setAttribute('id', 'h1');
         this.screen.appendChild(h1);
         h1.innerText = 'Level 1';
         const h2 = document.createElement('h2');
@@ -25,7 +24,7 @@ class Level1Instructions {
         this.screen.appendChild(this.dialogue);
         this.dialogue.setAttribute('class', 'text-box');
         this.dialogue.setAttribute('id', 'level-1-text');
-        this.dialogue.innerText = `On one typical Autumn morning, Mme Solveur was sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. `
+        this.dialogue.innerText = `One typical Autumn morning, Mme Solveur was sitting in her office heavily concentrated on her research in theoretical physics at the Sorbonne in Paris, France. `
         const mme = new Image();
         mme.setAttribute('id', 'mme-1');
         this.screen.appendChild(mme);
@@ -49,7 +48,7 @@ class Level1Instructions {
             clicked += 1
             if (clicked === 1) {
                 
-                that.dialogue.innerText = 'As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. '
+                that.dialogue.innerText = 'As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the open door. '
                 
                 const student = new Image();
                 student.setAttribute('id', 'student-prelevel-1');
@@ -66,39 +65,15 @@ class Level1Instructions {
                         student.style.left = pos + 'px';
                     }
                 }
-                // const instructions_label = document.createElement('h2');
-                // instructions_label.setAttribute('id', 'instructions-label-1');
-                // const h1 = document.getElementById('h1');
-                // h1.appendChild(instructions_label);
-                // instructions_label.innerText = "INSTRUCTIONS:"
 
-                // dialogue.innerText = "The student approaches the Mme with 9 ball bearings, all of them identical in appearance.";
-
-                // const nine_balls = new Image();
-                // nine_balls.setAttribute('id', 'nine-balls');
-                // that.screen.appendChild(nine_balls);
-                // const scaleFactorNineBalls = 1 / 2;
-                // nine_balls.onload = function () {
-                //     this.width = this.width * scaleFactorNineBalls;
-                // }
-                // nine_balls.src = 'assets/nine_balls.png';
-
-                // const student = new Image();
-                // student.setAttribute('id', 'student-instructions-1');
-                // that.screen.appendChild(student);
-                // const scaleFactorStudent = 1 / 8;
-                // student.onload = function () {
-                //     this.width = this.width * scaleFactorStudent;
-                // }
-                // student.src = "assets/student_lvl_1.png";
             }
             else if (clicked === 2) {
 
-                that.dialogue.innerText = "Startled but warm, the physicist welcomed him in and he explained his reason for coming." 
+                that.dialogue.innerText = "Startled but warm, the physicist welcomed them in and the student explained their reason for coming." 
                 // dialogue.innerText = "They all weigh exactly the same except for one which is slightly heavier."
             }
             else if (clicked === 3) {
-                that.dialogue.innerText = "He was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered."
+                that.dialogue.innerText = "They were tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem they had encountered."
                 // dialogue.innerText = "Your task is to use the scale provided to find which ball is heavier than the rest."
                 // let student = document.getElementById('student-instructions-1');
                 // let nine_balls = document.getElementById('nine-balls');
@@ -115,7 +90,7 @@ class Level1Instructions {
                 // scale.src = 'assets/scale_instructions.png';
             }
             else if (clicked === 4) {
-                that.dialogue.innerText = "The student heard about Mme Solveur's ability to solve puzzles..."
+                that.dialogue.innerText = "They heard about Mme Solveur's exceptional ability to solve puzzles..."
                 // dialogue.innerText = `Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip.`
 
                 // let scale = document.getElementById('scale-instructions-1');
@@ -131,7 +106,18 @@ class Level1Instructions {
                 // gif_instructions_1.src = 'assets/lvl_1_instructions_1.gif';
             }
             else if (clicked === 5) {
-                dialogue.innerText = `Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle!`;
+                // dialogue.innerText = `Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle!`;
+
+                const instructions_label = document.createElement('h2');
+                instructions_label.setAttribute('class', 'instructions-label');
+                that.screen.appendChild(instructions_label);
+                instructions_label.innerText = "INSTRUCTIONS:"
+
+                that.dialogue.innerText = "The student approaches the Mme with 9 ball bearings, all of them identical in appearance.";
+
+                const nine_balls = new Image();
+                nine_balls.setAttribute('id', 'nine-balls');
+                that.screen.appendChild(nine_balls);
             }
 
             else if (clicked === 6) {
