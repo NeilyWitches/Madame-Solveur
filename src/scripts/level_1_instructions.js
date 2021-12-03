@@ -30,7 +30,6 @@ class Level1Instructions {
         mme.setAttribute('id', 'mme-1');
         this.screen.appendChild(mme);
         mme.src = "assets/mme_solveur.png";
-            // Startled but warm, the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student heard about Mme Solveur's ability to solve puzzles...`;
     }
 
     renderNextButton() {
@@ -94,38 +93,42 @@ class Level1Instructions {
                 // student.src = "assets/student_lvl_1.png";
             }
             else if (clicked === 2) {
-                dialogue.innerText = "They all weigh exactly the same except for one which is slightly heavier."
+
+                that.dialogue.innerText = "Startled but warm, the physicist welcomed him in and he explained his reason for coming." 
+                // dialogue.innerText = "They all weigh exactly the same except for one which is slightly heavier."
             }
             else if (clicked === 3) {
-                dialogue.innerText = "Your task is to use the scale provided to find which ball is heavier than the rest."
-                let student = document.getElementById('student-instructions-1');
-                let nine_balls = document.getElementById('nine-balls');
-                student.parentNode.removeChild(student);
-                nine_balls.parentNode.removeChild(nine_balls);
+                that.dialogue.innerText = "He was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered."
+                // dialogue.innerText = "Your task is to use the scale provided to find which ball is heavier than the rest."
+                // let student = document.getElementById('student-instructions-1');
+                // let nine_balls = document.getElementById('nine-balls');
+                // student.parentNode.removeChild(student);
+                // nine_balls.parentNode.removeChild(nine_balls);
 
-                const scale = new Image();
-                scale.setAttribute('id', 'scale-instructions-1');
-                that.screen.appendChild(scale);
-                const scaleFactorScale = 1 / 4;
-                scale.onload = function () {
-                    this.width = this.width * scaleFactorScale;
-                }
-                scale.src = 'assets/scale_instructions.png';
+                // const scale = new Image();
+                // scale.setAttribute('id', 'scale-instructions-1');
+                // that.screen.appendChild(scale);
+                // const scaleFactorScale = 1 / 4;
+                // scale.onload = function () {
+                //     this.width = this.width * scaleFactorScale;
+                // }
+                // scale.src = 'assets/scale_instructions.png';
             }
             else if (clicked === 4) {
-                dialogue.innerText = `Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip.`
+                that.dialogue.innerText = "The student heard about Mme Solveur's ability to solve puzzles..."
+                // dialogue.innerText = `Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip.`
 
-                let scale = document.getElementById('scale-instructions-1');
-                scale.parentNode.removeChild(scale);
+                // let scale = document.getElementById('scale-instructions-1');
+                // scale.parentNode.removeChild(scale);
 
-                const gif_instructions_1 = new Image();
-                gif_instructions_1.setAttribute('id', 'lvl-1-instructions-1');
-                that.screen.appendChild(gif_instructions_1);
-                const scaleFactorGifInstructions1 = 1 / 4;
-                gif_instructions_1.onload = function () {
-                    this.width = this.width * scaleFactorGifInstructions1;
-                }
-                gif_instructions_1.src = 'assets/lvl_1_instructions_1.gif';
+                // const gif_instructions_1 = new Image();
+                // gif_instructions_1.setAttribute('id', 'lvl-1-instructions-1');
+                // that.screen.appendChild(gif_instructions_1);
+                // const scaleFactorGifInstructions1 = 1 / 4;
+                // gif_instructions_1.onload = function () {
+                //     this.width = this.width * scaleFactorGifInstructions1;
+                // }
+                // gif_instructions_1.src = 'assets/lvl_1_instructions_1.gif';
             }
             else if (clicked === 5) {
                 dialogue.innerText = `Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle!`;
