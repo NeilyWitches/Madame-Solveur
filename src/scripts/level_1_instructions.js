@@ -46,9 +46,27 @@ class Level1Instructions {
         this.nextButton.addEventListener('click', handleClick);
 
         function handleClick() {
+            
             clicked += 1
             if (clicked === 1) {
+                
                 that.dialogue.innerText = 'As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. '
+                
+                const student = new Image();
+                student.setAttribute('id', 'student-prelevel-1');
+                that.screen.appendChild(student);
+                student.src = "assets/student_looking_left.png";
+                let pos = 580;
+                let studentKnocks = setInterval(moveStudent, 10);
+                
+                function moveStudent() {
+                    if (pos == 420) {
+                        clearInterval(studentKnocks);
+                    } else {
+                        pos--;
+                        student.style.left = pos + 'px';
+                    }
+                }
                 // const instructions_label = document.createElement('h2');
                 // instructions_label.setAttribute('id', 'instructions-label-1');
                 // const h1 = document.getElementById('h1');

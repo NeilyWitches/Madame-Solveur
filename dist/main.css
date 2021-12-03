@@ -88,6 +88,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 #start-menu {
@@ -127,6 +128,13 @@ h2 {
   position: relative;
   bottom: 350px;
   right: 262px;
+}
+
+#student-prelevel-1 {
+  position: absolute;
+  height: auto;
+  width: 20%;
+  top: 300px;
 }
 
 #level-1-dialogue {
