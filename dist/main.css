@@ -110,7 +110,7 @@ h2 {
   font-size: 25px;
 }
 
-#start-menu-game-description {
+.text-box {
   font: 17px Monaco;
   width: 50%;
   margin-top: 8%;
@@ -121,19 +121,12 @@ h2 {
 }
 
 #mme-start {
-  transform: rotate(20deg);
+  transform: rotate(18deg);
   height: auto;
-  width: 25%;
+  width: 35%;
   position: relative;
-  bottom: 250px;
-  right: 250px;
-}
-
-#level-1-instructions {
-  width: 600px;
-  height: 700px;
-  border: 4px solid purple;
-  margin: auto;
+  bottom: 350px;
+  right: 262px;
 }
 
 #level-1-dialogue {
@@ -147,27 +140,6 @@ h2 {
   box-sizing: border-box;
   padding: 20px;
   text-align: left;
-}
-
-#next-button {
-  margin-top: 30px;
-}
-
-#next-button {
-  background-color: #340572;
-  border-radius: 10px;
-  color: white;
-  padding: 16px 32px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  margin-left: 20px;
-  position: relative;
-  top: 100px;
-  right: 0px;
-}
-
-#next-button:hover {
-  background-color: #e7e7e7;
 }
 
 #nine-balls {
@@ -207,8 +179,20 @@ h2 {
 }
 
 #mme-1 {
+  height: auto;
+  width: 50%;
   position: relative;
-  top: -200px;
+  right: 200px;
+  top: 50px;
+}
+
+#next-button {
+  position: relative;
+  bottom: 550px;
+}
+
+#level-1-text {
+  min-height: 120px;
 }
 
 #level-2-instructions {
@@ -229,10 +213,6 @@ h2 {
   box-sizing: border-box;
   padding: 20px;
   text-align: left;
-}
-
-#next-button {
-  margin-top: 30px;
 }
 
 #instructions-label-2 {

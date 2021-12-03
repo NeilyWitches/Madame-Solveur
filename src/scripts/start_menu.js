@@ -31,7 +31,7 @@ class StartMenu {
 
         const descriptionContainer = document.createElement('div');
         this.screen.appendChild(descriptionContainer);
-        descriptionContainer.setAttribute('id', 'start-menu-game-description')
+        descriptionContainer.setAttribute('class', 'text-box')
         const description = document.createElement('div');
         description.innerText = 'Welcome to Madame Solveur. In this game, each level is itself a minigame! Although each minigame shares the common property of being a puzzle, each puzzle is very different. I hope you enjoy solving puzzles as much as I do and half as much as I did'
         descriptionContainer.appendChild(description);

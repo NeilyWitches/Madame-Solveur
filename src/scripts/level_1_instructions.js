@@ -21,64 +21,59 @@ class Level1Instructions {
     }
 
     renderDialogue() {
-        const dialogue = document.createElement('div');
-        this.screen.appendChild(dialogue);
-        dialogue.setAttribute('id', 'level-1-dialogue');
-        dialogue.innerText = `On one typical Autumn morning, Mme Solveur was sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. `
+        this.dialogue = document.createElement('div');
+        this.screen.appendChild(this.dialogue);
+        this.dialogue.setAttribute('class', 'text-box');
+        this.dialogue.setAttribute('id', 'level-1-text');
+        this.dialogue.innerText = `On one typical Autumn morning, Mme Solveur was sitting in her office heavily concentrating on her research in theoretical physics at the Sorbonne in Paris, France. `
         const mme = new Image();
         mme.setAttribute('id', 'mme-1');
         this.screen.appendChild(mme);
         mme.src = "assets/mme_solveur.png";
-            // As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. 
             // Startled but warm, the physicist welcomed him in and he explained that his reason for coming was that he was tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem he had encountered. The student heard about Mme Solveur's ability to solve puzzles...`;
     }
 
     renderNextButton() {
-        const li_2 = document.createElement('li');
-        this.ul.appendChild(li_2);
-
-        const nextButton = document.createElement('button');
-        li_2.appendChild(nextButton);
-        nextButton.setAttribute('id', 'next-button');
-        nextButton.setAttribute('type', 'button');
-        nextButton.innerText = "Next";
+        this.nextButton = document.createElement('button');
+        this.screen.appendChild(this.nextButton);
+        this.nextButton.setAttribute('id', 'next-button');
+        this.nextButton.innerText = "Next";
     }
 
     clickNext() {
-        const button = document.getElementById('next-button');
         let clicked = 0;
         const that = this;
-        button.addEventListener('click', handleClick);
-        let dialogue = document.getElementById("level-1-dialogue");
+        this.nextButton.addEventListener('click', handleClick);
 
-        function handleClick(event) {
+        function handleClick() {
             clicked += 1
             if (clicked === 1) {
-                const instructions_label = document.createElement('h2');
-                instructions_label.setAttribute('id', 'instructions-label-1');
-                const h1 = document.getElementById('h1');
-                h1.appendChild(instructions_label);
-                instructions_label.innerText = "INSTRUCTIONS:"
+                that.dialogue.innerText = 'As she thought about a possible candidate for dark matter, a freshman had approached her office knocking on the door pane. '
+                // const instructions_label = document.createElement('h2');
+                // instructions_label.setAttribute('id', 'instructions-label-1');
+                // const h1 = document.getElementById('h1');
+                // h1.appendChild(instructions_label);
+                // instructions_label.innerText = "INSTRUCTIONS:"
 
-                dialogue.innerText = "The student approaches the Mme with 9 ball bearings, all of them identical in appearance.";
+                // dialogue.innerText = "The student approaches the Mme with 9 ball bearings, all of them identical in appearance.";
 
-                const nine_balls = new Image();
-                nine_balls.setAttribute('id', 'nine-balls');
-                that.screen.appendChild(nine_balls);
-                const scaleFactorNineBalls = 1 / 2;
-                nine_balls.onload = function () {
-                    this.width = this.width * scaleFactorNineBalls;
-                }
-                nine_balls.src = 'assets/nine_balls.png';
+                // const nine_balls = new Image();
+                // nine_balls.setAttribute('id', 'nine-balls');
+                // that.screen.appendChild(nine_balls);
+                // const scaleFactorNineBalls = 1 / 2;
+                // nine_balls.onload = function () {
+                //     this.width = this.width * scaleFactorNineBalls;
+                // }
+                // nine_balls.src = 'assets/nine_balls.png';
 
-                const student = new Image();
-                student.setAttribute('id', 'student-instructions-1');
-                that.screen.appendChild(student);
-                const scaleFactorStudent = 1 / 8;
-                student.onload = function () {
-                    this.width = this.width * scaleFactorStudent;
-                }
-                student.src = "assets/student_lvl_1.png";
+                // const student = new Image();
+                // student.setAttribute('id', 'student-instructions-1');
+                // that.screen.appendChild(student);
+                // const scaleFactorStudent = 1 / 8;
+                // student.onload = function () {
+                //     this.width = this.width * scaleFactorStudent;
+                // }
+                // student.src = "assets/student_lvl_1.png";
             }
             else if (clicked === 2) {
                 dialogue.innerText = "They all weigh exactly the same except for one which is slightly heavier."

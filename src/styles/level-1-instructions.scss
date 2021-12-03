@@ -1,10 +1,3 @@
-#level-1-instructions {
-    width: 600px;
-    height: 700px;
-    border: 4px solid purple;
-    margin: auto;
-}
-
 #level-1-dialogue {
     border: 4px solid purple;
     font: 20px Arial;
@@ -17,25 +10,6 @@
     padding: 20px;
     text-align: left;
 }
-
-#next-button {
-    margin-top: 30px;
-}
-
-#next-button {
-    background-color: rgb(52, 5, 114);
-    border-radius: 10px;
-    color: white;
-    padding: 16px 32px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    margin-left: 20px;
-    position: relative;
-    top: 100px;
-    right: 0px;
-}
-
-#next-button:hover {background-color: #e7e7e7;}
 
 #nine-balls {
     margin-left: 100px;
@@ -74,6 +48,18 @@
 }
 
 #mme-1 {
+    height: auto;
+    width: 50%;
     position: relative;
-    top: -200px;
+    right: 200px;
+    top: 50px;
+}
+
+#next-button {
+    position: relative;
+    bottom: 550px;
+}
+
+#level-1-text {
+    min-height: 120px;
 }
