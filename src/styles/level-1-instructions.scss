@@ -1,32 +1,68 @@
-#student-prelevel-1 {
+#student-story {
     position: absolute;
     height: auto;
     width: 20%;
-    top: 300px;
+    top: 315px;
+    z-index: 1;
 }
 
-#level-1-dialogue {
-    border: 4px solid purple;
-    font: 20px Arial;
-    background-color: lavender;
-    width: 500px;
-    margin: auto;
-    margin-top: 40px;
-    border-radius: 20px;
-    box-sizing: border-box;
-    padding: 20px;
-    text-align: left;
+.instructions-label {
+    color: black;
+    text-decoration: underline;
+    letter-spacing: 2px;
+}
+
+#level-1-story-text {
+    min-height: 120px;
+    z-index: 1;
+}
+
+#level-1-instructions-text {
+    max-height: 85px;
+    min-height: 85px;
+}
+
+#mme-1 {
+    height: auto;
+    width: 25%;
+    position: absolute;
+    right: 400px;
+    top: 350px;
+    z-index: 1;
+}
+
+#sorbonne {
+    opacity: .35;
+}
+
+#next-button {
+    position: relative;
+    bottom: 150px;
+    font-size: 20px;
+    padding: 8px 16px;
+    z-index: 1;
 }
 
 #nine-balls {
     height: auto;
     width: 50%;
+    position: relative;
+    bottom: 850px;
+    left: 100px;
 }
 
-#student-instructions-1 {
+#student-instructions {
+    height: auto;
+    width: 50%;
     position: relative;
-    right: 350px;
-    bottom: 35px;
+    right: 200px;
+}
+
+#next-button-1-instructions {
+    position: absolute;
+    top: 625px;
+    font-size: 20px;
+    padding: 8px 16px;
 }
 
 #scale-instructions-1 {
@@ -45,26 +81,4 @@
     position: relative;
     left: 200px;
     bottom: 20px
-}
-
-.instructions-label {
-    color: black;
-    text-decoration: underline;
-}
-
-#mme-1 {
-    height: auto;
-    width: 50%;
-    position: relative;
-    right: 200px;
-    top: 50px;
-}
-
-#next-button {
-    position: relative;
-    bottom: 550px;
-}
-
-#level-1-text {
-    min-height: 120px;
 }

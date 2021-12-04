@@ -1,4 +1,4 @@
-import Level1Instructions from "./level_1_instructions";
+import Level1Story from "./level_1_story";
 
 class StartMenu {
     constructor() {
@@ -59,7 +59,7 @@ class StartMenu {
             while (that.screen.firstChild) {
                 that.screen.removeChild(that.screen.firstChild);
             }
-            new Level1Instructions();
+            new Level1Story();
         }
     }
 }

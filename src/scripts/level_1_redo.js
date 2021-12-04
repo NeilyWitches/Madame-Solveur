@@ -1,5 +1,5 @@
 import Ball from "./ball.js"
-import Level1Instructions from "./level_1_instructions.js";
+import Level1Instructions from "./level_1_story.js";
 import Level2Instructions from "./level_2.js";
 
 class Level1Redo {
