@@ -90,6 +90,18 @@ class Level1Instructions {
             this.screen.appendChild(this.balls);
             this.balls.src = 'assets/nine_balls.png';
             this.balls.style.bottom = '250px';
+        } else if (this.clicked === 4) {
+            this.clicked = 3;
+            this.instructions.innerText = `Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip.`;
+        } else if (this.clicked === 5) {
+            this.clicked = 4;
+            this.instructions.innerText = `Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle!`;
+            this.screen.removeChild(document.getElementById('lvl-1-instructions-2'));
+            const gif_instructions_1 = new Image();
+            gif_instructions_1.setAttribute('id', 'lvl-1-instructions-1');
+            this.screen.appendChild(gif_instructions_1);
+            gif_instructions_1.src = 'assets/lvl_1_instructions_1.gif';
+            this.nextButton.innerText = 'Next';
         }
     }
 
@@ -127,6 +139,7 @@ class Level1Instructions {
             gif_instructions_2.setAttribute('id', 'lvl-1-instructions-2');
             this.screen.appendChild(gif_instructions_2);
             gif_instructions_2.src = 'assets/lvl_1_instructions_2.gif';
+            this.nextButton.innerText = 'Start';
         } else if (this.clicked === 6) {
             this.nextButton.removeEventListener('click', this.clickNext);
             while (this.screen.firstChild) {
