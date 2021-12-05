@@ -1,8 +1,13 @@
+import Level1Redo from "./level_1_proper";
+
 class Level1Instructions {
     constructor() {
-        this.screen = document.getElementById('screen')
+        this.screen = document.getElementById('screen');
+        this.clickNext = this.clickNext.bind(this);
+        // this.clickBack = this.clickBack.bind(this);
         this.renderInstructions();
-        this.clickNext();
+        this.clicked = 0;
+        this.balls = document.getElementById('nine-balls');
     }
 
     renderInstructions() {
@@ -19,6 +24,7 @@ class Level1Instructions {
 
         this.renderText()
         this.renderNextButton();
+        this.renderBackButton();
     }
     
     renderText() {
@@ -29,16 +35,16 @@ class Level1Instructions {
 
         this.instructions.innerText = "The student approaches the Mme with 9 ball bearings, all of them identical in appearance.";
 
-        const student = new Image();
-        student.setAttribute('id', 'student-instructions');
+        this.student = new Image();
+        this.student.setAttribute('id', 'student-instructions');
         
-        this.screen.appendChild(student);
-        student.src = 'assets/student_looking_right.png';
+        this.screen.appendChild(this.student);
+        this.student.src = 'assets/student_looking_right.png';
         
-        const nine_balls = new Image();
-        nine_balls.setAttribute('id', 'nine-balls');
-        this.screen.appendChild(nine_balls);
-        nine_balls.src = 'assets/nine_balls.png';
+        this.balls = new Image();
+        this.balls.setAttribute('id', 'nine-balls');
+        this.screen.appendChild(this.balls);
+        this.balls.src = 'assets/nine_balls.png';
     }
 
     renderNextButton() {
@@ -46,25 +52,55 @@ class Level1Instructions {
         this.screen.appendChild(this.nextButton);
         this.nextButton.setAttribute('id', 'next-button-1-instructions');
         this.nextButton.innerText = "Next";
+        this.nextButton.addEventListener('click', this.clickNext);
+    }
+
+    renderBackButton() {
+        this.backButton = document.createElement('button');
+        this.screen.appendChild(this.backButton);
+        this.backButton.setAttribute('id', 'back-button-1-instructions');
+        this.backButton.innerText = "Back";
+        this.backButton.addEventListener('click', this.clickBack);
     }
 
     clickNext() {
-        let clicked = 0;
-        const that = this;
-        this.nextButton.addEventListener('click', handleClick);
-        const student = document.getElementById('student-instructions');
-        const balls = document.getElementById('nine-balls');
-
-        function handleClick() {
-            clicked += 1
-            if (clicked === 1) {
-                that.instructions.innerText = "They all weigh exactly the same except for one which is slightly heavier."
+        this.clicked += 1
+        if (this.clicked === 1) {
+            this.instructions.innerText = "They all weigh exactly the same except for one which is slightly heavier."
+        } else if (this.clicked === 2) {
+            this.instructions.innerText = "Your task is to use the scale provided to find which ball is heavier than the rest."
+            this.screen.removeChild(this.student);
+            this.balls.style.bottom = 0;
+            this.balls.style.top = '100px';
+            const scale = new Image();
+            scale.setAttribute('id', 'scale-instructions-1');
+            this.screen.appendChild(scale);
+            scale.src = 'assets/scale_instructions.png';
+        } else if (this.clicked === 3) {
+            this.instructions.innerText = `Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip.`
+            const scale = document.getElementById('scale-instructions-1')
+            this.screen.removeChild(this.balls);
+            this.screen.removeChild(scale);
+            const gif_instructions_1 = new Image();
+            gif_instructions_1.setAttribute('id', 'lvl-1-instructions-1');
+            this.screen.appendChild(gif_instructions_1);
+            gif_instructions_1.src = 'assets/lvl_1_instructions_1.gif';
+        } else if (this.clicked === 4) {
+            this.instructions.innerText = `Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle!`;
+        } else if (this.clicked === 5) {
+            this.instructions.innerText = 'When you think you have figured out which ball is the heavy one, drag that ball to the student...';
+            let gif_instructions_1 = document.getElementById('lvl-1-instructions-1');
+            gif_instructions_1.parentNode.removeChild(gif_instructions_1);
+            const gif_instructions_2 = new Image();
+            gif_instructions_2.setAttribute('id', 'lvl-1-instructions-2');
+            this.screen.appendChild(gif_instructions_2);
+            gif_instructions_2.src = 'assets/lvl_1_instructions_2.gif';
+        } else if (this.clicked === 6) {
+            this.nextButton.removeEventListener('click', this.clickNext);
+            while (this.screen.firstChild) {
+                this.screen.removeChild(this.screen.firstChild);
             }
-            else if (clicked === 2) {
-                that.instructions.innerText = "Your task is to use the scale provided to find which ball is heavier than the rest."
-                that.screen.removeChild(student);
-                that.screen.removeChild(balls);
-            } 
+            new Level1Redo();
         }
     }
 

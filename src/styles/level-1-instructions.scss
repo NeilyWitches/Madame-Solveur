@@ -20,6 +20,9 @@
 #level-1-instructions-text {
     max-height: 85px;
     min-height: 85px;
+    z-index: 1;
+    position: relative;
+    bottom: 40px;
 }
 
 #mme-1 {
@@ -48,7 +51,8 @@
     width: 50%;
     position: relative;
     bottom: 850px;
-    left: 100px;
+    left: 120px;
+    z-index: 1;
 }
 
 #student-instructions {
@@ -63,22 +67,39 @@
     top: 625px;
     font-size: 20px;
     padding: 8px 16px;
+    z-index: 2;
+    right: 100px;
+}
+
+#back-button-1-instructions {
+    top: 625px;
+    left: 260px;
+    position: absolute;
+    font-size: 20px;
+    padding: 8px 16px;
+    z-index: 2;
 }
 
 #scale-instructions-1 {
+    height: auto;
+    width: 45%;
     position: relative;
-    left: 240px;
-    bottom: 20px;
+    right: 160px;
+    bottom: 50px;
 }
 
 #lvl-1-instructions-1 {
     position: relative;
-    left: 230px;
-    bottom: 25px;
+    height: auto;
+    width: 48%;
+    z-index: 1;
+    bottom: 50px;
 }
 
 #lvl-1-instructions-2 {
     position: relative;
-    left: 200px;
-    bottom: 20px
+    z-index: 1;
+    bottom: 50px;
+    height: auto;
+    width: 50%;
 }
