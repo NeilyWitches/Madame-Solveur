@@ -6,10 +6,10 @@ class Level1Proper {
     constructor() {
         this.screen = document.getElementById('screen');
         this.renderLevel();
-        this.dragAndDrop();
-        this.clickWeigh();
-        this.reset();
-        this.instructions();
+        // this.dragAndDrop();
+        // this.clickWeigh();
+        // this.reset();
+        // this.instructions();
     }
 
     renderLevel() {
@@ -26,8 +26,8 @@ class Level1Proper {
 
         this.renderBalls();
         this.renderScale();
-        this.renderButtons();
-        this.renderStudent();
+        // this.renderButtons();
+        // this.renderStudent();
     }
 
     renderBalls() {
@@ -44,87 +44,83 @@ class Level1Proper {
     }
 
     renderScale() {
-        const ul = document.getElementById('ul');
-        const li_2 = document.createElement('li');
-        li_2.classList.add('scale');
-        ul.appendChild(li_2);
+
         const scale_top = new Image();
         scale_top.setAttribute('id', 'scale-top');
-        li_2.appendChild(scale_top);
-        const scale_factor = 1 /4;
-        scale_top.onload = function () {
-            this.width = this.width * scale_factor;
-        }
-        scale_top.src = 'assets/scale_top.png';
+        this.screen.appendChild(scale_top);
+        scale_top.src = 'assets/scale_vert_bar.png';
 
-        const li_3 = document.createElement('li');
-        li_3.classList.add('scale');
-        ul.appendChild(li_3);
+        const scale_rot_part = new Image();
+        scale_rot_part.setAttribute('id', 'scale-rot-part');
+        this.screen.appendChild(scale_rot_part);
+        scale_rot_part.src = 'assets/scale_rotating_part.png';
 
-        const scale_1 = new Image();
-        scale_1.setAttribute('id', 'scale-1');
-        li_3.appendChild(scale_1);
-        scale_1.onload = function () {
-            this.width = this.width * scale_factor;
-        }
-        scale_1.src = 'assets/scale_1.png';
+        // const scale_1 = new Image();
+        // scale_1.setAttribute('id', 'scale-1');
+        // this.screen.appendChild(scale_1);
+        // scale_1.src = 'assets/scale_1.png';
 
-        const scale_2 = new Image();
-        scale_2.setAttribute('id', 'scale-2');
-        li_3.appendChild(scale_2);
-        scale_2.onload = function () {
-            this.width = this.width * scale_factor;
-        }
-        scale_2.src = 'assets/scale_2.png';
+        // let angle = 0;
+        // scale_rot_part.style.transform = `rotate(${angle}deg)`;
+        // let scaleTipsRight = setInterval(tipScaleRight, 10);
 
-        const scale_3 = new Image();
-        scale_3.setAttribute('id', 'scale-3');
-        li_3.appendChild(scale_3);
-        scale_3.onload = function () {
-            this.width = this.width * scale_factor;
-        }
-        scale_3.src = 'assets/scale_3.png';
+        // function tipScaleRight() {
+        //     if (angle === 45) {
+        //         clearInterval(scaleTipsRight);
+        //     } else {
+        //         angle++;
+        //         scale_rot_part.style.transform = `rotate(${angle}deg)`;
+        //     }
+        // }
 
-        const li_4 = document.createElement('li');
-        li_4.classList.add('scale');
-        li_4.setAttribute('id', 'li_4');
-        ul.appendChild(li_4);
+        // const scale_3 = new Image();
+        // scale_3.setAttribute('id', 'scale-3');
+        // li_3.appendChild(scale_3);
+        // scale_3.onload = function () {
+        //     this.width = this.width * scale_factor;
+        // }
+        // scale_3.src = 'assets/scale_3.png';
 
-        const div_left = document.createElement('div');
-        div_left.classList.add('dropzone');
-        li_4.appendChild(div_left);
-        div_left.setAttribute('id', 'div-left');
-        div_left.style.position = "relative";
-        div_left.style.top = "-23px";
-        div_left.style.right = "-5px";
+        // const li_4 = document.createElement('li');
+        // li_4.classList.add('scale');
+        // li_4.setAttribute('id', 'li_4');
+        // ul.appendChild(li_4);
+
+        // const div_left = document.createElement('div');
+        // div_left.classList.add('dropzone');
+        // li_4.appendChild(div_left);
+        // div_left.setAttribute('id', 'div-left');
+        // div_left.style.position = "relative";
+        // div_left.style.top = "-23px";
+        // div_left.style.right = "-5px";
         
-        const scale_5 = new Image();
-        scale_5.setAttribute('id', 'scale-5');
-        li_4.appendChild(scale_5);
-        scale_5.onload = function () {
-            this.width = this.width * scale_factor;
-        }
-        scale_5.src = 'assets/scale_5.png';
+        // const scale_5 = new Image();
+        // scale_5.setAttribute('id', 'scale-5');
+        // li_4.appendChild(scale_5);
+        // scale_5.onload = function () {
+        //     this.width = this.width * scale_factor;
+        // }
+        // scale_5.src = 'assets/scale_5.png';
 
-        const div_right = document.createElement('div');
-        div_right.classList.add('dropzone');
-        li_4.appendChild(div_right);
-        div_right.setAttribute('id', 'div-right');
-        div_right.style.position = "relative";
-        div_right.style.top = "-200px";
-        div_right.style.right = "-180px";
+        // const div_right = document.createElement('div');
+        // div_right.classList.add('dropzone');
+        // li_4.appendChild(div_right);
+        // div_right.setAttribute('id', 'div-right');
+        // div_right.style.position = "relative";
+        // div_right.style.top = "-200px";
+        // div_right.style.right = "-180px";
 
-        const li_5 = document.createElement('li');
-        li_5.classList.add('scale');
-        ul.appendChild(li_5);
+        // const li_5 = document.createElement('li');
+        // li_5.classList.add('scale');
+        // ul.appendChild(li_5);
 
-        const scale_8 = new Image();
-        scale_8.setAttribute('id', 'scale-8');
-        li_5.appendChild(scale_8);
-        scale_8.onload = function () {
-            this.width = this.width * scale_factor;
-        }
-        scale_8.src = 'assets/scale_8.png';
+        // const scale_8 = new Image();
+        // scale_8.setAttribute('id', 'scale-8');
+        // li_5.appendChild(scale_8);
+        // scale_8.onload = function () {
+        //     this.width = this.width * scale_factor;
+        // }
+        // scale_8.src = 'assets/scale_8.png';
     }
 
     renderStudent() {

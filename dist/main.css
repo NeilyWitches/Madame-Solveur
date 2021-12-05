@@ -316,21 +316,12 @@ button {
 
 .scale {
   text-align: left;
-  margin: 0;
-  padding: 0;
-  border: 0;
 }
 
 #student {
   position: relative;
   top: -450px;
   right: -400px;
-}
-
-#li_6 {
-  text-align: left;
-  position: relative;
-  top: -550px;
 }
 
 #counter {
@@ -341,14 +332,26 @@ button {
 
 #scale-1 {
   position: relative;
-  top: -10px;
-  right: -23px;
+  height: auto;
+  width: 14%;
+  top: 99px;
+  right: 241px;
 }
 
-#scale-2 {
+#scale-top {
   position: relative;
-  top: -20px;
-  right: -71px;
+  height: 50px;
+  width: 4px;
+  top: 99px;
+  right: 150px;
+}
+
+#scale-rot-part {
+  height: auto;
+  width: 35%;
+  position: relative;
+  right: 149px;
+  top: 93px;
 }
 
 #scale-3 {
@@ -397,11 +400,6 @@ button {
   position: relative;
   left: 410px;
   bottom: 1235px;
-}
-
-#scale-top {
-  position: relative;
-  right: -50px;
 }
 
 #level-3 {
