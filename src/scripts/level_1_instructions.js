@@ -1,4 +1,4 @@
-import Level1Redo from "./level_1_proper";
+import Level1Proper from "./level_1_proper";
 
 class Level1Instructions {
     constructor() {

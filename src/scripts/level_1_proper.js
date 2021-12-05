@@ -2,11 +2,9 @@ import Ball from "./ball.js"
 import Level1Instructions from "./level_1_story.js";
 import Level2Instructions from "./level_2.js";
 
-class Level1Redo {
+class Level1Proper {
     constructor() {
-        this.level = document.createElement('div');
-        document.getElementById('body').appendChild(this.level);
-        this.level.setAttribute('id', 'level-1-redo');
+        this.screen = document.getElementById('screen');
         this.renderLevel();
         this.dragAndDrop();
         this.clickWeigh();
@@ -16,13 +14,15 @@ class Level1Redo {
 
     renderLevel() {
         const h1 = document.createElement('h1');
-        h1.setAttribute('id', 'h1');
-        this.level.appendChild(h1);
+        this.screen.appendChild(h1);
         h1.innerText = "Level 1";
 
         const h2 = document.createElement('h2');
-        h1.appendChild(h2);
+        this.screen.appendChild(h2);
         h2.innerText = "Find the heavier ball bearing!"
+        const balls = document.createElement('div');
+        this.screen.appendChild(balls);
+        balls.setAttribute('id', 'balls');
 
         this.renderBalls();
         this.renderScale();
@@ -31,21 +31,13 @@ class Level1Redo {
     }
 
     renderBalls() {
-        const ul = document.createElement('ul');
-        ul.setAttribute('id', 'ul');
-        this.level.appendChild(ul);
-
-        const li_balls = document.createElement('li');
-        li_balls.setAttribute('id', "li_balls");
-        ul.appendChild(li_balls);
-
         const balls = [];
         for (let i = 0; i < 9; i++) {
-            balls.push(new Ball(li_balls, i));
+            balls.push(new Ball());
         }
 
         const random_num = Math.floor(Math.random() * 9);
-        let heavy_ball = li_balls.children[random_num].children[0];
+        let heavy_ball = document.getElementById('balls').children[random_num].children[0];
         let mass = heavy_ball.getAttribute('mass');
         mass = parseInt(mass) + 1;
         heavy_ball.setAttribute('mass', mass);
@@ -292,4 +284,4 @@ class Level1Redo {
 
 }
 
-export default Level1Redo;
+export default Level1Proper;

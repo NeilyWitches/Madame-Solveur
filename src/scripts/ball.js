@@ -1,12 +1,12 @@
 class Ball {
-    constructor(li, i) {
-        this.li = li;
-        this.renderBall(i);
+    constructor() {
+        this.balls = document.getElementById('balls');
+        this.renderBall();
     }
 
-    renderBall(i) {
+    renderBall() {
         const div = document.createElement('div');
-        this.li.appendChild(div);
+        this.balls.appendChild(div);
         div.classList.add('dropzone');
         div.classList.add('ball-div');
         const img = new Image();
