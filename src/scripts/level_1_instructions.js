@@ -4,10 +4,9 @@ class Level1Instructions {
     constructor() {
         this.screen = document.getElementById('screen');
         this.clickNext = this.clickNext.bind(this);
-        // this.clickBack = this.clickBack.bind(this);
+        this.clickBack = this.clickBack.bind(this);
         this.renderInstructions();
         this.clicked = 0;
-        this.balls = document.getElementById('nine-balls');
     }
 
     renderInstructions() {
@@ -57,16 +56,49 @@ class Level1Instructions {
 
     renderBackButton() {
         this.backButton = document.createElement('button');
-        this.screen.appendChild(this.backButton);
         this.backButton.setAttribute('id', 'back-button-1-instructions');
         this.backButton.innerText = "Back";
         this.backButton.addEventListener('click', this.clickBack);
     }
 
+    clickBack() {
+        if (this.clicked === 1) {
+            this.screen.removeChild(this.backButton);
+            this.clicked = 0;
+            this.instructions.innerText = "The student approaches the Mme with 9 ball bearings, all of them identical in appearance.";
+        }else if (this.clicked === 2) {
+            this.clicked = 1;
+            this.instructions.innerText = "They all weigh exactly the same except for one which is slightly heavier.";
+            this.screen.removeChild(document.getElementById('scale-instructions-1'));
+            this.screen.appendChild(this.student);
+            this.screen.removeChild(this.balls);
+            this.balls = new Image();
+            this.balls.setAttribute('id', 'nine-balls');
+            this.screen.appendChild(this.balls);
+            this.balls.src = 'assets/nine_balls.png';
+            
+        } else if (this.clicked === 3) {
+            this.clicked = 2;
+            this.instructions.innerText = "Your task is to use the scale provided to find which ball is heavier than the rest.";
+            this.screen.removeChild(document.getElementById('lvl-1-instructions-1'));
+            const scale = new Image();
+            scale.setAttribute('id', 'scale-instructions-1');
+            this.screen.appendChild(scale);
+            scale.src = 'assets/scale_instructions.png';
+            this.balls = new Image();
+            this.balls.setAttribute('id', 'nine-balls');
+            this.screen.appendChild(this.balls);
+            this.balls.src = 'assets/nine_balls.png';
+            this.balls.style.bottom = '250px';
+        }
+    }
+
     clickNext() {
+
         this.clicked += 1
         if (this.clicked === 1) {
-            this.instructions.innerText = "They all weigh exactly the same except for one which is slightly heavier."
+            this.instructions.innerText = "They all weigh exactly the same except for one which is slightly heavier.";
+            this.screen.appendChild(this.backButton);
         } else if (this.clicked === 2) {
             this.instructions.innerText = "Your task is to use the scale provided to find which ball is heavier than the rest."
             this.screen.removeChild(this.student);
