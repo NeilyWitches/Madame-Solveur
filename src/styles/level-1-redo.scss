@@ -57,26 +57,45 @@
     top: 93px;
 }
 
-#scale-3 {
+#left_v {
+    height: auto;
+    width: 10%;
     position: relative;
-    top: -8px;
-    right: -108px;
+    top: 73px;
+    right: 248px;
+}
+
+#right_v {
+    height: auto;
+    width: 10%;
+    position: relative;
+    top: 8px;
+    right: 53px;
 }
 
 #div-left {
     width: 75px;
     height: 70px;
     border: 5px solid black;
-    margin-left: 15px;
+    position: relative;
+    right: 250px;
 }
 
 #div-right {
     width: 75px;
     height: 70px;
     border: 5px solid black;
-    margin-left: 18px;
-    margin-top: 10px;
-    padding: 0;
+    position: relative;
+    bottom: 80px;
+    right: 50px;
+}
+
+#T {
+    height: 200px;
+    width: 15%;
+    position: absolute;
+    top: 373px;
+    right: 407px;
 }
 
 .ball-div {
@@ -84,18 +103,6 @@
     height: 30px;
     border: 2px solid black;
     display: inline-block;
-}
-
-#scale-5 {
-    position: relative;
-    top: -110px;
-    right: -153px;
-}
-
-#scale-8 {
-    position: relative;
-    top: -550px;
-    right: -114px;
 }
 
 #instructions-1-button {

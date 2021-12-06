@@ -55,13 +55,31 @@ class Level1Proper {
         this.screen.appendChild(scale_rot_part);
         scale_rot_part.src = 'assets/scale_rotating_part.png';
 
-        // const scale_1 = new Image();
-        // scale_1.setAttribute('id', 'scale-1');
-        // this.screen.appendChild(scale_1);
-        // scale_1.src = 'assets/scale_1.png';
+        const left_v = new Image();
+        left_v.setAttribute('id', 'left_v');
+        this.screen.appendChild(left_v);
+        left_v.src = 'assets/scale_v.png';
+
+        const right_v = new Image();
+        right_v.setAttribute('id', 'right_v');
+        this.screen.appendChild(right_v);
+        right_v.src = 'assets/scale_v.png';
+
+        const div_left = document.createElement('div');
+        div_left.classList.add('dropzone');
+        this.screen.appendChild(div_left);
+        div_left.setAttribute('id', 'div-left');
+
+        const div_right = document.createElement('div');
+        div_right.classList.add('dropzone');
+        this.screen.appendChild(div_right);
+        div_right.setAttribute('id', 'div-right');
 
         // let angle = 0;
-        // scale_rot_part.style.transform = `rotate(${angle}deg)`;
+        // let v_y = 73;
+        // let v_x = 248;
+        // let left_div_y = 0;
+        // let left_div_x = 250;
         // let scaleTipsRight = setInterval(tipScaleRight, 10);
 
         // function tipScaleRight() {
@@ -69,38 +87,24 @@ class Level1Proper {
         //         clearInterval(scaleTipsRight);
         //     } else {
         //         angle++;
+        //         if (angle % 2 === 0) {
+        //             v_x = v_x - 1;
+        //             v_y = v_y - 3;
+        //             left_div_x = left_div_x - 1;
+        //             left_div_y = left_div_y - 3;
+        //         }
+        //         left_v.style.top = `${v_y}px`;
+        //         left_v.style.right = `${v_x}px`;
+        //         div_left.style.top = `${left_div_y}px`;
+        //         div_left.style.right = `${left_div_x}px`;
         //         scale_rot_part.style.transform = `rotate(${angle}deg)`;
         //     }
         // }
-
-        // const scale_3 = new Image();
-        // scale_3.setAttribute('id', 'scale-3');
-        // li_3.appendChild(scale_3);
-        // scale_3.onload = function () {
-        //     this.width = this.width * scale_factor;
-        // }
-        // scale_3.src = 'assets/scale_3.png';
-
-        // const li_4 = document.createElement('li');
-        // li_4.classList.add('scale');
-        // li_4.setAttribute('id', 'li_4');
-        // ul.appendChild(li_4);
-
-        // const div_left = document.createElement('div');
-        // div_left.classList.add('dropzone');
-        // li_4.appendChild(div_left);
-        // div_left.setAttribute('id', 'div-left');
-        // div_left.style.position = "relative";
-        // div_left.style.top = "-23px";
-        // div_left.style.right = "-5px";
         
-        // const scale_5 = new Image();
-        // scale_5.setAttribute('id', 'scale-5');
-        // li_4.appendChild(scale_5);
-        // scale_5.onload = function () {
-        //     this.width = this.width * scale_factor;
-        // }
-        // scale_5.src = 'assets/scale_5.png';
+        const T = new Image();
+        T.setAttribute('id', 'T');
+        this.screen.appendChild(T);
+        T.src = 'assets/scale_T.png';
 
         // const div_right = document.createElement('div');
         // div_right.classList.add('dropzone');
