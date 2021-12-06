@@ -17,28 +17,15 @@
     left: 8px;
 }
 
+.ball-div {
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    display: inline-block;
+}
+
 .scale {
     text-align: left;
-}
-
-#student {
-    position: relative;
-    top: -450px;
-    right: -400px;
-}
-
-#counter {
-    display: inline;
-    margin-left: 50px;
-    margin-right: 70px;
-}
-
-#scale-1 {
-    position: relative;
-    height: auto;
-    width: 14%;
-    top: 99px;
-    right: 241px;
 }
 
 #scale-top {
@@ -98,16 +85,43 @@
     right: 407px;
 }
 
-.ball-div {
-    width: 30px;
-    height: 30px;
-    border: 2px solid black;
-    display: inline-block;
+#weigh-button {
+    font-size: 20px;
+    padding: 8px 16px;
+    position: absolute;
+    right: 475px;
+    top: 580px;
+}
+
+#counter {
+    position: absolute;
+    font-family: 'Outfit', sans-serif; 
+    color: purple;
+    font-size: 25px;
+    top: 565px;
+    right: 400px;
+}
+
+#reset-button {
+    font-size: 20px;
+    padding: 8px 16px;
+    position: absolute;
+    right: 415px;
+    top: 635px;
 }
 
 #instructions-1-button {
-    font-size: medium;
-    position: relative;
-    left: 410px;
-    bottom: 1235px;
+    font-size: 20px;
+    padding: 8px 16px;
+    position: absolute;
+    left: 435px;
+    top: 20px
+}
+
+#student-lvl-1-proper {
+    height: auto;
+    width: 22%;
+    position: absolute;
+    top: 250px;
+    left: 400px;
 }

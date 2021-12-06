@@ -26,8 +26,8 @@ class Level1Proper {
 
         this.renderBalls();
         this.renderScale();
-        // this.renderButtons();
-        // this.renderStudent();
+        this.renderButtons();
+        this.renderStudent();
     }
 
     renderBalls() {
@@ -105,67 +105,34 @@ class Level1Proper {
         T.setAttribute('id', 'T');
         this.screen.appendChild(T);
         T.src = 'assets/scale_T.png';
-
-        // const div_right = document.createElement('div');
-        // div_right.classList.add('dropzone');
-        // li_4.appendChild(div_right);
-        // div_right.setAttribute('id', 'div-right');
-        // div_right.style.position = "relative";
-        // div_right.style.top = "-200px";
-        // div_right.style.right = "-180px";
-
-        // const li_5 = document.createElement('li');
-        // li_5.classList.add('scale');
-        // ul.appendChild(li_5);
-
-        // const scale_8 = new Image();
-        // scale_8.setAttribute('id', 'scale-8');
-        // li_5.appendChild(scale_8);
-        // scale_8.onload = function () {
-        //     this.width = this.width * scale_factor;
-        // }
-        // scale_8.src = 'assets/scale_8.png';
     }
 
     renderStudent() {
         const student = new Image();
-        student.setAttribute('id', 'student');
-        const li_4 = document.getElementById('li_4');
-        li_4.appendChild(student);
-        const scale_factor = 1 / 5;
-        student.onload = function () {
-            this.width = this.width * scale_factor;
-        }
-        student.src = 'assets/student_lvl_1.png';
+        student.setAttribute('id', 'student-lvl-1-proper');
+        this.screen.appendChild(student);
+        student.src = 'assets/student_looking_left.png';
     }
 
     renderButtons() {
-        const li_6 = document.createElement('li');
-        li_6.setAttribute('id', 'li_6');
-        const ul = document.getElementById('ul');
-        ul.appendChild(li_6);
-
         const weighButton = document.createElement('button');
-        li_6.appendChild(weighButton);
-        weighButton.setAttribute('id', 'weighButton');
-        weighButton.setAttribute('type', 'button');
+        this.screen.appendChild(weighButton);
+        weighButton.setAttribute('id', 'weigh-button');
         weighButton.innerText = "Weigh";
 
         const counter = document.createElement('p');
         counter.setAttribute('id', 'counter');
-        li_6.appendChild(counter);
+        this.screen.appendChild(counter);
         counter.innerText = 0;
 
         const resetButton = document.createElement('button');
-        li_6.appendChild(resetButton);
-        resetButton.setAttribute('id', 'resetButton');
-        resetButton.setAttribute('type', 'button');
+        this.screen.appendChild(resetButton);
+        resetButton.setAttribute('id', 'reset-button');
         resetButton.innerText = "Reset";
 
         const instructions = document.createElement('button');
-        this.level.appendChild(instructions);
+        this.screen.appendChild(instructions);
         instructions.setAttribute('id', 'instructions-1-button');
-        instructions.setAttribute('type', 'button');
         instructions.innerText = "Instructions";
     }
 
