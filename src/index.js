@@ -9,8 +9,8 @@ import Level1Proper from "./scripts/level_1_proper";
 document.addEventListener("DOMContentLoaded", () => {
     // new StartMenu();
     // new Level1Story();
-    // new Level1Instructions();
-    new Level1Proper();
+    new Level1Instructions();
+    // new Level1Proper();
     // new Level2Instructions;
     // new Level3;
     // new Level2Proper;
