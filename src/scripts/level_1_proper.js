@@ -1,12 +1,12 @@
 import Ball from "./ball.js"
-import Level1Instructions from "./level_1_story.js";
+import Level1Instructions from "./level_1_instructions";
 import Level2Instructions from "./level_2.js";
 
 class Level1Proper {
     constructor() {
         this.screen = document.getElementById('screen');
         this.renderLevel();
-        // this.dragAndDrop();
+        this.dragAndDrop();
         // this.clickWeigh();
         // this.reset();
         // this.instructions();
@@ -157,24 +157,22 @@ class Level1Proper {
                 dragged.parentNode.removeChild(dragged);
                 event.target.appendChild(dragged);
             }
-            else if (event.target.id === 'student') {
+            else if (event.target.id === 'student-lvl-1-proper') {
                 let mass = parseInt(dragged.getAttribute('mass'));
-                let body = document.getElementById('body');
                 document.removeEventListener('dragstart', handleDragStart);
                 document.removeEventListener('dragover', handleDragOver);
                 document.removeEventListener('drop', handleDrop);
                 if (mass === 100) {
-                    while (body.firstChild) {
-                        body.removeChild(body.firstChild);
+                    while (that.screen.firstChild) {
+                        that.screen.removeChild(that.screen.firstChild);
                     }
                     
                     alert("That was not the heavy ball! Restart the level!");
                     new Level1Instructions();
-                    return false;
                 } else if (mass === 101) {
                     alert('Good work, professor! Did you know you can be certain of which ball is the heavy one in only two clicks of the weigh button?');
-                    while (body.firstChild) {
-                        body.removeChild(body.firstChild);
+                    while (that.screen.firstChild) {
+                        that.screen.removeChild(that.screen.firstChild);
                     }
                     new Level2Instructions();
                 }

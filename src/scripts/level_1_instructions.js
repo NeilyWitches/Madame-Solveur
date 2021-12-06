@@ -99,7 +99,7 @@ class Level1Instructions {
         }
         else if (this.clicked === 6) {
             this.clicked = 4;
-            this.instructions.innerText = `Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle!`;
+            this.instructions.innerText = `Try to click the "weigh" button as little as possible. You cannot weigh more than 4 times!`;
             this.screen.removeChild(document.getElementById('lvl-1-instructions-2'));
             const gif_instructions_1 = new Image();
             gif_instructions_1.setAttribute('id', 'lvl-1-instructions-1');
@@ -136,7 +136,7 @@ class Level1Instructions {
         } else if (this.clicked === 4) {
             this.instructions.innerText = `Click the "Reset" button to reset the scale after weighing.`
         } else if (this.clicked === 5) {
-            this.instructions.innerText = `Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle!`;
+            this.instructions.innerText = `Try to click the "weigh" button as little as possible. You cannot weigh more than 4 times!`;
         } else if (this.clicked === 6) {
             this.instructions.innerText = 'When you think you have figured out which ball is the heavy one, drag that ball to the student...';
             let gif_instructions_1 = document.getElementById('lvl-1-instructions-1');

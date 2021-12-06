@@ -304,11 +304,12 @@ button {
 
 #balls {
   margin-top: 5%;
+  display: flex;
 }
 
 .ball {
   height: auto;
-  width: 50%;
+  width: 15px;
   position: relative;
   top: 15px;
   left: 8px;
@@ -318,7 +319,6 @@ button {
   width: 30px;
   height: 30px;
   border: 2px solid black;
-  display: inline-block;
 }
 
 .scale {
@@ -358,15 +358,16 @@ button {
 }
 
 #div-left {
-  width: 75px;
+  width: 85px;
   height: 70px;
   border: 5px solid black;
   position: relative;
   right: 250px;
+  padding: 0;
 }
 
 #div-right {
-  width: 75px;
+  width: 85px;
   height: 70px;
   border: 5px solid black;
   position: relative;
