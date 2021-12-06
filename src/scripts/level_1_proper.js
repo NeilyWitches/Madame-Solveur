@@ -7,9 +7,9 @@ class Level1Proper {
         this.screen = document.getElementById('screen');
         this.renderLevel();
         this.dragAndDrop();
-        // this.clickWeigh();
-        // this.reset();
-        // this.instructions();
+        this.clickWeigh = this.clickWeigh.bind(this);
+        this.clickReset = this.clickReset.bind(this);
+        this.clickInstructions = this.clickInstructions.bind(this);
     }
 
     renderLevel() {
@@ -74,32 +74,6 @@ class Level1Proper {
         div_right.classList.add('dropzone');
         this.screen.appendChild(div_right);
         div_right.setAttribute('id', 'div-right');
-
-        // let angle = 0;
-        // let v_y = 73;
-        // let v_x = 248;
-        // let left_div_y = 0;
-        // let left_div_x = 250;
-        // let scaleTipsRight = setInterval(tipScaleRight, 10);
-
-        // function tipScaleRight() {
-        //     if (angle === 45) {
-        //         clearInterval(scaleTipsRight);
-        //     } else {
-        //         angle++;
-        //         if (angle % 2 === 0) {
-        //             v_x = v_x - 1;
-        //             v_y = v_y - 3;
-        //             left_div_x = left_div_x - 1;
-        //             left_div_y = left_div_y - 3;
-        //         }
-        //         left_v.style.top = `${v_y}px`;
-        //         left_v.style.right = `${v_x}px`;
-        //         div_left.style.top = `${left_div_y}px`;
-        //         div_left.style.right = `${left_div_x}px`;
-        //         scale_rot_part.style.transform = `rotate(${angle}deg)`;
-        //     }
-        // }
         
         const T = new Image();
         T.setAttribute('id', 'T');
@@ -115,25 +89,29 @@ class Level1Proper {
     }
 
     renderButtons() {
-        const weighButton = document.createElement('button');
-        this.screen.appendChild(weighButton);
-        weighButton.setAttribute('id', 'weigh-button');
-        weighButton.innerText = "Weigh";
+        this.weighButton = document.createElement('button');
+        this.screen.appendChild(this.weighButton);
+        this.weighButton.setAttribute('id', 'weigh-button');
+        this.weighButton.innerText = "Weigh";
+        this.weighButton.addEventListener('click', this.clickWeigh);
 
         const counter = document.createElement('p');
         counter.setAttribute('id', 'counter');
         this.screen.appendChild(counter);
         counter.innerText = 0;
 
-        const resetButton = document.createElement('button');
-        this.screen.appendChild(resetButton);
-        resetButton.setAttribute('id', 'reset-button');
-        resetButton.innerText = "Reset";
+        this.resetButton = document.createElement('button');
+        this.screen.appendChild(this.resetButton);
+        this.resetButton.setAttribute('id', 'reset-button');
+        this.resetButton.innerText = "Reset";
+        this.resetButton.addEventListener('click', this.clickReset);
 
-        const instructions = document.createElement('button');
-        this.screen.appendChild(instructions);
-        instructions.setAttribute('id', 'instructions-1-button');
-        instructions.innerText = "Instructions";
+        this.instructions = document.createElement('button');
+        this.screen.appendChild(this.instructions);
+        this.instructions.setAttribute('id', 'instructions-1-button');
+        this.instructions.innerText = "Instructions";
+        this.instructions.addEventListener('click', this.clickInstructions);
+        
     }
 
     dragAndDrop() {
@@ -181,20 +159,24 @@ class Level1Proper {
     }
 
     clickWeigh() {
-        const button = document.getElementById('weighButton');
-        button.addEventListener('click', handleClick);
-        const that = this;
+        const scale_rot_part = document.getElementById('scale-rot-part');
+        const left_v = document.getElementById('left_v');
+        const right_v = document.getElementById('right_v');
+        const div_left = document.getElementById('div-left');
+        const div_right = document.getElementById('div-right');
 
-        function handleClick(e) {
-            let div_left = document.getElementById('div-left');
-            let div_right = document.getElementById('div-right');
-            let left_pos = div_left.style.top;
-            let right_pos = div_right.style.top;
-            if (left_pos !== "-23px" || right_pos !== "-200px") {
-                alert("Please click 'Reset' to reset the scale.");
+        if (window.getComputedStyle(scale_rot_part).transform !== 'matrix(1, 0, 0, 1, 0, 0)') {
+            alert("Please click 'Reset' to reset the scale.");
+        } else {
+            let counter = document.getElementById('counter');
+            let count = counter.innerText;
+            let new_count = parseInt(count) + 1;
+            if (new_count > 4) {
+                alert("You are out of weighs!")
             } else {
-                const left = document.getElementById('div-left').children;
-                const right = document.getElementById('div-right').children;
+                counter.innerText = new_count;
+                const left = div_left.children;
+                const right = div_right.children;
                 let mass_left = 0;
                 let mass_right = 0;
                 for (let i = 0; i < left.length; i++) {
@@ -203,48 +185,110 @@ class Level1Proper {
                 for (let i = 0; i < right.length; i++) {
                     mass_right += parseInt(right[i].getAttribute('mass'));
                 }
-                if (mass_left < mass_right) {
-                    let y_pos_right = parseInt(div_right.style.top);
-                    div_right.style.top = y_pos_right + 100 + "px";
+                if (mass_right > mass_left) {
+                    let angle = 0;
+                    let left_v_y = 73;
+                    let left_v_x = 248;
+                    let left_div_y = 0;
+                    let left_div_x = 250;
+                    let right_v_y = 8;
+                    let right_v_x = 53;
+                    let right_div_y = 80;
+                    let right_div_x = 50;
+                    let scaleTipsRight = setInterval(tipScaleRight, 10);
+
+                    function tipScaleRight() {
+                        if (angle === 45) {
+                            clearInterval(scaleTipsRight);
+                        } else {
+                            angle++;
+                            if (angle % 2 === 0) {
+                                left_v_x = left_v_x - 1;
+                                left_v_y = left_v_y - 3;
+                                left_div_x = left_div_x - 1;
+                                left_div_y = left_div_y - 3;
+                                right_v_x = right_v_x + 1;
+                                right_v_y = right_v_y + 3;
+                                right_div_x = right_div_x + 1;
+                                right_div_y = right_div_y - 3;
+                            }
+                            left_v.style.top = `${left_v_y}px`;
+                            left_v.style.right = `${left_v_x}px`;
+                            div_left.style.top = `${left_div_y}px`;
+                            div_left.style.right = `${left_div_x}px`;
+                            right_v.style.top = `${right_v_y}px`;
+                            right_v.style.right = `${right_v_x}px`;
+                            div_right.style.bottom = `${right_div_y}px`;
+                            div_right.style.right = `${right_div_x}px`;
+                            scale_rot_part.style.transform = `rotate(${angle}deg)`;
+                        }
+                    }
+
                 } else if (mass_left > mass_right) {
-                    let y_pos_left = parseInt(div_left.style.top);
-                    div_left.style.top = y_pos_left + 100 + "px";
-                }
-                let counter = document.getElementById('counter');
-                let count = counter.innerText;
-                let new_count = parseInt(count) + 1;
-                counter.innerText = new_count;
-                if (new_count > 4) {
-                    document.removeEventListener('click', handleClick);
-                    alert("You weighed too many times! Restart the level.")
-                    document.getElementById('body').removeChild(that.level);
-                    new Level1Instructions();
+                    let angle = 0;
+                    let left_v_y = 73;
+                    let left_v_x = 248;
+                    let left_div_y = 0;
+                    let left_div_x = 250;
+                    let right_v_y = 8;
+                    let right_v_x = 53;
+                    let right_div_y = 80;
+                    let right_div_x = 50;
+                    let scaleTipsLeft = setInterval(tipScaleLeft, 10);
+
+                    function tipScaleLeft() {
+                        if (angle === -45) {
+                            clearInterval(scaleTipsLeft);
+                        } else {
+                            angle--;
+                            if (angle % 2 === 0) {
+                                left_v_x = left_v_x - 1;
+                                left_v_y = left_v_y + 3;
+                                left_div_x = left_div_x - 1;
+                                left_div_y = left_div_y + 3;
+                                right_v_x = right_v_x + 1;
+                                right_v_y = right_v_y - 3;
+                                right_div_x = right_div_x + 1;
+                                right_div_y = right_div_y + 3;
+                            }
+                            left_v.style.top = `${left_v_y}px`;
+                            left_v.style.right = `${left_v_x}px`;
+                            div_left.style.top = `${left_div_y}px`;
+                            div_left.style.right = `${left_div_x}px`;
+                            right_v.style.top = `${right_v_y}px`;
+                            right_v.style.right = `${right_v_x}px`;
+                            div_right.style.bottom = `${right_div_y}px`;
+                            div_right.style.right = `${right_div_x}px`;
+                            scale_rot_part.style.transform = `rotate(${angle}deg)`;
+                        }
+                    }
                 }
             }
         }
     }
 
-    reset() {
-        const button = document.getElementById('resetButton');
-        button.addEventListener('click', handleClick);
+    clickReset() {
         const div_left = document.getElementById('div-left');
         const div_right = document.getElementById('div-right');
-        const that = this;
+        const left_v = document.getElementById('left_v');
+        const right_v = document.getElementById('right_v');
+        const scale_rot_part = document.getElementById('scale-rot-part');
 
-        function handleClick(e) {
-            div_left.style.top = "-23px";
-            div_right.style.top = "-200px";
-        }
+        div_left.style.right = '250px';
+        div_left.style.top = 0;
+        div_right.style.bottom = '80px';
+        div_right.style.right = '50px';
+
+        left_v.style.top = '73px';
+        left_v.style.right = '248px';
+        right_v.style.top = '8px';
+        right_v.style.right = '53px';
+
+        scale_rot_part.style.transform = 'rotate(0deg)';
     }
 
-    instructions() {
-        const button = document.getElementById("instructions-1-button");
-        button.addEventListener('click', handleClick);
-        const that = this;
-        
-        function handleClick(e) {
-            alert(`The student approaches the Mme with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Try to click the "weigh" button as little as possible. If you click it 5 times, you failed the puzzle! When you think you have figured out which ball is the heavy one, drag that ball to the student...`);
-        }
+    clickInstructions() {
+        alert(`The student approaches the Mme with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Click the "Reset" button to reset the scale after weighing. Try to click the "weigh" button as little as possible. You cannot weight more than 4 times! When you think you have figured out which ball is the heavy one, drag that ball to the student...`);
     }
 
 }
