@@ -39,7 +39,8 @@ class StartMenu {
         repo.innerText = 'making this game.'
         descriptionContainer.appendChild(repo);
         repo.setAttribute('href', 'https://github.com/NeilyWitches/Madame-Solveur')
-        
+        repo.setAttribute('rel', "noopener noreferrer");
+        repo.setAttribute('target',"_blank");
     }
 
     renderButton() {

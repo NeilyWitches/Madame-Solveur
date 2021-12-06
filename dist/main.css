@@ -223,7 +223,7 @@ h2 {
 #lvl-1-instructions-1 {
   position: relative;
   height: auto;
-  width: 48%;
+  width: 55%;
   z-index: 1;
   bottom: 50px;
 }
@@ -233,7 +233,7 @@ h2 {
   z-index: 1;
   bottom: 50px;
   height: auto;
-  width: 50%;
+  width: 55%;
 }
 
 #level-2-instructions {
