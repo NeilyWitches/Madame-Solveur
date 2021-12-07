@@ -556,62 +556,37 @@ button {
   left: 400px;
 }
 
-#level-3 {
-  width: 600px;
-  height: 700px;
-  border: 4px solid purple;
-  margin: auto;
+#level-3-dialogue {
+  min-height: 110px;
 }
 
-#github-3 {
-  margin-right: 40px;
+.setting {
+  opacity: 0.35;
 }
 
-#linkedin-3 {
-  margin-left: 40px;
+.bold-text {
+  font-style: bold;
 }
 
-#att-label {
-  display: inline-block;
+#barrels-div {
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
 }
 
-#freepik {
-  margin-left: 20px;
+.barrel {
+  height: auto;
 }
 
-#ball-3 {
-  margin-right: 50px;
+.barrel-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#student-3 {
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
-#mme-3 {
-  margin-left: 50px;
-}
-
-#ball-p {
-  font-size: 15px;
-  display: inline-block;
-  position: relative;
-  top: -20px;
-  left: -65px;
-}
-
-#student-p {
-  font-size: 15px;
-  display: inline-block;
-  position: relative;
-  top: -20px;
-  left: -15px;
-}
-
-#mme-p {
-  display: inline-block;
-  font-size: 15px;
-  position: relative;
-  top: -20px;
-  right: -55px;
+.label {
+  position: absolute;
+  height: auto;
+  width: 25%;
+  top: 310px;
 }
