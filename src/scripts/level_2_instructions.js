@@ -78,7 +78,7 @@ class Level2Instructions {
             this.screen.appendChild(thirteen);
             thirteen.src = 'assets/13_bubble.png';
         } else if (this.clicked === 3) {
-            this.instructions.innerText = `The student allows the Mme to go first. Input your number into the thought bubble and click 'Say' to have the Mme say aloud that number...`
+            this.instructions.innerText = `The student allows the Mme to go first. Type in your number into the thought bubble and click 'Say' to have the Mme say aloud that number...`
             this.screen.removeChild(document.getElementById('thirteen-bubble'));
             this.screen.removeChild(document.getElementById('four-bubble'));
             this.screen.removeChild(this.mme);
@@ -87,7 +87,7 @@ class Level2Instructions {
             const gif = new Image();
             gif.setAttribute('id', 'lvl2-instructions-gif');
             this.screen.appendChild(gif);
-            // gif.src = 'assets/lvl2_instructions.gif';
+            gif.src = 'assets/lvl_2_instructions.gif';
 
             this.nextButton.innerText = 'Start'
         } else {

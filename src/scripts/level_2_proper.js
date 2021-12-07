@@ -5,6 +5,7 @@ class Level2Proper {
     constructor() {
         this.screen = document.getElementById('screen');
         this.studNums = [0, 6, 17, 28, 39, 50];
+        this.clickInstructions = this.clickInstructions.bind(this);
         this.renderLevel();
     }
 
@@ -61,7 +62,17 @@ class Level2Proper {
         this.screen.appendChild(this.button);
         this.button.setAttribute('id', 'say-button');
 
+        const instructions = document.createElement('button');
+        instructions.innerText = "Instructions";
+        this.screen.appendChild(instructions);
+        instructions.setAttribute('class', 'instructions-button');
+        instructions.addEventListener('click', this.clickInstructions)
+
         this.handleInput(0, mmeDiv, studentDiv);
+    }
+
+    clickInstructions() {
+         alert(`Mme Solveur and the student are playing a game. The winner of the game is the first to say the number 50, but there are rules. She and the student will take turns saying aloud numbers. The first number spoken must be a number from 1 to 10. The next number spoken must be 1 to 10 larger than the previous number. The student allows the Mme to go first. Type in your number into the thought bubble and click 'Say' to have the Mme say aloud that number...`);
     }
 
     handleInput(i, mmePrevNum, studPrevNum) {

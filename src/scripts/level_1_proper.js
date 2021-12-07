@@ -108,7 +108,7 @@ class Level1Proper {
 
         this.instructions = document.createElement('button');
         this.screen.appendChild(this.instructions);
-        this.instructions.setAttribute('id', 'instructions-1-button');
+        this.instructions.setAttribute('class', 'instructions-button');
         this.instructions.innerText = "Instructions";
         this.instructions.addEventListener('click', this.clickInstructions);
         

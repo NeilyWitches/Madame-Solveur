@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // new Level1Instructions();
     // new Level1Proper();
     // new Level2Story();
-    // new Level2Instructions;
+    new Level2Instructions;
     // new Level3;
-    new Level2Proper;
+    // new Level2Proper;
 })
