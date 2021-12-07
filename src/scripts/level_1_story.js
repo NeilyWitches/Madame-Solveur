@@ -61,12 +61,12 @@ class Level1Story {
                 const student = new Image();
                 student.setAttribute('id', 'student-story');
                 that.screen.appendChild(student);
-                student.src = "assets/student_looking_left.png";
+                student.src = "assets/student_needs_help.png";
                 let pos = 580;
                 let studentKnocks = setInterval(moveStudent, 10);
                 
                 function moveStudent() {
-                    if (pos == 420) {
+                    if (pos == 350) {
                         clearInterval(studentKnocks);
                     } else {
                         pos--;

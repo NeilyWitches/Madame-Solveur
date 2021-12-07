@@ -36,7 +36,6 @@ class Level1Instructions {
 
         this.student = new Image();
         this.student.setAttribute('id', 'student-instructions');
-        
         this.screen.appendChild(this.student);
         this.student.src = 'assets/student_looking_right.png';
         
@@ -49,14 +48,14 @@ class Level1Instructions {
     renderNextButton() {
         this.nextButton = document.createElement('button');
         this.screen.appendChild(this.nextButton);
-        this.nextButton.setAttribute('id', 'next-button-1-instructions');
+        this.nextButton.setAttribute('class', 'next-button-instructions')
         this.nextButton.innerText = "Next";
         this.nextButton.addEventListener('click', this.clickNext);
     }
 
     renderBackButton() {
         this.backButton = document.createElement('button');
-        this.backButton.setAttribute('id', 'back-button-1-instructions');
+        this.backButton.setAttribute('class', 'back-button-instructions');
         this.backButton.innerText = "Back";
         this.backButton.addEventListener('click', this.clickBack);
     }
@@ -110,7 +109,6 @@ class Level1Instructions {
     }
 
     clickNext() {
-
         this.clicked += 1
         if (this.clicked === 1) {
             this.instructions.innerText = "They all weigh exactly the same except for one which is slightly heavier.";

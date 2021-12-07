@@ -1,7 +1,7 @@
 #student-story {
     position: absolute;
     height: auto;
-    width: 20%;
+    width: 40%;
     top: 315px;
     z-index: 1;
 }
@@ -39,8 +39,8 @@
 }
 
 #next-button {
-    position: relative;
-    bottom: 150px;
+    position: absolute;
+    top: 500px;
     font-size: 20px;
     padding: 8px 16px;
     z-index: 1;
@@ -62,7 +62,7 @@
     right: 200px;
 }
 
-#next-button-1-instructions {
+.next-button-instructions {
     position: absolute;
     top: 625px;
     font-size: 20px;
@@ -71,7 +71,7 @@
     right: 100px;
 }
 
-#back-button-1-instructions {
+.back-button-instructions {
     top: 625px;
     right: 450px;
     position: absolute;

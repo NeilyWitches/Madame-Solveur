@@ -1,6 +1,6 @@
 import Ball from "./ball.js"
 import Level1Instructions from "./level_1_instructions";
-import Level2Instructions from "./level_2.js";
+import Level2Story from "./level_2_story.js";
 
 class Level1Proper {
     constructor() {
@@ -144,7 +144,6 @@ class Level1Proper {
                     while (that.screen.firstChild) {
                         that.screen.removeChild(that.screen.firstChild);
                     }
-                    
                     alert("That was not the heavy ball! Restart the level!");
                     new Level1Instructions();
                 } else if (mass === 101) {
@@ -152,7 +151,7 @@ class Level1Proper {
                     while (that.screen.firstChild) {
                         that.screen.removeChild(that.screen.firstChild);
                     }
-                    new Level2Instructions();
+                    new Level2Story();
                 }
             }
         }

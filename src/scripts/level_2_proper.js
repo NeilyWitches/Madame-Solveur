@@ -1,88 +1,73 @@
-import Level2Instructions from "./level_2";
+import Level2Instructions from "./level_2_story";
 import Level3 from "./level_3";
 
 class Level2Proper {
     constructor() {
-        this.level = document.createElement('div');
-        document.getElementById('body').appendChild(this.level);
-        this.level.setAttribute('id', 'level-2');
+        this.screen = document.getElementById('screen');
         this.studNums = [0, 6, 17, 28, 39, 50];
         this.renderLevel();
     }
 
     renderLevel() {
         const h1 = document.createElement('h1');
-        this.level.appendChild(h1);
+        this.screen.appendChild(h1);
         h1.innerText = "Level 2";
 
         const h2 = document.createElement('h2');
-        h1.appendChild(h2);
+        this.screen.appendChild(h2);
         h2.innerText = "Be the first to say 50!";
 
-        const ul = document.createElement('ul');
-        this.level.appendChild(ul);
+        this.mme = new Image();
+        this.mme.setAttribute('id', 'mme-lvl2');
+        this.screen.appendChild(this.mme);
+        this.mme.src = 'assets/mme_solveur.png';
 
-        const li_1 = document.createElement('li');
-        ul.appendChild(li_1);
-        li_1.setAttribute('id', 'stud-num-label');
-        li_1.setAttribute('class', 'student');
-        li_1.classList.add('label');
-        li_1.innerText = "Student's Number:";
+        this.student = new Image();
+        this.student.setAttribute('id', 'student-lvl2');
+        this.screen.appendChild(this.student);
+        this.student.src = 'assets/grad_student.png';
 
-        const li_2 = document.createElement('li');
-        ul.appendChild(li_2);
-        li_2.setAttribute('id', 'stud-num');
-        li_2.setAttribute('class', 'student');
-        li_2.classList.add('number');
-        li_2.innerText = 0;
+        const mmeSpeech = new Image();
+        mmeSpeech.setAttribute('id', 'mme-speech');
+        this.screen.appendChild(mmeSpeech);
+        mmeSpeech.src = 'assets/mme_speech.png';
 
-        const li_3 = document.createElement('li');
-        ul.appendChild(li_3);
-        li_3.setAttribute('id', 'mme-num-label');
-        li_3.setAttribute('class', "mme");
-        li_3.classList.add('label');
-        li_3.innerText = "Mme Solveur's Previous Number:";
+        const studentSpeech = new Image();
+        studentSpeech.setAttribute('id', 'student-speech');
+        this.screen.appendChild(studentSpeech);
+        studentSpeech.src = 'assets/student_speech.png';
 
-        const li_4 = document.createElement('li');
-        ul.appendChild(li_4);
-        li_4.setAttribute('id', "mme-num");
-        li_4.setAttribute('class', 'mme');
-        li_4.classList.add('number');
-        li_4.innerText = "(Your number will go here)";
+        const mmeThought = new Image();
+        mmeThought.setAttribute('id', 'mme-thought');
+        this.screen.appendChild(mmeThought);
+        mmeThought.src = 'assets/mme_thought.png';
 
-        const li_5 = document.createElement('li');
-        ul.appendChild(li_5);
-        const input = document.createElement('input');
-        li_5.appendChild(input);
-        input.setAttribute('type', 'text');
-        input.setAttribute('id', 'input')
+        // li_1.innerText = "Student's Number:";
+        // li_2.innerText = 0;
+        // li_3.innerText = "Mme Solveur's Previous Number:";
+        // li_4.innerText = "(Your number will go here)";
+        // const input = document.createElement('input');
+        // this.button = document.createElement('button');
+        // this.button.innerText = "Say";
 
-        const li_6 = document.createElement('li');
-        ul.appendChild(li_6);
-        const button = document.createElement('button');
-        li_6.appendChild(button);
-        button.setAttribute('type', 'button');
-        button.innerText = "Say";
+        // li_7.innerText = "Say a number 1 to 10 larger than the Student's number!"
 
-        const li_7 = document.createElement('li');
-        ul.appendChild(li_7);
-        li_7.setAttribute('id', 'instructions');
-        li_7.innerText = "Say a number 1 to 10 larger than the Student's number!"
-
-        this.handleInput(button, 0, li_4, li_2);
+        // this.handleInput(0, li_4, li_2);
     }
 
-    handleInput(button, i, mmePrevNum, studPrevNum) {
+    handleInput(i, mmePrevNum, studPrevNum) {
         let studPrevNumVal = parseInt(studPrevNum.innerText);
         if (studPrevNumVal === 50) {
             alert("The student says 50! You lose! Restart the level.");
-            button.removeEventListener('click', handleClick);
-            document.getElementById('body').removeChild(this.level);
+            this.button.removeEventListener('click', handleClick);
+            while (this.screen.firstChild) {
+                this.screen.removeChild(this.screen.firstChild);
+            }
             new Level2Instructions();
         }
-        button.addEventListener('click', handleClick);
+        this.button.addEventListener('click', handleClick);
         const that = this;
-        function handleClick(e) {
+        function handleClick() {
             let inputVal = document.getElementById('input').value;
             inputVal = parseInt(inputVal);
             if (!Number.isInteger(inputVal)) {
@@ -90,21 +75,23 @@ class Level2Proper {
             } else if (inputVal <= studPrevNumVal || inputVal > studPrevNumVal + 10) {
                 alert("The number must be 1 to 10 larger than the Student's number.")
             } else {
-                button.removeEventListener('click', handleClick);
+                that.button.removeEventListener('click', handleClick);
                 if (inputVal === 50) {
-                    document.getElementById('body').removeChild(that.level);
+                    while (that.screen.firstChild) {
+                        that.screen.removeChild(that.screen.firstChild);
+                    }
                     new Level3();
                 }
                 mmePrevNum.innerText = inputVal;
                 if (inputVal === that.studNums[i + 1]) {
                     studPrevNum.innerText = Math.floor(Math.random() * 10) + inputVal + 1;
-                    that.handleInput(button, i + 1, mmePrevNum, studPrevNum);
+                    that.handleInput(i + 1, mmePrevNum, studPrevNum);
                 } else if (inputVal > that.studNums[i + 1]) {
                     studPrevNum.innerText = that.studNums[i + 2];
-                    that.handleInput(button, i + 2, mmePrevNum, studPrevNum);
+                    that.handleInput(i + 2, mmePrevNum, studPrevNum);
                 } else {
                     studPrevNum.innerText = that.studNums[i + 1]
-                    that.handleInput(button, i + 1, mmePrevNum, studPrevNum);
+                    that.handleInput(i + 1, mmePrevNum, studPrevNum);
                 }
             } 
         }

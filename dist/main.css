@@ -133,7 +133,7 @@ h2 {
 #student-story {
   position: absolute;
   height: auto;
-  width: 20%;
+  width: 40%;
   top: 315px;
   z-index: 1;
 }
@@ -171,8 +171,8 @@ h2 {
 }
 
 #next-button {
-  position: relative;
-  bottom: 150px;
+  position: absolute;
+  top: 500px;
   font-size: 20px;
   padding: 8px 16px;
   z-index: 1;
@@ -194,7 +194,7 @@ h2 {
   right: 200px;
 }
 
-#next-button-1-instructions {
+.next-button-instructions {
   position: absolute;
   top: 625px;
   font-size: 20px;
@@ -203,7 +203,7 @@ h2 {
   right: 100px;
 }
 
-#back-button-1-instructions {
+.back-button-instructions {
   top: 625px;
   right: 450px;
   position: absolute;
@@ -236,24 +236,21 @@ h2 {
   width: 55%;
 }
 
-#level-2-instructions {
-  width: 600px;
-  height: 700px;
-  border: 4px solid purple;
-  margin: auto;
+#level-2-dialogue {
+  min-height: 100px;
+  z-index: 1;
 }
 
-#level-2-dialogue {
-  border: 4px solid purple;
-  font: 20px Arial;
-  background-color: lavender;
-  width: 500px;
-  margin: auto;
-  margin-top: 40px;
-  border-radius: 20px;
-  box-sizing: border-box;
-  padding: 20px;
-  text-align: left;
+#student-lvl-2-leaving {
+  position: absolute;
+  height: auto;
+  width: 20%;
+  top: 315px;
+  z-index: 1;
+}
+
+#cafe {
+  opacity: 0.35;
 }
 
 #instructions-label-2 {
@@ -261,11 +258,90 @@ h2 {
   text-decoration: underline;
 }
 
-#level-2 {
-  width: 600px;
-  height: 700px;
-  border: 4px solid purple;
-  margin: auto;
+#grad-student-story {
+  position: absolute;
+  height: auto;
+  width: 25%;
+  z-index: 1;
+  top: 310px;
+  left: 400px;
+}
+
+#mme-lvl2-instructions {
+  position: absolute;
+  height: auto;
+  width: 75%;
+  top: 470px;
+  right: 300px;
+}
+
+#student-lvl2-instructions {
+  position: absolute;
+  height: auto;
+  width: 75%;
+  left: 350px;
+  top: 425px;
+}
+
+#level-2-instructions-text {
+  min-height: 110px;
+  margin-top: 0;
+}
+
+#four-bubble {
+  position: absolute;
+  height: auto;
+  width: 25%;
+  top: 500px;
+  left: 100px;
+}
+
+#thirteen-bubble {
+  position: absolute;
+  height: auto;
+  width: 25%;
+  top: 500px;
+  right: 100px;
+}
+
+#mme-lvl2 {
+  height: auto;
+  width: 30%;
+  position: absolute;
+  top: 290px;
+  right: 300px;
+}
+
+#student-lvl2 {
+  height: auto;
+  width: 30%;
+  position: absolute;
+  top: 230px;
+  left: 400px;
+}
+
+#mme-speech {
+  height: auto;
+  width: 20%;
+  position: absolute;
+  top: 265px;
+  left: 220px;
+}
+
+#student-speech {
+  height: auto;
+  width: 20%;
+  position: absolute;
+  top: 220px;
+  left: 350px;
+}
+
+#mme-thought {
+  height: auto;
+  width: 30%;
+  position: absolute;
+  top: 120px;
+  left: 30px;
 }
 
 .student {
