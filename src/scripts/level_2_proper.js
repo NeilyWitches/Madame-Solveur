@@ -107,7 +107,7 @@ class Level2Proper {
                             that.screen.removeChild(that.screen.firstChild);
                         }
                         new Level3Story();
-                    }, 5);
+                    }, 50);
                 } else {
                     mmePrevNum.innerText = inputVal;
                     if (inputVal === that.studNums[i + 1]) {

@@ -112,6 +112,8 @@ class Level2Instructions {
         } else if (this.clicked === 3) {
             this.clicked = 2;
 
+            this.screen.removeChild(document.getElementById('lvl2-instructions-gif'))
+
             const thirteen = new Image();
             thirteen.setAttribute('id', 'thirteen-bubble');
             this.screen.appendChild(thirteen);

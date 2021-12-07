@@ -1,7 +1,118 @@
 class Level3Proper {
     constructor() {
         this.screen = document.getElementById('screen');
+        this.clicked = false;
+        this.clickApplesPeek = this.clickApplesPeek.bind(this);
+        this.clickOrangesPeek = this.clickOrangesPeek.bind(this);
+        this.clickBothPeek = this.clickBothPeek.bind(this);
         this.renderLevel();
+    }
+
+    clickApplesPeek() {
+        if (!this.clicked) {
+            const modal = document.createElement('div');
+            this.screen.appendChild(modal);
+            modal.setAttribute('class', 'modal');
+            const modalContent = document.createElement('div');
+            modalContent.setAttribute('class', 'modal-content');
+            modal.appendChild(modalContent)
+            const close = document.createElement('span');
+            close.setAttribute('class', 'close');
+            close.innerHTML = `&times;`
+            modalContent.appendChild(close)
+
+            const apple = new Image();
+            apple.setAttribute('id', 'apple');
+            modalContent.appendChild(apple);
+            apple.src = 'assets/apple.png';
+            modal.style.display = 'block';
+            close.onclick = function() {
+                modal.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            this.clicked = true;
+        } else {
+            alert('You may only peek once!')
+        }
+    }
+
+    clickOrangesPeek() {
+        if (!this.clicked) {
+            const modal = document.createElement('div');
+            this.screen.appendChild(modal);
+            modal.setAttribute('class', 'modal');
+            const modalContent = document.createElement('div');
+            modalContent.setAttribute('class', 'modal-content');
+            modal.appendChild(modalContent)
+            const close = document.createElement('span');
+            close.setAttribute('class', 'close');
+            close.innerHTML = `&times;`
+            modalContent.appendChild(close)
+
+            const orange = new Image();
+            orange.setAttribute('id', 'orange');
+            modalContent.appendChild(orange);
+            orange.src = 'assets/orange.png';
+            modal.style.display = 'block';
+            close.onclick = function() {
+                modal.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            this.clicked = true;
+        } else {
+            alert('You may only peek once!')
+        }
+    }
+
+    clickBothPeek() {
+        if (!this.clicked) {
+            const modal = document.createElement('div');
+            this.screen.appendChild(modal);
+            modal.setAttribute('class', 'modal');
+            const modalContent = document.createElement('div');
+            modalContent.setAttribute('class', 'modal-content');
+            modal.appendChild(modalContent)
+            const close = document.createElement('span');
+            close.setAttribute('class', 'close');
+            close.innerHTML = `&times;`
+            modalContent.appendChild(close)
+
+            const apple = new Image();
+            apple.setAttribute('id', 'apple');
+            apple.src = 'assets/apple.png';
+
+            const orange = new Image();
+            orange.setAttribute('id', 'orange');
+            orange.src = 'assets/orange.png';
+
+            const coinFlip = Math.floor(Math.random() * 2)
+            if (coinFlip === 0) {
+                modalContent.appendChild(apple);
+            } else {
+                modalContent.appendChild(orange);
+            }
+
+            modal.style.display = 'block';
+            close.onclick = function() {
+                modal.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            this.clicked = true;
+        } else {
+            alert('You may only peek once!')
+        }
     }
 
     renderLevel() {
@@ -14,6 +125,11 @@ class Level3Proper {
         h2.innerText = "Correctly label the barrels!"
 
         this.renderBarrels();
+
+        const submitButton = document.createElement('button');
+        this.screen.appendChild(submitButton);
+        submitButton.setAttribute('id', 'lvl3-submit');
+        submitButton.innerText = 'Submit';
     }
 
     shuffle(array) {
@@ -45,11 +161,11 @@ class Level3Proper {
         applesButton.setAttribute('id', 'apples-peek');
         applesDiv.setAttribute('class', 'barrel-div');
         applesButton.innerText = 'peek';
+        applesButton.addEventListener('click', this.clickApplesPeek)
         const applesLabel = new Image();
         applesLabel.setAttribute('id', 'apples-label');
         applesLabel.setAttribute('class', 'label');
         applesLabel.setAttribute('fruit', 'apples');
-        // applesDiv.appendChild(applesLabel);
         applesLabel.src = 'assets/apples_label.png';
         labelsArray.push(applesLabel);
 
@@ -66,11 +182,11 @@ class Level3Proper {
         orangesButton.setAttribute('id', 'oranges-peek');
         orangesDiv.setAttribute('class', 'barrel-div');
         orangesButton.innerText = 'peek';
+        orangesButton.addEventListener('click', this.clickOrangesPeek);
         const orangesLabel = new Image();
         orangesLabel.setAttribute('id', 'oranges-label');
         orangesLabel.setAttribute('class', 'label');
         orangesLabel.setAttribute('fruit', 'oranges');
-        // orangesDiv.appendChild(orangesLabel);
         orangesLabel.src = 'assets/oranges_label.png';
         labelsArray.push(orangesLabel)
 
@@ -87,25 +203,23 @@ class Level3Proper {
         bothButton.setAttribute('id', 'both-peek');
         bothDiv.setAttribute('class', 'barrel-div');
         bothButton.innerText = 'peek';
+        bothButton.addEventListener('click', this.clickBothPeek)
         const bothLabel = new Image();
         bothLabel.setAttribute('id', 'both-label');
         bothLabel.setAttribute('class', 'label');
-        // bothDiv.appendChild(bothLabel);
         bothLabel.src = 'assets/both_label.png';
         bothLabel.setAttribute('fruit', 'both');
         labelsArray.push(bothLabel);
 
         this.shuffle(barrelsArray);
-        // this.shuffle(labelsArray);
 
         for (let i = 0; i < barrelsArray.length; i++) {
             barrelsDiv.appendChild(barrelsArray[i])
+            console.log(barrelsArray[i])
         }
 
         this.attachWrongLabels(barrelsArray, labelsArray);
-        console.log(barrelsArray[0]);
-        console.log(barrelsArray[1]);
-        console.log(barrelsArray[2]);
+
     }
 
     attachWrongLabels(barrelsArray, labelsArray) {
@@ -117,41 +231,33 @@ class Level3Proper {
         } else {
             dupLabels.splice(2,1);
         }
+
         let j = Math.floor(Math.random() * 2)
         let affixedLabel = dupLabels[j]
         barrelsArray[0].appendChild(affixedLabel)
+
         for (let i = 0; i < labelsArray.length; i++) {
             if (affixedLabel === labelsArray[i]) {
                 labelsArray.splice(i, 1)
             }
         }
-        
-        //we put affixedLabel on firstBarrel
-        // we don't want to put the label whose fruit is firstBarrelFruit on the barrel whose fruit is affixedLabelFruit 
-        // find the barrel whose fruit is not the affixedLabel fruit
+
         for (let i = 1; i < barrelsArray.length; i++) {
             if (barrelsArray[i].getAttribute('fruit') !== affixedLabel.getAttribute('fruit')) {
-                // find the label whose fruit is not the fruit of the barrel
                 for (let j = 0; j < labelsArray.length; j++) {
                     if (labelsArray[j].getAttribute('fruit') !== barrelsArray[i].getAttribute('fruit')) {
                         barrelsArray[i].appendChild(labelsArray[j])
-                        // discard that label from labelsArray
                         labelsArray.splice(j,1)
                     }
                 }
             }
         }
-        // console.log(labelsArray[0])
-        // affix the label whose fruit is not the fruit of the barrel
 
-        // find the barrel with no label
         for (let i = 1; i < barrelsArray.length; i++) {
             if (barrelsArray[i].children.length === 2) {
                 barrelsArray[i].appendChild(labelsArray[0])
             }
         }
-        // affix to it the final label
-
     }
 }
 
