@@ -5,6 +5,10 @@
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
   \*****************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap);
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (2) ***!
+  \*****************************************************************************************************************************************/
 #start-button {
   margin-top: 10%;
 }
@@ -328,6 +332,20 @@ h2 {
   left: 220px;
 }
 
+#mme-div {
+  height: 60px;
+  width: 75px;
+  position: absolute;
+  top: 275px;
+  left: 250px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "GFS Didot", serif;
+  font-size: 50px;
+}
+
 #student-speech {
   height: auto;
   width: 20%;
@@ -336,12 +354,50 @@ h2 {
   left: 350px;
 }
 
+#student-div {
+  height: 60px;
+  width: 75px;
+  position: absolute;
+  top: 230px;
+  left: 360px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "GFS Didot", serif;
+  font-size: 50px;
+}
+
 #mme-thought {
   height: auto;
   width: 30%;
   position: absolute;
   top: 120px;
   left: 30px;
+}
+
+#lvl2-input {
+  position: absolute;
+  top: 158px;
+  left: 70px;
+  background-color: lavender;
+  border-radius: 40px;
+  border: 2px solid black;
+  font-family: "GFS Didot", serif;
+  font-size: 35px;
+  width: 100px;
+}
+
+#lvl2-input::placeholder {
+  font-size: 15px;
+}
+
+#say-button {
+  font-size: 15px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 215px;
+  left: 95px;
 }
 
 .student {

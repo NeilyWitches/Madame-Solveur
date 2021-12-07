@@ -32,43 +32,55 @@ class Level2Proper {
         this.screen.appendChild(mmeSpeech);
         mmeSpeech.src = 'assets/mme_speech.png';
 
+        const mmeDiv = document.createElement('div');
+        mmeDiv.setAttribute('id', 'mme-div');
+        this.screen.appendChild(mmeDiv);
+
         const studentSpeech = new Image();
         studentSpeech.setAttribute('id', 'student-speech');
         this.screen.appendChild(studentSpeech);
         studentSpeech.src = 'assets/student_speech.png';
+
+        const studentDiv = document.createElement('div');
+        studentDiv.setAttribute('id', 'student-div');
+        this.screen.appendChild(studentDiv);
+        studentDiv.innerText = 0;
 
         const mmeThought = new Image();
         mmeThought.setAttribute('id', 'mme-thought');
         this.screen.appendChild(mmeThought);
         mmeThought.src = 'assets/mme_thought.png';
 
-        // li_1.innerText = "Student's Number:";
-        // li_2.innerText = 0;
-        // li_3.innerText = "Mme Solveur's Previous Number:";
-        // li_4.innerText = "(Your number will go here)";
-        // const input = document.createElement('input');
-        // this.button = document.createElement('button');
-        // this.button.innerText = "Say";
+        const input = document.createElement('input');
+        input.setAttribute('id', 'lvl2-input')
+        this.screen.appendChild(input);
+        input.setAttribute('placeholder', `Enter number`);
 
-        // li_7.innerText = "Say a number 1 to 10 larger than the Student's number!"
+        this.button = document.createElement('button');
+        this.button.innerText = "Say";
+        this.screen.appendChild(this.button);
+        this.button.setAttribute('id', 'say-button');
 
-        // this.handleInput(0, li_4, li_2);
+        this.handleInput(0, mmeDiv, studentDiv);
     }
 
     handleInput(i, mmePrevNum, studPrevNum) {
         let studPrevNumVal = parseInt(studPrevNum.innerText);
         if (studPrevNumVal === 50) {
-            alert("The student says 50! You lose! Restart the level.");
-            this.button.removeEventListener('click', handleClick);
-            while (this.screen.firstChild) {
-                this.screen.removeChild(this.screen.firstChild);
-            }
-            new Level2Instructions();
+            studPrevNum.innerText = '50!'
+            setTimeout(() => {
+                alert("The student says 50! You lose! Restart the level.")
+                this.button.removeEventListener('click', handleClick);
+                while (this.screen.firstChild) {
+                    this.screen.removeChild(this.screen.firstChild);
+                }
+                new Level2Instructions();
+            }, 1);
         }
         this.button.addEventListener('click', handleClick);
         const that = this;
         function handleClick() {
-            let inputVal = document.getElementById('input').value;
+            let inputVal = document.getElementById('lvl2-input').value;
             inputVal = parseInt(inputVal);
             if (!Number.isInteger(inputVal)) {
                 alert("Please enter a number.");
