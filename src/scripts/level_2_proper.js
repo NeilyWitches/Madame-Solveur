@@ -1,5 +1,5 @@
 import Level2Instructions from "./level_2_story";
-import Level3 from "./level_3";
+import Level3Story from "./level_3_story";
 
 class Level2Proper {
     constructor() {
@@ -103,7 +103,8 @@ class Level2Proper {
                     while (that.screen.firstChild) {
                         that.screen.removeChild(that.screen.firstChild);
                     }
-                    new Level3();
+                    alert("Amazing! The professor managed to beat her student at her own game.")
+                    new Level3Story();
                 }
                 mmePrevNum.innerText = inputVal;
                 if (inputVal === that.studNums[i + 1]) {

@@ -66,7 +66,7 @@ class Level2Story {
     clickNext() {
         this.clicked += 1;
         if (this.clicked === 1) {
-            this.dialogue.innerText = `Shortly afterwards, the professor had felt hungry so she made her way to the quad and sat down at the café.`
+            this.dialogue.innerText = `Shortly afterwards, the professor felt hungry so she made her way to the quad and sat down at the café.`
             this.screen.removeChild(document.getElementById('sorbonne'));
             const cafe = new Image();
             cafe.setAttribute('id', 'cafe');
