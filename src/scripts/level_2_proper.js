@@ -100,22 +100,26 @@ class Level2Proper {
             } else {
                 that.button.removeEventListener('click', handleClick);
                 if (inputVal === 50) {
-                    while (that.screen.firstChild) {
-                        that.screen.removeChild(that.screen.firstChild);
-                    }
-                    alert("Amazing! The professor managed to beat her student at her own game.")
-                    new Level3Story();
-                }
-                mmePrevNum.innerText = inputVal;
-                if (inputVal === that.studNums[i + 1]) {
-                    studPrevNum.innerText = Math.floor(Math.random() * 10) + inputVal + 1;
-                    that.handleInput(i + 1, mmePrevNum, studPrevNum);
-                } else if (inputVal > that.studNums[i + 1]) {
-                    studPrevNum.innerText = that.studNums[i + 2];
-                    that.handleInput(i + 2, mmePrevNum, studPrevNum);
+                    mmePrevNum.innerText = '50!';
+                    setTimeout(() => {
+                        alert("Amazing! The professor managed to beat her student at her own game.");
+                        while (that.screen.firstChild) {
+                            that.screen.removeChild(that.screen.firstChild);
+                        }
+                        new Level3Story();
+                    }, 5);
                 } else {
-                    studPrevNum.innerText = that.studNums[i + 1]
-                    that.handleInput(i + 1, mmePrevNum, studPrevNum);
+                    mmePrevNum.innerText = inputVal;
+                    if (inputVal === that.studNums[i + 1]) {
+                        studPrevNum.innerText = Math.floor(Math.random() * 10) + inputVal + 1;
+                        that.handleInput(i + 1, mmePrevNum, studPrevNum);
+                    } else if (inputVal > that.studNums[i + 1]) {
+                        studPrevNum.innerText = that.studNums[i + 2];
+                        that.handleInput(i + 2, mmePrevNum, studPrevNum);
+                    } else {
+                        studPrevNum.innerText = that.studNums[i + 1]
+                        that.handleInput(i + 1, mmePrevNum, studPrevNum);
+                    }
                 }
             } 
         }
