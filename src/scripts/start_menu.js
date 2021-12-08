@@ -12,6 +12,27 @@ class StartMenu {
         this.screen.appendChild(mme)
         mme.setAttribute('id', 'mme-start');
         mme.src = "assets/mme_solveur.png";
+
+        const underGrad = new Image();
+        this.screen.appendChild(underGrad)
+        underGrad.setAttribute('id', 'undergrad-start');
+        underGrad.src = "assets/student_looking_right.png";
+        let pos = -400;
+        let studentCreeps = setInterval(moveStudent, 10);
+
+        function moveStudent() {
+            if (pos === -200) {
+                clearInterval(studentCreeps);
+            } else {
+                pos++;
+                underGrad.style.top = pos + 'px';
+            }
+        }
+
+        const gradStudent = new Image();
+        this.screen.appendChild(gradStudent)
+        gradStudent.setAttribute('id', 'grad-student-start');
+        gradStudent.src = "assets/grad_student.png";
     }
 
     renderStartMenu() {

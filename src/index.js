@@ -11,7 +11,7 @@ import ComingSoon from "./scripts/coming_soon";
 import Level3Instructions from "./scripts/level_3_instructions";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // new StartMenu();
+    new StartMenu();
     // new Level1Story();
     // new Level1Instructions();
     // new Level1Proper();
@@ -20,6 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // new Level3Story;
     // new Level2Proper;
     // new Level3Proper;
-    new ComingSoon
+    // new ComingSoon
     // new Level3Instructions
 })

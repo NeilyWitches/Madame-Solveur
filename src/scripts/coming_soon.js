@@ -23,12 +23,6 @@ class ComingSoon {
         this.dialogue.setAttribute('class', 'text-box');
         this.dialogue.setAttribute('id', 'coming-soon-text');
         this.dialogue.innerText = 'Thank you for playing my game made entirely with vanilla JavaScript--no external libraries--pushing the boundaries of what it can do. If you are interested in seeing my other projects, please click on one of the links above. Music and sound by me. Images by '
-        // const descriptionContainer = document.createElement('div');
-        // this.screen.appendChild(descriptionContainer);
-        // descriptionContainer.setAttribute('class', 'text-box')
-        // const description = document.createElement('div');
-        // description.innerText = 'Thank you for playing my game made entirely with vanilla JavaScript--no external libraries--pushing the boundaries of what it can do. If you are interested in seeing my other projects, please click on one of the links above. Music and sound by me. Images by'
-        // descriptionContainer.appendChild(description);
         const repo = document.createElement('a');
         repo.innerText = 'freepik.'
         this.dialogue.appendChild(repo);

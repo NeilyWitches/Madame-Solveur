@@ -21,6 +21,24 @@ button {
     transform: rotate(20deg);
 }
 
+#undergrad-start {
+  position: absolute;
+  transform: rotate(180deg);
+  height: auto;
+  width: 20%;
+  top: -100px;
+  left: 500px;
+}
+
+#grad-student-start {
+  position: absolute;
+  // transform: rotate(-20deg);
+  height: auto;
+  width: 40%;
+  top: 500px;
+  left: 350px;
+}
+
 button:hover {
   background-color: purple;
 }
