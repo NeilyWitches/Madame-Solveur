@@ -1,5 +1,5 @@
 import Level2Instructions from "./level_2_story";
-import Level3Story from "./level_3_story";
+import Level3Password from "./level_3_password";
 
 class Level2Proper {
     constructor() {
@@ -106,7 +106,7 @@ class Level2Proper {
                         while (that.screen.firstChild) {
                             that.screen.removeChild(that.screen.firstChild);
                         }
-                        new Level3Story();
+                        new Level3Password();
                     }, 50);
                 } else {
                     mmePrevNum.innerText = inputVal;

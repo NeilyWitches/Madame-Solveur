@@ -312,6 +312,9 @@ class Level3Proper {
                     this.screen.removeChild(this.screen.firstChild);
                 }
                 lost = true;
+                // document.removeEventListener('dragstart', handleDragStart);
+                // document.removeEventListener('dragover', handleDragOver);
+                // document.removeEventListener('drop', handleDrop);
                 new Level3Instructions();
                 break
             }

@@ -9,17 +9,21 @@ import Level2Story from './scripts/level_2_story';
 import Level3Proper from './scripts/level_3_proper';
 import ComingSoon from "./scripts/coming_soon";
 import Level3Instructions from "./scripts/level_3_instructions";
+import Level2Password from './scripts/level_2_password';
+import Level3Password from './scripts/level_3_password';
 
 document.addEventListener("DOMContentLoaded", () => {
     // new StartMenu();
     // new Level1Story();
     // new Level1Instructions();
     // new Level1Proper();
-    new Level2Story();
+    // new Level2Story();
     // new Level2Instructions;
     // new Level3Story;
     // new Level2Proper;
-    // new Level3Proper;
+    new Level3Proper;
     // new ComingSoon
     // new Level3Instructions
+    // new Level2Password;
+    // new Level3Password;
 })

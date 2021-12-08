@@ -1,6 +1,6 @@
 import Ball from "./ball.js"
 import Level1Instructions from "./level_1_instructions";
-import Level2Story from "./level_2_story.js";
+import Level2Password from "./level_2_password.js";
 
 class Level1Proper {
     constructor() {
@@ -158,7 +158,7 @@ class Level1Proper {
                     while (that.screen.firstChild) {
                         that.screen.removeChild(that.screen.firstChild);
                     }
-                    new Level2Story();
+                    new Level2Password();
                 }
             }
         }

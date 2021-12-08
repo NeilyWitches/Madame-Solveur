@@ -37,7 +37,7 @@ class StartMenu {
 
     renderStartMenu() {
         this.renderText();
-        this.renderButton();
+        this.renderStartButton();
         this.renderChars();
     }
 
@@ -64,7 +64,7 @@ class StartMenu {
         repo.setAttribute('target',"_blank");
     }
 
-    renderButton() {
+    renderStartButton() {
         const startButton = document.createElement('button');
         this.screen.appendChild(startButton);
         startButton.setAttribute('id', 'start-button');

@@ -423,6 +423,12 @@ h2 {
   left: 95px;
 }
 
+.password {
+  font-family: Monaco;
+  font-size: 50px;
+  text-align: center;
+}
+
 #level-1-redo {
   width: 600px;
   height: 700px;
