@@ -6,6 +6,7 @@ class Level3Proper {
         this.clickOrangesPeek = this.clickOrangesPeek.bind(this);
         this.clickBothPeek = this.clickBothPeek.bind(this);
         this.renderLevel();
+        this.dragAndDrop();
     }
 
     clickApplesPeek() {
@@ -254,6 +255,33 @@ class Level3Proper {
         for (let i = 1; i < barrelsArray.length; i++) {
             if (barrelsArray[i].children.length === 2) {
                 barrelsArray[i].appendChild(labelsArray[0])
+            }
+        }
+    }
+
+    dragAndDrop() {
+        let dragged;
+        const that = this;
+
+        document.addEventListener('dragstart', handleDragStart);
+        function handleDragStart(event) {
+            if (event.target.className === "label") {
+                dragged = event.target;
+            }
+        };
+
+        document.addEventListener('dragover', handleDragOver);
+        function handleDragOver(event) {
+            event.preventDefault();
+        }
+
+        document.addEventListener('drop', handleDrop);
+        function handleDrop(event) {
+            event.preventDefault();
+            if (event.target.className === 'label') {
+                let draggedParent = dragged.parentNode;
+                event.target.parentNode.appendChild(dragged);
+                draggedParent.appendChild(event.target);
             }
         }
     }

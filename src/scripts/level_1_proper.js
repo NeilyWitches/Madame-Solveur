@@ -120,7 +120,9 @@ class Level1Proper {
 
         document.addEventListener('dragstart', handleDragStart);
         function handleDragStart(event) {
-            dragged = event.target;
+            if (event.target.className === 'ball') {
+                dragged = event.target;
+            }
         };
 
         document.addEventListener('dragover', handleDragOver);
