@@ -16,3 +16,19 @@
     flex-direction: column;
     align-items: center;
 }
+
+#password-input {
+    margin-top: 200px;
+    background-color: lavender;
+    border-radius: 40px;
+    font-family: Monaco;
+    font-size: 35px;
+    border: 4px solid black;
+    text-align: center;
+    width: 200px;
+    margin-bottom: 100px;
+}
+
+#password-input::placeholder {
+    font-size: 13px;
+}

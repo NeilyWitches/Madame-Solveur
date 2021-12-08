@@ -1,10 +1,12 @@
 import Level1Story from "./level_1_story";
+import ContinueScreen from './continue_screen';
 
 class StartMenu {
     constructor() {
         this.screen = document.getElementById('screen')
         this.renderStartMenu();
         this.clickStart();
+        this.clickContinue = this.clickContinue.bind(this);
     }
 
     renderChars() {
@@ -39,6 +41,7 @@ class StartMenu {
         this.renderText();
         this.renderStartButton();
         this.renderChars();
+        this.renderContinueButton();
     }
 
     renderText() {
@@ -69,6 +72,22 @@ class StartMenu {
         this.screen.appendChild(startButton);
         startButton.setAttribute('id', 'start-button');
         startButton.innerText = "Start";
+    }
+
+    renderContinueButton() {
+        const continueButton = document.createElement('button');
+        this.screen.appendChild(continueButton);
+        continueButton.setAttribute('class', 'skip-button');
+        continueButton.innerText = "Continue";  
+        continueButton.addEventListener('click', this.clickContinue); 
+    }
+
+    clickContinue() {
+        this.screen = document.getElementById('screen')
+        while (this.screen.firstChild) {
+            this.screen.removeChild(this.screen.firstChild);
+        }
+        new ContinueScreen();
     }
 
     clickStart() {
