@@ -178,6 +178,11 @@ h2 {
   bottom: 40px;
 }
 
+.skip-button {
+  position: absolute;
+  top: 600px;
+}
+
 #mme-1 {
   height: auto;
   width: 25%;

@@ -1,4 +1,3 @@
-import Level1Redo from "./level_1_proper";
 import Level1Instructions from './level_1_instructions';
 
 class Level1Story {
@@ -6,6 +5,7 @@ class Level1Story {
         this.screen = document.getElementById('screen')
         this.renderStory();
         this.clickNext();
+        this.clickSkip = this.clickSkip.bind(this);
     }
 
     renderStory() {
@@ -18,6 +18,7 @@ class Level1Story {
 
         this.renderDialogue();
         this.renderNextButton();
+        this.renderSkipButton();
     }
 
     renderDialogue() {
@@ -44,6 +45,22 @@ class Level1Story {
         this.screen.appendChild(this.nextButton);
         this.nextButton.setAttribute('id', 'next-button');
         this.nextButton.innerText = "Next";
+    }
+
+    clickSkip() {
+        this.screen = document.getElementById('screen')
+        while (this.screen.firstChild) {
+            this.screen.removeChild(this.screen.firstChild);
+        }
+        new Level1Instructions();
+    }
+
+    renderSkipButton() {
+        this.skip = document.createElement('button');
+        this.screen.appendChild(this.skip);
+        this.skip.setAttribute('class', 'skip-button');
+        this.skip.innerText = "Skip";
+        this.skip.addEventListener('click', this.clickSkip);
     }
 
     clickNext() {

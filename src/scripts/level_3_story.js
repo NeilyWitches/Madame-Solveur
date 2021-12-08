@@ -4,6 +4,7 @@ class Level3Story {
     constructor() {
         this.screen = document.getElementById('screen');
         this.clickNext = this.clickNext.bind(this);
+        this.clickSkip = this.clickSkip.bind(this);
         this.renderScreen();
         this.clicked = 0;
     }
@@ -18,6 +19,7 @@ class Level3Story {
 
         this.renderDialogue();
         this.renderNextButton();
+        this.renderSkipButton();
     }
 
     renderDialogue() {
@@ -49,6 +51,22 @@ class Level3Story {
         this.nextButton.setAttribute('id', 'next-button');
         this.nextButton.innerText = "Next";
         this.nextButton.addEventListener('click', this.clickNext)
+    }
+
+    renderSkipButton() {
+        this.skip = document.createElement('button');
+        this.screen.appendChild(this.skip);
+        this.skip.setAttribute('class', 'skip-button');
+        this.skip.innerText = "Skip";
+        this.skip.addEventListener('click', this.clickSkip);
+    }
+
+    clickSkip() {
+        this.screen = document.getElementById('screen')
+        while (this.screen.firstChild) {
+            this.screen.removeChild(this.screen.firstChild);
+        }
+        new Level3Instructions();
     }
 
     clickNext() {
