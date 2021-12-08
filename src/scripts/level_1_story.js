@@ -76,7 +76,7 @@ class Level1Story {
 
             }
             else if (clicked === 2) {
-                that.dialogue.innerText = "Startled but warm, the physicist welcomed them in and the student explained their reason for coming."             }
+                that.dialogue.innerText = "Startled, the physicist warmly beckoned them in and the student explained their reason for coming."             }
             else if (clicked === 3) {
                 that.dialogue.innerText = "They were tasked with assisting in an experiment with one of Mme Solveur's colleagues and needed help with a problem they had encountered."
             }
