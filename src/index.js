@@ -7,15 +7,18 @@ import Level1Story from './scripts/level_1_story';
 import Level1Proper from "./scripts/level_1_proper";
 import Level2Story from './scripts/level_2_story';
 import Level3Proper from './scripts/level_3_proper';
+import ComingSoon from "./scripts/coming_soon";
 
 document.addEventListener("DOMContentLoaded", () => {
     // new StartMenu();
     // new Level1Story();
     // new Level1Instructions();
-    new Level1Proper();
+    // new Level1Proper();
     // new Level2Story();
     // new Level2Instructions;
     // new Level3Story;
     // new Level2Proper;
     // new Level3Proper;
+    new ComingSoon
+    
 })

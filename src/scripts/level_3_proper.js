@@ -1,3 +1,6 @@
+import Level3Instructions from "./level_3_instructions";
+import ComingSoon from './coming_soon';
+
 class Level3Proper {
     constructor() {
         this.screen = document.getElementById('screen');
@@ -5,6 +8,7 @@ class Level3Proper {
         this.clickApplesPeek = this.clickApplesPeek.bind(this);
         this.clickOrangesPeek = this.clickOrangesPeek.bind(this);
         this.clickBothPeek = this.clickBothPeek.bind(this);
+        this.clickSubmit = this.clickSubmit.bind(this);
         this.renderLevel();
         this.dragAndDrop();
     }
@@ -131,6 +135,7 @@ class Level3Proper {
         this.screen.appendChild(submitButton);
         submitButton.setAttribute('id', 'lvl3-submit');
         submitButton.innerText = 'Submit';
+        submitButton.addEventListener('click', this.clickSubmit)
     }
 
     shuffle(array) {
@@ -284,6 +289,25 @@ class Level3Proper {
                 draggedParent.appendChild(event.target);
             }
         }
+    }
+
+    clickSubmit() {
+        const barrels = document.getElementById('barrels-div').children;
+        for (let i = 0; i < barrels.length; i++) {
+            if (barrels[i].getAttribute('fruit') !== barrels[i].children[2].getAttribute('fruit')) {
+                alert('The barrels were not correctly labeled! Try again.')
+                while (this.screen.firstChild) {
+                    this.screen.removeChild(this.screen.firstChild);
+                }
+                new Level3Instructions();
+                break
+            }
+        }
+        alert('Nothing gets past you, professor!')
+        while (this.screen.firstChild) {
+            this.screen.removeChild(this.screen.firstChild);
+        }
+        new ComingSoon();
     }
 }
 

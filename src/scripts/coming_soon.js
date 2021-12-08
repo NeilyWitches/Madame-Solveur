@@ -1,34 +1,23 @@
 // import StartMenu from "./start_menu";
 
-class Level3 {
+class ComingSoon {
     constructor() {
-        this.screen = document.createElement('div');
-        document.getElementById('body').appendChild(this.screen);
-        this.screen.setAttribute('id', 'level-3');
+        this.screen = document.getElementById('screen');
         this.renderScreen();
     }
 
     renderScreen() {
-        this.renderLinks();
+        const h1 = document.createElement('h1');
+        this.screen.appendChild(h1);
+        h1.innerText = "Thank you";
+
+        const h2 = document.createElement('h2');
+        this.screen.appendChild(h2);
+        h2.innerText = "More levels coming soon!"
+        // this.renderLinks();
     }
 
     renderLinks() {
-        const h1 = document.createElement('h1');
-        this.screen.appendChild(h1);
-        h1.innerText = "Level 3"
-
-        const h2 = document.createElement('h2');
-        h1.appendChild(h2);
-        h2.innerText = "More levels coming soon!"
-
-        const ul = document.createElement('ul');
-        this.screen.appendChild(ul);
-        ul.setAttribute('id', 'lvl3-ul');
-
-        const li_1 = document.createElement('li');
-        li_1.setAttribute('id', 'lvl3-li-1')
-        ul.appendChild(li_1);
-
         const myGitHub = document.createElement('a');
         myGitHub.setAttribute('href', 'https://github.com/NeilyWitches');
         li_1.appendChild(myGitHub);
@@ -145,4 +134,4 @@ class Level3 {
     }
 }
 
-export default Level3;
+export default ComingSoon;
