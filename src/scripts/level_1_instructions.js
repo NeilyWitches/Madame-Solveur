@@ -94,7 +94,7 @@ class Level1Instructions {
             this.instructions.innerText = `Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip.`;
         } else if (this.clicked === 5) {
             this.clicked = 4;
-            this.instructions.innerText = `Click the "Reset" button to reset the scale after weighing.`
+            this.instructions.innerText = `Click "Reset" if you need to put the scale back to its balanced position.`
         }
         else if (this.clicked === 6) {
             this.clicked = 4;
@@ -132,7 +132,7 @@ class Level1Instructions {
             this.screen.appendChild(gif_instructions_1);
             gif_instructions_1.src = 'assets/lvl_1_instructions_1.gif';
         } else if (this.clicked === 4) {
-            this.instructions.innerText = `Click the "Reset" button to reset the scale after weighing.`
+            this.instructions.innerText = `Click "Reset" if you need to put the scale back to its balanced position.`
         } else if (this.clicked === 5) {
             this.instructions.innerText = `Try to click the "weigh" button as little as possible. You cannot weigh more than 4 times!`;
         } else if (this.clicked === 6) {
