@@ -215,11 +215,9 @@ class Level3Proper {
 
         for (let i = 0; i < barrelsArray.length; i++) {
             barrelsDiv.appendChild(barrelsArray[i])
-            console.log(barrelsArray[i])
         }
 
         this.attachWrongLabels(barrelsArray, labelsArray);
-
     }
 
     attachWrongLabels(barrelsArray, labelsArray) {
