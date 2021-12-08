@@ -71,7 +71,7 @@ class StartMenu {
         const startButton = document.createElement('button');
         this.screen.appendChild(startButton);
         startButton.setAttribute('id', 'start-button');
-        startButton.innerText = "Start";
+        startButton.innerText = "New Game";
     }
 
     renderContinueButton() {

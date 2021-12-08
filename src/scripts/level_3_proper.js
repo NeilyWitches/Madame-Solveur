@@ -146,6 +146,11 @@ class Level3Proper {
         this.screen.appendChild(instructions);
         instructions.setAttribute('class', 'instructions-button');
         instructions.addEventListener('click', this.clickInstructions)
+
+        const password = document.createElement('div');
+        password.innerText = "Password: cupcake"
+        this.screen.appendChild(password);
+        password.setAttribute('class', 'password-header');
     }
 
     clickInstructions() {

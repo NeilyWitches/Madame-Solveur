@@ -10,6 +10,12 @@ class Level2Proper {
     }
 
     renderLevel() {
+
+        const password = document.createElement('div');
+        password.innerText = "Password: dusk"
+        this.screen.appendChild(password);
+        password.setAttribute('class', 'password-header');
+        
         const h1 = document.createElement('h1');
         this.screen.appendChild(h1);
         h1.innerText = "Level 2";
