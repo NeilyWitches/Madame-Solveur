@@ -32,7 +32,7 @@ class Level3Instructions {
         this.instructions.setAttribute('class', 'text-box');
         this.instructions.setAttribute('id', 'level-3-instructions-text');
 
-        this.instructions.innerText = `Before you are three barrels, identical in appearance, each of which contain fruits.`;
+        this.instructions.innerText = `Before you are three barrels, identical in appearance, each of which contains fruit.`;
 
         this.barrels = new Image();
         this.barrels.setAttribute('class', 'barrels');
@@ -106,7 +106,7 @@ class Level3Instructions {
         if (this.clicked === 1) {
             this.screen.removeChild(this.backButton);
             this.clicked = 0;
-            this.instructions.innerText = `Before you are three barrels, identical in appearance, each of which contain fruits.`       
+            this.instructions.innerText = `Before you are three barrels, identical in appearance, each of which contains fruit.`       
         } else if (this.clicked === 2) {
             this.instructions.innerText = `One of the barrels contains only apples, another only oranges, and the last contains a mixture of both. You do not know which barrels contain what.`;
             this.screen.removeChild(this.barrelsLabeled);
