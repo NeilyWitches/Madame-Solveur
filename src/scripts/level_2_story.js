@@ -86,7 +86,7 @@ class Level2Story {
         if (this.clicked === 1) {
             this.dialogue.innerText = `Shortly afterwards, the professor felt hungry so she made her way to the quad and sat down at the café.`
             this.screen.removeChild(document.getElementById('sorbonne'));
-            
+
             const cafe = new Image();
             cafe.setAttribute('id', 'cafe');
             this.screen.appendChild(cafe);

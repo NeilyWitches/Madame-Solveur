@@ -72,7 +72,7 @@ class Level2Proper {
     }
 
     clickInstructions() {
-         alert(`Mme Solveur and the student are playing a game. The winner of the game is the first to say the number 50, but there are rules. She and the student will take turns saying numbers aloud. The first number spoken must be a number from 1 to 10. The next number spoken must be 1 to 10 larger than the previous number. The student allows the Mme to go first. Type in your number into the thought bubble and click 'Say' to have the Mme say that number aloud...`);
+         alert(`Mme Solveur and the student are playing a game. The winner of the game is the first to say the number 50, but there are rules. She and the student will take turns saying numbers aloud. The first number spoken must be a number from 1 - 10. The next number spoken must be 1 - 10 larger than the previous number. For example, if the student said "13", your next number must be from 14 - 24. The student allows the Mme to go first. Type in your number into the thought bubble and click 'Say' to have the Mme say that number aloud...`);
     }
 
     handleInput(i, mmePrevNum, studPrevNum) {
@@ -96,7 +96,7 @@ class Level2Proper {
             if (!Number.isInteger(inputVal)) {
                 alert("Please enter a number.");
             } else if (inputVal <= studPrevNumVal || inputVal > studPrevNumVal + 10) {
-                alert("The number must be 1 to 10 larger than the Student's number.")
+                alert("The number must be 1 - 10 larger than the Student's number.")
             } else {
                 that.button.removeEventListener('click', handleClick);
                 if (inputVal === 50) {

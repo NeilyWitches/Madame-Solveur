@@ -63,7 +63,7 @@ class Level2Instructions {
     clickNext() {
         this.clicked += 1
         if (this.clicked === 1) {
-            this.instructions.innerText = 'She and the student will take turns saying numbers aloud. The first number spoken must be a number from 1 to 10.'
+            this.instructions.innerText = 'She and the student will take turns saying numbers aloud. The first number spoken must be a number from 1 - 10.'
             this.screen.appendChild(this.backButton);
 
             const four = new Image();
@@ -71,7 +71,7 @@ class Level2Instructions {
             this.screen.appendChild(four);
             four.src = 'assets/4_bubble.png';
         } else if (this.clicked === 2) {
-            this.instructions.innerText = 'The next number spoken must be 1 to 10 larger than the previous number.';
+            this.instructions.innerText = 'The next number spoken must be 1 - 10 larger than the previous number. For example, if the student said "13", your next number must be from 14 - 24.';
             
             const thirteen = new Image();
             thirteen.setAttribute('id', 'thirteen-bubble');
@@ -108,9 +108,10 @@ class Level2Instructions {
         } else if (this.clicked === 2) {
             this.screen.removeChild(document.getElementById('thirteen-bubble'));
             this.clicked = 1;
-            this.instructions.innerText = 'She and the student will take turns saying numbers aloud. The first number spoken must be a number from 1 to 10.'
+            this.instructions.innerText = 'She and the student will take turns saying numbers aloud. The first number spoken must be a number from 1 - 10.'
         } else if (this.clicked === 3) {
             this.clicked = 2;
+            this.instructions.innerText = 'The next number spoken must be 1 - 10 larger than the previous number. For example, if the student said "13", your next number must be from 14 - 24.';
 
             this.screen.removeChild(document.getElementById('lvl2-instructions-gif'))
 
