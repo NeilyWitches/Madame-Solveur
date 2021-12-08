@@ -10,6 +10,9 @@ class Level3Proper {
         this.clickBothPeek = this.clickBothPeek.bind(this);
         this.clickSubmit = this.clickSubmit.bind(this);
         this.clickInstructions = this.clickInstructions.bind(this);
+        this.handleDragOver = this.handleDragOver.bind(this);
+        this.handleDragStart = this.handleDragStart.bind(this);
+        this.handleDrop = this.handleDrop.bind(this);
         this.renderLevel();
         this.dragAndDrop();
     }
@@ -276,29 +279,27 @@ class Level3Proper {
     }
 
     dragAndDrop() {
-        let dragged;
-        const that = this;
+        document.addEventListener('dragstart', this.handleDragStart);
+        document.addEventListener('dragover', this.handleDragOver);
+        document.addEventListener('drop', this.handleDrop);
+    }
 
-        document.addEventListener('dragstart', handleDragStart);
-        function handleDragStart(event) {
-            if (event.target.className === "label") {
-                dragged = event.target;
-            }
-        };
-
-        document.addEventListener('dragover', handleDragOver);
-        function handleDragOver(event) {
-            event.preventDefault();
+    handleDragStart(event) {
+        if (event.target.className === "label") {
+                this.dragged = event.target;
         }
+    }
 
-        document.addEventListener('drop', handleDrop);
-        function handleDrop(event) {
-            event.preventDefault();
-            if (event.target.className === 'label') {
-                let draggedParent = dragged.parentNode;
-                event.target.parentNode.appendChild(dragged);
-                draggedParent.appendChild(event.target);
-            }
+    handleDragOver(event) {
+        event.preventDefault();
+    }
+
+    handleDrop(event) {
+        event.preventDefault();
+        if (event.target.className === 'label') {
+            let draggedParent = this.dragged.parentNode;
+            event.target.parentNode.appendChild(this.dragged);
+            draggedParent.appendChild(event.target);
         }
     }
 
@@ -312,9 +313,9 @@ class Level3Proper {
                     this.screen.removeChild(this.screen.firstChild);
                 }
                 lost = true;
-                // document.removeEventListener('dragstart', handleDragStart);
-                // document.removeEventListener('dragover', handleDragOver);
-                // document.removeEventListener('drop', handleDrop);
+                document.removeEventListener('dragstart', this.handleDragStart);
+                document.removeEventListener('dragover', this.handleDragOver);
+                document.removeEventListener('drop', this.handleDrop);
                 new Level3Instructions();
                 break
             }
