@@ -27,7 +27,7 @@ class Level3Story {
         this.screen.appendChild(this.dialogue);
         this.dialogue.setAttribute('class', 'text-box');
         this.dialogue.setAttribute('id', 'level-3-dialogue');
-        this.dialogue.innerText = `Mme Solveur looked at her watched and noticed she was late in giving her lecture on quantum mechanics.`
+        this.dialogue.innerText = `Mme Solveur looked at her watch and noticed she was late in giving her lecture on quantum mechanics.`
 
         const cafe = new Image();
         cafe.setAttribute('id', 'cafe');
