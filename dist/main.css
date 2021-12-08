@@ -651,3 +651,22 @@ h2 {
   position: absolute;
   top: 420px;
 }
+
+#attributions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 500px;
+  font-family: Monaco;
+}
+
+#attributions img {
+  height: auto;
+  width: 75px;
+}
+
+.attribution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

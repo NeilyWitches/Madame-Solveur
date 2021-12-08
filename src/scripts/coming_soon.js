@@ -14,100 +14,77 @@ class ComingSoon {
         h2.innerText = "More levels coming soon!"
 
         this.renderText();
+        this.renderAttributions();
     }
 
     renderText() {
-        
+        this.dialogue = document.createElement('div');
+        this.screen.appendChild(this.dialogue);
+        this.dialogue.setAttribute('class', 'text-box');
+        this.dialogue.setAttribute('id', 'coming-soon-text');
+        this.dialogue.innerText = 'Thank you for playing my game made entirely with vanilla JavaScript--no external libraries--pushing the boundaries of what it can do. If you are interested in seeing my other projects, please click on one of the links above. Music and sound by me. Images by '
+        // const descriptionContainer = document.createElement('div');
+        // this.screen.appendChild(descriptionContainer);
+        // descriptionContainer.setAttribute('class', 'text-box')
+        // const description = document.createElement('div');
+        // description.innerText = 'Thank you for playing my game made entirely with vanilla JavaScript--no external libraries--pushing the boundaries of what it can do. If you are interested in seeing my other projects, please click on one of the links above. Music and sound by me. Images by'
+        // descriptionContainer.appendChild(description);
+        const repo = document.createElement('a');
+        repo.innerText = 'freepik.'
+        this.dialogue.appendChild(repo);
+        repo.setAttribute('href', 'http://www.freepik.com')
+        repo.setAttribute('rel', "noopener noreferrer");
+        repo.setAttribute('target',"_blank");
     }
 
-    renderLinks() {
-        const myGitHub = document.createElement('a');
-        myGitHub.setAttribute('href', 'https://github.com/NeilyWitches');
-        li_1.appendChild(myGitHub);
+    renderAttributions() {
+        const attributions = document.createElement('div');
+        attributions.setAttribute('id', 'attributions');
+        this.screen.appendChild(attributions)
 
-        const gitHubIcon = new Image();
-        gitHubIcon.setAttribute('id', 'github-3');
-        myGitHub.appendChild(gitHubIcon);
-        gitHubIcon.onload = function () {
-            this.width = this.width;
-        }
-        gitHubIcon.src = "assets/github.png";
-
-        const myLinkedIn = document.createElement('a');
-        myLinkedIn.setAttribute('href', 'https://www.linkedin.com/in/neil-pandya-610588187/');
-        li_1.appendChild(myLinkedIn);
-
-        const linkedInIcon = new Image();
-        linkedInIcon.setAttribute('id', 'linkedin-3');
-        myLinkedIn.appendChild(linkedInIcon);
-        const scaleFactorLinkedIn = 1 / 5;
-        linkedInIcon.onload = function () {
-            this.width = this.width * scaleFactorLinkedIn;
-        }
-        linkedInIcon.src = 'assets/linkedin.png';
-
-        const li_2 = document.createElement('li');
-        ul.appendChild(li_2);
-        const att_label = document.createElement('p');
-        att_label.setAttribute('id', 'att-label');
-        li_2.appendChild(att_label);
-        att_label.innerText = "Attributions:"
-
-        const freepik = document.createElement('a');
-        li_2.appendChild(freepik);
-        freepik.setAttribute('id', 'freepik');
-        freepik.setAttribute('href', "http://www.freepik.com");
-        freepik.innerText = "Freepik";
-
-        const li_3 = document.createElement('li');
-        ul.appendChild(li_3);
-        li_3.setAttribute('id', 'attributions');
-
+        const ballDiv = document.createElement('div');
+        ballDiv.setAttribute('class', 'attribution');
+        attributions.appendChild(ballDiv);
         const ball = new Image();
-        ball.setAttribute('id', 'ball-3');
-        li_3.appendChild(ball);
-        const scaleFactorBall = 1 / 30;
-        ball.onload = function () {
-            this.width = this.width * scaleFactorBall;
-        }
+        ball.setAttribute('id', 'ball-attribution');
+        ballDiv.appendChild(ball);
         ball.src = 'assets/ball.png';
+        const ballAttribution = document.createElement('div');
+        ballAttribution.innerText = 'vectorpouch';
+        ballDiv.appendChild(ballAttribution)
 
-        const student = new Image();
-        student.setAttribute('id', 'student-3');
-        li_3.appendChild(student);
-        const scaleFactorStudent = 1 / 20;
-        student.onload = function () {
-            this.width = this.width * scaleFactorStudent;
-        }
-        student.src = 'assets/student_lvl_1.png';
+        const underGradDiv = document.createElement('div');
+        underGradDiv.setAttribute('class', 'attribution');
+        attributions.appendChild(underGradDiv)
+        const underGrad = new Image();
+        underGrad.setAttribute('id', 'undergrad-attribution');
+        underGradDiv.appendChild(underGrad);
+        underGrad.src = 'assets/student_needs_help.png';
+        const underGradAttribution = document.createElement('div');
+        underGradAttribution.innerText = 'pikisuperstar';
+        underGradDiv.appendChild(underGradAttribution);
 
+        const mmeDiv = document.createElement('div');
+        mmeDiv.setAttribute('class', 'attribution');
+        attributions.appendChild(mmeDiv)
         const mme = new Image();
-        mme.setAttribute('id', 'mme-3');
-        li_3.appendChild(mme);
-        const scaleFactorMme = 1 / 4;
-        mme.onload = function () {
-            this.width = this.width * scaleFactorMme;
-        }
+        mme.setAttribute('id', 'mme-attribution');
+        mmeDiv.appendChild(mme);
         mme.src = 'assets/mme_solveur.png';
+        const mmeAttribution = document.createElement('div');
+        mmeAttribution.innerText = 'Freepik';
+        mmeDiv.appendChild(mmeAttribution);
 
-        const li_4 = document.createElement('li');
-        ul.appendChild(li_4);
-        li_4.setAttribute('id', 'li-4');
-
-        const ball_p = document.createElement('p');
-        ball_p.setAttribute('id', 'ball-p');
-        li_4.appendChild(ball_p);
-        ball_p.innerText = "vectorpouch";
-       
-        const student_p = document.createElement('p');
-        student_p.setAttribute('id', 'student-p');
-        li_4.appendChild(student_p);
-        student_p.innerText = "pikisuperstar";
-
-        const mme_p = document.createElement('p');
-        mme_p.setAttribute('id', 'mme-p');
-        li_4.appendChild(mme_p);
-        mme_p.innerText = "Freepik";
+        const gradStudentDiv = document.createElement('div');
+        gradStudentDiv.setAttribute('class', 'attribution');
+        attributions.appendChild(gradStudentDiv)
+        const gradStudent = new Image();
+        gradStudent.setAttribute('id', 'gradStudent-attribution');
+        gradStudentDiv.appendChild(gradStudent);
+        gradStudent.src = 'assets/grad_student.png';
+        const gradStudentAttribution = document.createElement('div');
+        gradStudentAttribution.innerText = 'pch.vector';
+        gradStudentDiv.appendChild(gradStudentAttribution);
     }
 }
 
