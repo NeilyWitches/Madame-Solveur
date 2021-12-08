@@ -9,6 +9,7 @@ class Level3Proper {
         this.clickOrangesPeek = this.clickOrangesPeek.bind(this);
         this.clickBothPeek = this.clickBothPeek.bind(this);
         this.clickSubmit = this.clickSubmit.bind(this);
+        this.clickInstructions = this.clickInstructions.bind(this);
         this.renderLevel();
         this.dragAndDrop();
     }
@@ -136,6 +137,16 @@ class Level3Proper {
         submitButton.setAttribute('id', 'lvl3-submit');
         submitButton.innerText = 'Submit';
         submitButton.addEventListener('click', this.clickSubmit)
+
+        const instructions = document.createElement('button');
+        instructions.innerText = "Instructions";
+        this.screen.appendChild(instructions);
+        instructions.setAttribute('class', 'instructions-button');
+        instructions.addEventListener('click', this.clickInstructions)
+    }
+
+    clickInstructions() {
+         alert(`Before you are three barrels, identical in appearance, each of which contain fruits. One of the barrels contains only apples, another only oranges, and the last contains a mixture of both. You do not know which barrels contain what. They have all been incorrectly labeled! Drag and drop the labels to swap them until all of the barrels are all labeled correctly. You may peek inside only one of the barrels only one time. When you think you have labeled all the barrels correctly, click the "Submit" button...`);
     }
 
     shuffle(array) {
@@ -292,6 +303,7 @@ class Level3Proper {
     }
 
     clickSubmit() {
+        let lost = false;
         const barrels = document.getElementById('barrels-div').children;
         for (let i = 0; i < barrels.length; i++) {
             if (barrels[i].getAttribute('fruit') !== barrels[i].children[2].getAttribute('fruit')) {
@@ -299,15 +311,18 @@ class Level3Proper {
                 while (this.screen.firstChild) {
                     this.screen.removeChild(this.screen.firstChild);
                 }
+                lost = true;
                 new Level3Instructions();
                 break
             }
         }
-        alert('Nothing gets past you, professor!')
-        while (this.screen.firstChild) {
-            this.screen.removeChild(this.screen.firstChild);
+        if (!lost) {
+            alert('Nothing gets past you, professor!')
+            while (this.screen.firstChild) {
+                this.screen.removeChild(this.screen.firstChild);
+            }
+            new ComingSoon();
         }
-        new ComingSoon();
     }
 }
 

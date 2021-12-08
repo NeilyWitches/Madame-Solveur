@@ -8,9 +8,10 @@ import Level1Proper from "./scripts/level_1_proper";
 import Level2Story from './scripts/level_2_story';
 import Level3Proper from './scripts/level_3_proper';
 import ComingSoon from "./scripts/coming_soon";
+import Level3Instructions from "./scripts/level_3_instructions";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // new StartMenu();
+    new StartMenu();
     // new Level1Story();
     // new Level1Instructions();
     // new Level1Proper();
@@ -19,6 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // new Level3Story;
     // new Level2Proper;
     // new Level3Proper;
-    new ComingSoon
-    
+    // new ComingSoon
+    // new Level3Instructions
 })

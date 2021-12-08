@@ -1,5 +1,3 @@
-// import StartMenu from "./start_menu";
-
 class ComingSoon {
     constructor() {
         this.screen = document.getElementById('screen');
@@ -14,7 +12,12 @@ class ComingSoon {
         const h2 = document.createElement('h2');
         this.screen.appendChild(h2);
         h2.innerText = "More levels coming soon!"
-        // this.renderLinks();
+
+        this.renderText();
+    }
+
+    renderText() {
+        
     }
 
     renderLinks() {
@@ -105,32 +108,6 @@ class ComingSoon {
         mme_p.setAttribute('id', 'mme-p');
         li_4.appendChild(mme_p);
         mme_p.innerText = "Freepik";
-    }
-
-    renderButton() {
-        const li_3 = document.createElement('li');
-        const ul = document.getElementById('socials');
-        ul.appendChild(li_3);
-
-        const startButton = document.createElement('button');
-        li_3.appendChild(startButton);
-        startButton.setAttribute('id', 'start-button');
-        startButton.setAttribute('type', 'button');
-        startButton.innerText = "Start";
-    }
-
-    clickStart() {
-        const button = document.getElementById('start-button');
-        button.addEventListener('click', handleClick);
-
-        function handleClick(event) {
-            button.removeEventListener('click', handleClick);
-            const body = document.getElementById('body');
-            while (body.firstChild) {
-                body.removeChild(body.firstChild);
-            }
-            new Level1Instructions();
-        }
     }
 }
 

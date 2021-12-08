@@ -622,3 +622,32 @@ h2 {
   height: auto;
   width: 50%;
 }
+
+.barrels {
+  position: absolute;
+  top: 420px;
+}
+
+#level-3-instructions-text {
+  margin-top: 0;
+  min-height: 135px;
+}
+
+#lvl-3-instructions-gif-1 {
+  position: absolute;
+  top: 420px;
+}
+
+#lvl-3-instructions-gif-2 {
+  position: absolute;
+  top: 275px;
+  height: auto;
+  width: 118%;
+}
+
+#lvl-3-submit-button-img {
+  height: auto;
+  width: 20%;
+  position: absolute;
+  top: 420px;
+}

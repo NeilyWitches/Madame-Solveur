@@ -49,7 +49,6 @@ class Level2Instructions {
         this.nextButton = document.createElement('button');
         this.screen.appendChild(this.nextButton);
         this.nextButton.setAttribute('class', 'next-button-instructions');
-        this.nextButton.innerText = 'Next';
         this.nextButton.addEventListener('click', this.clickNext);
     }
 
