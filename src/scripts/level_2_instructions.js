@@ -50,6 +50,7 @@ class Level2Instructions {
         this.screen.appendChild(this.nextButton);
         this.nextButton.setAttribute('class', 'next-button-instructions');
         this.nextButton.addEventListener('click', this.clickNext);
+        this.nextButton.innerText = 'Next';
     }
 
     renderBackButton() {
