@@ -63,7 +63,7 @@ class Level2Instructions {
     clickNext() {
         this.clicked += 1
         if (this.clicked === 1) {
-            this.instructions.innerText = 'She and the student will take turns saying aloud numbers. The first number spoken must be a number from 1 to 10.'
+            this.instructions.innerText = 'She and the student will take turns saying numbers aloud. The first number spoken must be a number from 1 to 10.'
             this.screen.appendChild(this.backButton);
 
             const four = new Image();
@@ -78,7 +78,7 @@ class Level2Instructions {
             this.screen.appendChild(thirteen);
             thirteen.src = 'assets/13_bubble.png';
         } else if (this.clicked === 3) {
-            this.instructions.innerText = `The student allows the Mme to go first. Type in your number into the thought bubble and click 'Say' to have the Mme say aloud that number...`
+            this.instructions.innerText = `The student allows the Mme to go first. Type in your number into the thought bubble and click 'Say' to have the Mme say that number aloud...`
             this.screen.removeChild(document.getElementById('thirteen-bubble'));
             this.screen.removeChild(document.getElementById('four-bubble'));
             this.screen.removeChild(this.mme);
@@ -108,7 +108,7 @@ class Level2Instructions {
         } else if (this.clicked === 2) {
             this.screen.removeChild(document.getElementById('thirteen-bubble'));
             this.clicked = 1;
-            this.instructions.innerText = 'She and the student will take turns saying aloud numbers. The first number spoken must be a number from 1 to 10.'
+            this.instructions.innerText = 'She and the student will take turns saying numbers aloud. The first number spoken must be a number from 1 to 10.'
         } else if (this.clicked === 3) {
             this.clicked = 2;
 
