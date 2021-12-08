@@ -11,10 +11,10 @@ import ComingSoon from "./scripts/coming_soon";
 import Level3Instructions from "./scripts/level_3_instructions";
 
 document.addEventListener("DOMContentLoaded", () => {
-    new StartMenu();
+    // new StartMenu();
     // new Level1Story();
     // new Level1Instructions();
-    // new Level1Proper();
+    new Level1Proper();
     // new Level2Story();
     // new Level2Instructions;
     // new Level3Story;

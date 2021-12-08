@@ -98,7 +98,12 @@ class Level1Proper {
         const counter = document.createElement('p');
         counter.setAttribute('id', 'counter');
         this.screen.appendChild(counter);
-        counter.innerText = 0;
+        counter.innerText = 4;
+
+        const weighsLeft = document.createElement('p');
+        weighsLeft.setAttribute('id', 'weighs-left');
+        this.screen.appendChild(weighsLeft);
+        weighsLeft.innerText = 'Weighs Left:'
 
         this.resetButton = document.createElement('button');
         this.screen.appendChild(this.resetButton);
@@ -171,8 +176,8 @@ class Level1Proper {
         } else {
             let counter = document.getElementById('counter');
             let count = counter.innerText;
-            let new_count = parseInt(count) + 1;
-            if (new_count > 4) {
+            let new_count = parseInt(count) - 1;
+            if (new_count < 0) {
                 alert("You are out of weighs!")
             } else {
                 counter.innerText = new_count;

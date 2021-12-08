@@ -94,13 +94,21 @@
     top: 580px;
 }
 
-#counter {
+#weighs-left {
     position: absolute;
     font-family: 'Outfit', sans-serif; 
     color: purple;
     font-size: 25px;
     top: 565px;
-    right: 400px;
+    left: 150px;
+}
+
+#counter {
+    font-family: 'GFS Didot', serif;
+    position: absolute;
+    top: 566px;
+    left: 305px;
+    font-size: 25px;
 }
 
 #reset-button {
