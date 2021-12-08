@@ -98,7 +98,7 @@ class Level1Instructions {
         }
         else if (this.clicked === 6) {
             this.clicked = 4;
-            this.instructions.innerText = `Try to click the "weigh" button as little as possible. You cannot weigh more than 4 times!`;
+            this.instructions.innerText = `Try to click the "Weigh" button as little as possible. You cannot weigh more than 4 times!`;
             this.screen.removeChild(document.getElementById('lvl-1-instructions-2'));
             const gif_instructions_1 = new Image();
             gif_instructions_1.setAttribute('id', 'lvl-1-instructions-1');
@@ -134,7 +134,7 @@ class Level1Instructions {
         } else if (this.clicked === 4) {
             this.instructions.innerText = `Click "Reset" if you need to put the scale back to its balanced position.`
         } else if (this.clicked === 5) {
-            this.instructions.innerText = `Try to click the "weigh" button as little as possible. You cannot weigh more than 4 times!`;
+            this.instructions.innerText = `Try to click the "Weigh" button as little as possible. You cannot weigh more than 4 times!`;
         } else if (this.clicked === 6) {
             this.instructions.innerText = 'When you think you have figured out which ball is the heavy one, drag that ball to the student...';
             let gif_instructions_1 = document.getElementById('lvl-1-instructions-1');
