@@ -650,8 +650,6 @@ class Level1Proper {
         }
     }
 
-
-
     clickWeigh() {
         const scale_rot_part = document.getElementById('scale-rot-part');
         let scalePosition = window.getComputedStyle(scale_rot_part).transform
@@ -713,7 +711,6 @@ class Level1Proper {
     clickInstructions() {
         alert(`The student approaches the Mme with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Try to click the "Weigh" button as little as possible. You cannot weight more than 4 times! When you think you have figured out which ball is the heavy one, drag that ball to the student...`);
     }
-
 }
 
 export default Level1Proper;
