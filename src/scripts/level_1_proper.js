@@ -146,6 +146,129 @@ window.leftSideWiggleAnimation = function() {
     }
 }
 
+window.leftToMiddleAnimation = function() {
+    const scale_rot_part = document.getElementById('scale-rot-part');
+    const left_v = document.getElementById('left_v');
+    const right_v = document.getElementById('right_v');
+    const div_left = document.getElementById('div-left');
+    const div_right = document.getElementById('div-right');
+
+    let angle = -45;
+    let left_v_y = 139;
+    let left_v_x = 226;
+    let left_div_y = 66;
+    let left_div_x = 228;
+    let right_v_y = -58;
+    let right_v_x = 75;
+    let right_div_y = 146;
+    let right_div_x = 72;
+
+    let scaleMoves = setInterval(moveScale, 10);
+
+    function moveScale() {
+        if (angle === 0) {
+            clearInterval(scaleMoves);
+        } else {
+            angle++
+            if (angle % 2 === 0) {
+                left_v_x = left_v_x + 1;
+                left_v_y = left_v_y - 3;
+                left_div_x = left_div_x + 1;
+                left_div_y = left_div_y - 3;
+                right_v_x = right_v_x - 1;
+                right_v_y = right_v_y + 3;
+                right_div_x = right_div_x - 1;
+                right_div_y = right_div_y - 3;
+            }
+            left_v.style.top = `${left_v_y}px`;
+            left_v.style.right = `${left_v_x}px`;
+            div_left.style.top = `${left_div_y}px`;
+            div_left.style.right = `${left_div_x}px`;
+            right_v.style.top = `${right_v_y}px`;
+            right_v.style.right = `${right_v_x}px`;
+            div_right.style.bottom = `${right_div_y}px`;
+            div_right.style.right = `${right_div_x}px`;
+            scale_rot_part.style.transform = `rotate(${angle}deg)`;
+        }
+    }
+}
+
+window.leftToRightAnimation = function() {
+    const scale_rot_part = document.getElementById('scale-rot-part');
+    const left_v = document.getElementById('left_v');
+    const right_v = document.getElementById('right_v');
+    const div_left = document.getElementById('div-left');
+    const div_right = document.getElementById('div-right');
+
+    let angle = -45;
+    let left_v_y = 139;
+    let left_v_x = 226;
+    let left_div_y = 66;
+    let left_div_x = 228;
+    let right_v_y = -58;
+    let right_v_x = 75;
+    let right_div_y = 146;
+    let right_div_x = 72;
+    let scaleMovesToRight;
+
+    let scaleMovesToMiddle = setInterval(moveScaleToMiddle, 10);
+
+    function moveScaleToMiddle() {
+        if (angle === 0) {
+            clearInterval(scaleMovesToMiddle);
+            let scaleMovesToRight = setInterval(moveScaleToRight, 10)
+        } else {
+            angle++
+            if (angle % 2 === 0) {
+                left_v_x = left_v_x + 1;
+                left_v_y = left_v_y - 3;
+                left_div_x = left_div_x + 1;
+                left_div_y = left_div_y - 3;
+                right_v_x = right_v_x - 1;
+                right_v_y = right_v_y + 3;
+                right_div_x = right_div_x - 1;
+                right_div_y = right_div_y - 3;
+            }
+            left_v.style.top = `${left_v_y}px`;
+            left_v.style.right = `${left_v_x}px`;
+            div_left.style.top = `${left_div_y}px`;
+            div_left.style.right = `${left_div_x}px`;
+            right_v.style.top = `${right_v_y}px`;
+            right_v.style.right = `${right_v_x}px`;
+            div_right.style.bottom = `${right_div_y}px`;
+            div_right.style.right = `${right_div_x}px`;
+            scale_rot_part.style.transform = `rotate(${angle}deg)`;
+        }
+
+        function moveScaleToRight() {
+            if (angle === 45) {
+                clearInterval(scaleMovesToRight);
+            } else {
+                angle++;
+                if (angle % 2 === 0) {
+                    left_v_x = left_v_x - 1;
+                    left_v_y = left_v_y - 3;
+                    left_div_x = left_div_x - 1;
+                    left_div_y = left_div_y - 3;
+                    right_v_x = right_v_x + 1;
+                    right_v_y = right_v_y + 3;
+                    right_div_x = right_div_x + 1;
+                    right_div_y = right_div_y - 3;
+                }
+                left_v.style.top = `${left_v_y}px`;
+                left_v.style.right = `${left_v_x}px`;
+                div_left.style.top = `${left_div_y}px`;
+                div_left.style.right = `${left_div_x}px`;
+                right_v.style.top = `${right_v_y}px`;
+                right_v.style.right = `${right_v_x}px`;
+                div_right.style.bottom = `${right_div_y}px`;
+                div_right.style.right = `${right_div_x}px`;
+                scale_rot_part.style.transform = `rotate(${angle}deg)`;
+            }
+        }
+    }
+}
+
 class Level1Proper {
     constructor() {
         this.screen = document.getElementById('screen');
@@ -337,9 +460,9 @@ class Level1Proper {
                 if (massLeft > massRight) {
                     leftSideWiggleAnimation();
                 } else if (massLeft === massRight) {
-                //      left side to balanced animation (opposite of balanced to left side, which we have)
+                    leftToMiddleAnimation();
                 } else if (massRight > massLeft) {
-                //      left side to balanced (see above) + balanced to right side animation (we have)
+                    leftToRightAnimation();
                 }
             } else if (scalePosition === balanced) {
                 if (massLeft > massRight) {
