@@ -530,7 +530,7 @@ h2 {
   padding: 8px 16px;
   position: absolute;
   right: 475px;
-  top: 580px;
+  top: 600px;
 }
 
 #weighs-left {
@@ -538,14 +538,14 @@ h2 {
   font-family: "Outfit", sans-serif;
   color: purple;
   font-size: 25px;
-  top: 565px;
+  top: 585px;
   left: 150px;
 }
 
 #counter {
   font-family: "GFS Didot", serif;
   position: absolute;
-  top: 566px;
+  top: 586px;
   left: 305px;
   font-size: 25px;
 }
