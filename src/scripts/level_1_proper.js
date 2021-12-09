@@ -269,6 +269,104 @@ window.leftToRightAnimation = function() {
     }
 }
 
+window.middleWiggleAnimation = function() {
+    const scale_rot_part = document.getElementById('scale-rot-part');
+    const left_v = document.getElementById('left_v');
+    const right_v = document.getElementById('right_v');
+    const div_left = document.getElementById('div-left');
+    const div_right = document.getElementById('div-right');
+
+    let angle = 0;
+    let counter = 0;
+
+    let left_v_y = 73;
+    let right_v_y = 8;
+    let div_left_y = 0;
+    let div_right_y = 80; 
+
+    let scaleWiggles = setInterval(wiggleScale, 20);
+
+    function wiggleScale() {
+        if (counter === 0 && angle < 5){
+            angle++
+            left_v_y = left_v_y - 1
+            right_v_y = right_v_y + 1
+            div_left_y = div_left_y - 1
+            div_right_y = div_right_y - 1
+
+            left_v.style.top = `${left_v_y}px`;
+            div_left.style.top = `${div_left_y}px`;
+            right_v.style.top = `${right_v_y}px`;
+            div_right.style.bottom = `${div_right_y}px`;
+            scale_rot_part.style.transform = `rotate(${angle}deg)`
+        } else if (counter === 1 && angle > 0) {
+            angle--
+            left_v_y = left_v_y + 1
+            right_v_y = right_v_y - 1
+            div_left_y = div_left_y + 1
+            div_right_y = div_right_y + 1
+
+            left_v.style.top = `${left_v_y}px`;
+            div_left.style.top = `${div_left_y}px`;
+            right_v.style.top = `${right_v_y}px`;
+            div_right.style.bottom = `${div_right_y}px`;
+            scale_rot_part.style.transform = `rotate(${angle}deg)`
+
+            scale_rot_part.style.transform = `rotate(${angle}deg)`
+        } else if (angle === 5) {
+            counter++
+        } else if (angle === 0) {
+            clearInterval(scaleWiggles)
+        }
+    }
+}
+
+window.rightToMiddleAnimation = function() {
+    const scale_rot_part = document.getElementById('scale-rot-part');
+    const left_v = document.getElementById('left_v');
+    const right_v = document.getElementById('right_v');
+    const div_left = document.getElementById('div-left');
+    const div_right = document.getElementById('div-right');
+
+    let angle = 45;
+    let left_v_y = 7;
+    let left_v_x = 226;
+    let left_div_y = -66;
+    let left_div_x = 228;
+    let right_v_y = 74;
+    let right_v_x = 75;
+    let right_div_y = 14;
+    let right_div_x = 72;
+    let scaleTipsRight = setInterval(tipScaleRight, 10);
+
+    function tipScaleRight() {
+        if (angle === 0) {
+            clearInterval(scaleTipsRight);
+        } else {
+            angle--;
+            if (angle % 2 === 0) {
+                left_v_x = left_v_x + 1;
+                left_v_y = left_v_y + 3;
+                left_div_x = left_div_x + 1;
+                left_div_y = left_div_y + 3;
+                right_v_x = right_v_x - 1;
+                right_v_y = right_v_y - 3;
+                right_div_x = right_div_x - 1;
+                right_div_y = right_div_y + 3;
+            }
+            left_v.style.top = `${left_v_y}px`;
+            left_v.style.right = `${left_v_x}px`;
+            div_left.style.top = `${left_div_y}px`;
+            div_left.style.right = `${left_div_x}px`;
+            right_v.style.top = `${right_v_y}px`;
+            right_v.style.right = `${right_v_x}px`;
+            div_right.style.bottom = `${right_div_y}px`;
+            div_right.style.right = `${right_div_x}px`;
+            scale_rot_part.style.transform = `rotate(${angle}deg)`;
+        }
+    }
+}
+
 class Level1Proper {
     constructor() {
         this.screen = document.getElementById('screen');
@@ -468,7 +566,7 @@ class Level1Proper {
                 if (massLeft > massRight) {
                     middleToLeftAnimation();
                 } else if (massLeft === massRight) {
-            //          middle wiggle animation * 4
+                    middleWiggleAnimation();
                 } else if (massRight > massLeft) {
                     middleToRightAnimation();
                 }
@@ -476,7 +574,7 @@ class Level1Proper {
                 if (massLeft > massRight) {
             //          right to middle animation (opposite of middle to right, which we have) + middle to left animation (we have)
                 } else if (massLeft === massRight) {
-            //          right to middle animation (opposite of middle to right)
+                    rightToMiddleAnimation();
                 } else if (massRight > massLeft) {
             //          right side wiggle animation * 4    
                 }
