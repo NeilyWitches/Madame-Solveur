@@ -2,13 +2,156 @@ import Ball from "./ball.js"
 import Level1Instructions from "./level_1_instructions";
 import Level2Password from "./level_2_password.js";
 
+window.middleToLeftAnimation = function() {
+    const scale_rot_part = document.getElementById('scale-rot-part');
+    const left_v = document.getElementById('left_v');
+    const right_v = document.getElementById('right_v');
+    const div_left = document.getElementById('div-left');
+    const div_right = document.getElementById('div-right');
+
+    let angle = 0;
+    let left_v_y = 73;
+    let left_v_x = 248;
+    let left_div_y = 0;
+    let left_div_x = 250;
+    let right_v_y = 8;
+    let right_v_x = 53;
+    let right_div_y = 80;
+    let right_div_x = 50;
+    let scaleTipsLeft = setInterval(tipScaleLeft, 10);
+
+    function tipScaleLeft() {
+        if (angle === -45) {
+            clearInterval(scaleTipsLeft);
+        } else {
+            angle--;
+            if (angle % 2 === 0) {
+                left_v_x = left_v_x - 1;
+                left_v_y = left_v_y + 3;
+                left_div_x = left_div_x - 1;
+                left_div_y = left_div_y + 3;
+                right_v_x = right_v_x + 1;
+                right_v_y = right_v_y - 3;
+                right_div_x = right_div_x + 1;
+                right_div_y = right_div_y + 3;
+            }
+            left_v.style.top = `${left_v_y}px`;
+            left_v.style.right = `${left_v_x}px`;
+            div_left.style.top = `${left_div_y}px`;
+            div_left.style.right = `${left_div_x}px`;
+            right_v.style.top = `${right_v_y}px`;
+            right_v.style.right = `${right_v_x}px`;
+            div_right.style.bottom = `${right_div_y}px`;
+            div_right.style.right = `${right_div_x}px`;
+            scale_rot_part.style.transform = `rotate(${angle}deg)`;
+        }
+    }
+}
+
+window.middleToRightAnimation = function () {
+    const scale_rot_part = document.getElementById('scale-rot-part');
+    const left_v = document.getElementById('left_v');
+    const right_v = document.getElementById('right_v');
+    const div_left = document.getElementById('div-left');
+    const div_right = document.getElementById('div-right');
+
+    let angle = 0;
+    let left_v_y = 73;
+    let left_v_x = 248;
+    let left_div_y = 0;
+    let left_div_x = 250;
+    let right_v_y = 8;
+    let right_v_x = 53;
+    let right_div_y = 80;
+    let right_div_x = 50;
+    let scaleTipsRight = setInterval(tipScaleRight, 10);
+
+    function tipScaleRight() {
+        if (angle === 45) {
+            clearInterval(scaleTipsRight);
+        } else {
+            angle++;
+            if (angle % 2 === 0) {
+                left_v_x = left_v_x - 1;
+                left_v_y = left_v_y - 3;
+                left_div_x = left_div_x - 1;
+                left_div_y = left_div_y - 3;
+                right_v_x = right_v_x + 1;
+                right_v_y = right_v_y + 3;
+                right_div_x = right_div_x + 1;
+                right_div_y = right_div_y - 3;
+            }
+            left_v.style.top = `${left_v_y}px`;
+            left_v.style.right = `${left_v_x}px`;
+            div_left.style.top = `${left_div_y}px`;
+            div_left.style.right = `${left_div_x}px`;
+            right_v.style.top = `${right_v_y}px`;
+            right_v.style.right = `${right_v_x}px`;
+            div_right.style.bottom = `${right_div_y}px`;
+            div_right.style.right = `${right_div_x}px`;
+            scale_rot_part.style.transform = `rotate(${angle}deg)`;
+        }
+    }
+}
+
+window.leftSideWiggleAnimation = function() {
+    const scale_rot_part = document.getElementById('scale-rot-part');
+    const left_v = document.getElementById('left_v');
+    const right_v = document.getElementById('right_v');
+    const div_left = document.getElementById('div-left');
+    const div_right = document.getElementById('div-right');
+
+    let angle = -45;
+    let counter = 0;
+
+    let left_v_y = 139;
+    let right_v_y = -58;
+    let div_left_y = 66;
+    let div_right_y = 146; 
+
+    let scaleWiggles = setInterval(wiggleScale, 20);
+    
+    function wiggleScale() {
+        if (counter === 0 && angle < -40){
+            angle++
+            left_v_y = left_v_y - 1
+            right_v_y = right_v_y + 1
+            div_left_y = div_left_y - 1
+            div_right_y = div_right_y - 1
+
+            left_v.style.top = `${left_v_y}px`;
+            div_left.style.top = `${div_left_y}px`;
+            right_v.style.top = `${right_v_y}px`;
+            div_right.style.bottom = `${div_right_y}px`;
+            scale_rot_part.style.transform = `rotate(${angle}deg)`
+        } else if (counter === 1 && angle > -45) {
+            angle--
+            left_v_y = left_v_y + 1
+            right_v_y = right_v_y - 1
+            div_left_y = div_left_y + 1
+            div_right_y = div_right_y + 1
+
+            left_v.style.top = `${left_v_y}px`;
+            div_left.style.top = `${div_left_y}px`;
+            right_v.style.top = `${right_v_y}px`;
+            div_right.style.bottom = `${div_right_y}px`;
+            scale_rot_part.style.transform = `rotate(${angle}deg)`
+
+            scale_rot_part.style.transform = `rotate(${angle}deg)`
+        } else if (angle === -40) {
+            counter++
+        } else if (angle === -45) {
+            clearInterval(scaleWiggles)
+        }
+    }
+}
+
 class Level1Proper {
     constructor() {
         this.screen = document.getElementById('screen');
         this.renderLevel();
         this.dragAndDrop();
         this.clickWeigh = this.clickWeigh.bind(this);
-        this.clickReset = this.clickReset.bind(this);
         this.clickInstructions = this.clickInstructions.bind(this);
     }
 
@@ -105,12 +248,6 @@ class Level1Proper {
         this.screen.appendChild(weighsLeft);
         weighsLeft.innerText = 'Weighs Left:'
 
-        this.resetButton = document.createElement('button');
-        this.screen.appendChild(this.resetButton);
-        this.resetButton.setAttribute('id', 'reset-button');
-        this.resetButton.innerText = "Reset";
-        this.resetButton.addEventListener('click', this.clickReset);
-
         this.instructions = document.createElement('button');
         this.screen.appendChild(this.instructions);
         this.instructions.setAttribute('class', 'instructions-button');
@@ -164,137 +301,68 @@ class Level1Proper {
         }
     }
 
+
+
     clickWeigh() {
         const scale_rot_part = document.getElementById('scale-rot-part');
+        let scalePosition = window.getComputedStyle(scale_rot_part).transform
+        let tippedLeft = 'matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)'
+        let balanced = 'matrix(1, 0, 0, 1, 0, 0)'
+        let tippedRight = 'matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)'
+
+        let counter = document.getElementById('counter');
+        let count = counter.innerText;
+        let new_count = parseInt(count) - 1;
+
         const left_v = document.getElementById('left_v');
         const right_v = document.getElementById('right_v');
         const div_left = document.getElementById('div-left');
         const div_right = document.getElementById('div-right');
 
-        if (window.getComputedStyle(scale_rot_part).transform !== 'matrix(1, 0, 0, 1, 0, 0)') {
-            alert("Please click 'Reset' to reset the scale.");
-        } else {
-            let counter = document.getElementById('counter');
-            let count = counter.innerText;
-            let new_count = parseInt(count) - 1;
-            if (new_count < 0) {
+        if (new_count < 0) {
                 alert("You are out of weighs!")
-            } else {
-                counter.innerText = new_count;
-                const left = div_left.children;
-                const right = div_right.children;
-                let mass_left = 0;
-                let mass_right = 0;
-                for (let i = 0; i < left.length; i++) {
-                    mass_left += parseInt(left[i].getAttribute('mass'));
+        } else {
+            counter.innerText = new_count;
+            const left = div_left.children;
+            const right = div_right.children;
+            let massLeft = 0;
+            let massRight = 0;
+            for (let i = 0; i < left.length; i++) {
+                massLeft += parseInt(left[i].getAttribute('mass'));
+            }
+            for (let i = 0; i < right.length; i++) {
+                massRight += parseInt(right[i].getAttribute('mass'));
+            }
+            if (scalePosition === tippedLeft) {
+                if (massLeft > massRight) {
+                    leftSideWiggleAnimation();
+                } else if (massLeft === massRight) {
+                //      left side to balanced animation (opposite of balanced to left side, which we have)
+                } else if (massRight > massLeft) {
+                //      left side to balanced (see above) + balanced to right side animation (we have)
                 }
-                for (let i = 0; i < right.length; i++) {
-                    mass_right += parseInt(right[i].getAttribute('mass'));
+            } else if (scalePosition === balanced) {
+                if (massLeft > massRight) {
+                    middleToLeftAnimation();
+                } else if (massLeft === massRight) {
+            //          middle wiggle animation * 4
+                } else if (massRight > massLeft) {
+                    middleToRightAnimation();
                 }
-                if (mass_right > mass_left) {
-                    let angle = 0;
-                    let left_v_y = 73;
-                    let left_v_x = 248;
-                    let left_div_y = 0;
-                    let left_div_x = 250;
-                    let right_v_y = 8;
-                    let right_v_x = 53;
-                    let right_div_y = 80;
-                    let right_div_x = 50;
-                    let scaleTipsRight = setInterval(tipScaleRight, 10);
-
-                    function tipScaleRight() {
-                        if (angle === 45) {
-                            clearInterval(scaleTipsRight);
-                        } else {
-                            angle++;
-                            if (angle % 2 === 0) {
-                                left_v_x = left_v_x - 1;
-                                left_v_y = left_v_y - 3;
-                                left_div_x = left_div_x - 1;
-                                left_div_y = left_div_y - 3;
-                                right_v_x = right_v_x + 1;
-                                right_v_y = right_v_y + 3;
-                                right_div_x = right_div_x + 1;
-                                right_div_y = right_div_y - 3;
-                            }
-                            left_v.style.top = `${left_v_y}px`;
-                            left_v.style.right = `${left_v_x}px`;
-                            div_left.style.top = `${left_div_y}px`;
-                            div_left.style.right = `${left_div_x}px`;
-                            right_v.style.top = `${right_v_y}px`;
-                            right_v.style.right = `${right_v_x}px`;
-                            div_right.style.bottom = `${right_div_y}px`;
-                            div_right.style.right = `${right_div_x}px`;
-                            scale_rot_part.style.transform = `rotate(${angle}deg)`;
-                        }
-                    }
-
-                } else if (mass_left > mass_right) {
-                    let angle = 0;
-                    let left_v_y = 73;
-                    let left_v_x = 248;
-                    let left_div_y = 0;
-                    let left_div_x = 250;
-                    let right_v_y = 8;
-                    let right_v_x = 53;
-                    let right_div_y = 80;
-                    let right_div_x = 50;
-                    let scaleTipsLeft = setInterval(tipScaleLeft, 10);
-
-                    function tipScaleLeft() {
-                        if (angle === -45) {
-                            clearInterval(scaleTipsLeft);
-                        } else {
-                            angle--;
-                            if (angle % 2 === 0) {
-                                left_v_x = left_v_x - 1;
-                                left_v_y = left_v_y + 3;
-                                left_div_x = left_div_x - 1;
-                                left_div_y = left_div_y + 3;
-                                right_v_x = right_v_x + 1;
-                                right_v_y = right_v_y - 3;
-                                right_div_x = right_div_x + 1;
-                                right_div_y = right_div_y + 3;
-                            }
-                            left_v.style.top = `${left_v_y}px`;
-                            left_v.style.right = `${left_v_x}px`;
-                            div_left.style.top = `${left_div_y}px`;
-                            div_left.style.right = `${left_div_x}px`;
-                            right_v.style.top = `${right_v_y}px`;
-                            right_v.style.right = `${right_v_x}px`;
-                            div_right.style.bottom = `${right_div_y}px`;
-                            div_right.style.right = `${right_div_x}px`;
-                            scale_rot_part.style.transform = `rotate(${angle}deg)`;
-                        }
-                    }
+            } else if (scalePosition === tippedRight) {
+                if (massLeft > massRight) {
+            //          right to middle animation (opposite of middle to right, which we have) + middle to left animation (we have)
+                } else if (massLeft === massRight) {
+            //          right to middle animation (opposite of middle to right)
+                } else if (massRight > massLeft) {
+            //          right side wiggle animation * 4    
                 }
             }
         }
     }
 
-    clickReset() {
-        const div_left = document.getElementById('div-left');
-        const div_right = document.getElementById('div-right');
-        const left_v = document.getElementById('left_v');
-        const right_v = document.getElementById('right_v');
-        const scale_rot_part = document.getElementById('scale-rot-part');
-
-        div_left.style.right = '250px';
-        div_left.style.top = 0;
-        div_right.style.bottom = '80px';
-        div_right.style.right = '50px';
-
-        left_v.style.top = '73px';
-        left_v.style.right = '248px';
-        right_v.style.top = '8px';
-        right_v.style.right = '53px';
-
-        scale_rot_part.style.transform = 'rotate(0deg)';
-    }
-
     clickInstructions() {
-        alert(`The student approaches the Mme with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Click "Reset" if you need to put the scale back to its balanced position. Try to click the "Weigh" button as little as possible. You cannot weight more than 4 times! When you think you have figured out which ball is the heavy one, drag that ball to the student...`);
+        alert(`The student approaches the Mme with 9 ball bearings, all of them identical in appearance. They all weigh exactly the same except for one which is slightly heavier. Your task is to use the scale provided to find which ball is heavier than the rest. Drag and drop the balls onto either side of the scale and click "weigh" to see which side the scale will tip. Try to click the "Weigh" button as little as possible. You cannot weight more than 4 times! When you think you have figured out which ball is the heavy one, drag that ball to the student...`);
     }
 
 }
