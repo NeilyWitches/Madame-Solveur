@@ -4,9 +4,9 @@ import ContinueScreen from './continue_screen';
 class StartMenu {
     constructor() {
         this.screen = document.getElementById('screen')
-        this.renderStartMenu();
-        this.clickStart();
+        this.clickNewGame = this.clickNewGame.bind(this);
         this.clickContinue = this.clickContinue.bind(this);
+        this.renderStartMenu();
     }
 
     renderChars() {
@@ -72,6 +72,7 @@ class StartMenu {
         this.screen.appendChild(startButton);
         startButton.setAttribute('id', 'start-button');
         startButton.innerText = "New Game";
+        startButton.addEventListener('click', this.clickNewGame)
     }
 
     renderContinueButton() {
@@ -90,18 +91,13 @@ class StartMenu {
         new ContinueScreen();
     }
 
-    clickStart() {
+    clickNewGame() {
         const button = document.getElementById('start-button');
-        button.addEventListener('click', handleClick);
-        let that = this;
-
-        function handleClick() {
-            button.removeEventListener('click', handleClick);
-            while (that.screen.firstChild) {
-                that.screen.removeChild(that.screen.firstChild);
-            }
-            new Level1Story();
+        button.removeEventListener('click', this.clickNewGame);
+        while (this.screen.firstChild) {
+            this.screen.removeChild(this.screen.firstChild);
         }
+        new Level1Story();
     }
 }
 
