@@ -78,7 +78,7 @@ class Level2Instructions {
             this.screen.appendChild(thirteen);
             thirteen.src = 'assets/13_bubble.png';
         } else if (this.clicked === 3) {
-            this.instructions.innerText = `The student allows the Mme to go first. Type in your number into the thought bubble and click 'Say' to have the Mme say that number aloud...`
+            this.instructions.innerText = `The student allows the Mme to go first. Type in your number into the thought bubble and click 'Say' to have the Mme say that number aloud. Click "start" to play the level.`
             this.screen.removeChild(document.getElementById('thirteen-bubble'));
             this.screen.removeChild(document.getElementById('four-bubble'));
             this.screen.removeChild(this.mme);

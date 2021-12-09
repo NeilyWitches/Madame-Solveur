@@ -88,11 +88,6 @@ class Level3Instructions {
         } else if (this.clicked === 5) {
             this.instructions.innerText = `When you think you have labeled all the barrels correctly, click the "Submit" button...`;
             this.screen.removeChild(document.getElementById('lvl-3-instructions-gif-2'))
-            
-            const submit = new Image();
-            submit.setAttribute('id', 'lvl-3-submit-button-img');
-            this.screen.appendChild(submit);
-            submit.src = 'assets/level_3_submit_pic.png';
             this.nextButton.innerText = 'Start';
         } else {
             while (this.screen.firstChild) {
@@ -130,7 +125,6 @@ class Level3Instructions {
         } else if (this.clicked === 5) {
             this.nextButton.innerText = 'Next';
             this.instructions.innerText = `You may peek inside only one of the barrels only one time.`;
-            this.screen.removeChild(document.getElementById('lvl-3-submit-button-img'));
 
             const level_3_instructions_gif = new Image();
             level_3_instructions_gif.setAttribute('id', 'lvl-3-instructions-gif-2');
