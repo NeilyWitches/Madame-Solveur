@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     muteAllSound()
     const soundButton = document.getElementById('sound-button');
     soundButton.addEventListener('click', clickSoundButton);
-    new StartMenu();
+    // new StartMenu();
     // new Level1Story();
     // new Level1Instructions();
     // new Level1Proper();
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // new Level3Story;
     // new Level2Proper;
     // new Level3Proper;
-    // new ComingSoon
+    new ComingSoon
     // new Level3Instructions
     // new Level2Password;
     // new Level3Password;
@@ -88,7 +88,7 @@ function createAllSound() {
 
     const comingSoon = new Audio();
     body.appendChild(comingSoon);
-    comingSoon.src = 'assets/sounds/comingSoon.mp3'
+    comingSoon.src = 'assets/sounds/coming_soon.mp3'
     comingSoon.setAttribute('class', 'sound');
     comingSoon.setAttribute('id', 'coming-soon-music');
     comingSoon.loop = true;

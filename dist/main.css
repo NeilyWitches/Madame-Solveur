@@ -195,7 +195,7 @@ h2 {
 }
 
 #level-1-story-text {
-  min-height: 120px;
+  min-height: 140px;
   z-index: 1;
 }
 
@@ -347,7 +347,7 @@ h2 {
 }
 
 #level-2-instructions-text {
-  min-height: 110px;
+  min-height: 135px;
   margin-top: 0;
 }
 

@@ -33,7 +33,7 @@ class Level1Story {
         this.screen.appendChild(this.dialogue);
         this.dialogue.setAttribute('class', 'text-box');
         this.dialogue.setAttribute('id', 'level-1-story-text');
-        this.dialogue.innerText = `On one typical Autumn morning, Mme Solveur was sitting in her office heavily concentrated on her research in theoretical physics at the Sorbonne in Paris, France. `
+        this.dialogue.innerText = `On one typical Autumn morning, Mme (Madame) Solveur was sitting in her office heavily concentrated on her research in theoretical physics at the Sorbonne in Paris, France. `
 
         const sorbonne = new Image();
         sorbonne.setAttribute('id', 'sorbonne');
