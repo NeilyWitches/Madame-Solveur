@@ -13,6 +13,10 @@ import Level2Password from './scripts/level_2_password';
 import Level3Password from './scripts/level_3_password';
 
 document.addEventListener("DOMContentLoaded", () => {
+    createAllSound()
+    muteAllSound()
+    const soundButton = document.getElementById('sound-button');
+    soundButton.addEventListener('click', clickSoundButton);
     new StartMenu();
     // new Level1Story();
     // new Level1Instructions();
@@ -27,3 +31,65 @@ document.addEventListener("DOMContentLoaded", () => {
     // new Level2Password;
     // new Level3Password;
 })
+
+function clickSoundButton() {
+    const soundButton = document.getElementById('sound-button');
+    const sounds = document.getElementsByClassName('sound')
+    const startMenuMusic = document.getElementById('start-menu-music');
+    const header = document.getElementsByTagName('h1')[0].innerText
+    
+    if (header === 'Madame Solveur' || header === 'Continue') {
+        startMenuMusic.play()
+    }
+
+    if (soundButton.innerText === 'Enable') {
+        soundButton.innerText = 'Disable'
+        for (let i = 0; i < sounds.length; i++) {
+            sounds[i].muted = false;
+        }
+    } else {
+        soundButton.innerText = 'Enable'
+        for (let i = 0; i < sounds.length; i++) {
+            sounds[i].muted = true;
+        }
+    }
+}
+
+function muteAllSound() {
+    const sounds = document.getElementsByClassName('sound')
+    for (let i = 0; i < sounds.length; i++) {
+        sounds[i].muted = true;
+    }
+}
+
+function createAllSound() {
+    const body = document.getElementById('body')
+
+    const start_menu = new Audio();
+    body.appendChild(start_menu);
+    start_menu.src = 'assets/sounds/start_menu.mp3'
+    start_menu.setAttribute('class', 'sound');
+    start_menu.setAttribute('id', 'start-menu-music')
+    start_menu.loop = true;
+
+    const story = new Audio();
+    body.appendChild(story);
+    story.src = 'assets/sounds/story.mp3'
+    story.setAttribute('class', 'sound');
+    story.setAttribute('id', 'story-music');
+    story.loop = true;
+
+    const thinking = new Audio();
+    body.appendChild(thinking);
+    thinking.src = 'assets/sounds/thinking.mp3'
+    thinking.setAttribute('class', 'sound');
+    thinking.setAttribute('id', 'thinking-music');
+    thinking.loop = true;
+
+    const comingSoon = new Audio();
+    body.appendChild(comingSoon);
+    comingSoon.src = 'assets/sounds/comingSoon.mp3'
+    comingSoon.setAttribute('class', 'sound');
+    comingSoon.setAttribute('id', 'coming-soon-music');
+    comingSoon.loop = true;
+}

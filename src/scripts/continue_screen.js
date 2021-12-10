@@ -1,11 +1,13 @@
 import Level2Story from "./level_2_story";
 import Level3Story from "./level_3_story";
+import StartMenu from "./start_menu";
 
 class ContinueScreen {
     constructor() {
         this.screen = document.getElementById('screen')
         this.renderStartMenu();
         this.clickSubmit = this.clickSubmit.bind(this);
+        this.clickBack = this.clickBack.bind(this);
     }
 
     renderStartMenu() {
@@ -27,6 +29,12 @@ class ContinueScreen {
         submitButton.setAttribute('id', 'password-submit');
         submitButton.innerText = 'Submit';
         submitButton.addEventListener('click', this.clickSubmit)
+
+        const backButton = document.createElement('button');
+        this.screen.appendChild(backButton);
+        backButton.setAttribute('id', 'back');
+        backButton.innerText = 'Back';
+        backButton.addEventListener('click', this.clickBack)
     }
 
     clickSubmit() {
@@ -36,15 +44,29 @@ class ContinueScreen {
             while (this.screen.firstChild) {
                 this.screen.removeChild(this.screen.firstChild);
             }
+            const sound = document.getElementById('start-menu-music')
+            sound.pause();
+            sound.currentTime = 0;
             new Level2Story();
         } else if (inputVal === 'cupcake') {
             while (this.screen.firstChild) {
                 this.screen.removeChild(this.screen.firstChild);
             }
+            const sound = document.getElementById('start-menu-music')
+            sound.pause();
+            sound.currentTime = 0;
             new Level3Story();  
         } else {
             alert('That is not a password to any level!')
         }
+    }
+
+    clickBack() {
+        this.screen = document.getElementById('screen'); 
+        while (this.screen.firstChild) {
+            this.screen.removeChild(this.screen.firstChild);
+        }
+        new StartMenu();
     }
 }
 

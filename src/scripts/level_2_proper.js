@@ -9,6 +9,11 @@ class Level2Proper {
         this.renderLevel();
     }
 
+    playMusic() {
+        const music = document.getElementById('thinking-music');
+        music.play()
+    }
+
     renderLevel() {
 
         const password = document.createElement('div');
@@ -109,6 +114,9 @@ class Level2Proper {
                     mmePrevNum.innerText = '50!';
                     setTimeout(() => {
                         alert("Amazing! The professor managed to beat her student at her own game.");
+                        const sound = document.getElementById('thinking-music')
+                        sound.pause();
+                        sound.currentTime = 0;
                         while (that.screen.firstChild) {
                             that.screen.removeChild(that.screen.firstChild);
                         }

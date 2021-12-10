@@ -15,6 +15,12 @@ class Level3Proper {
         this.handleDrop = this.handleDrop.bind(this);
         this.renderLevel();
         this.dragAndDrop();
+        this.playMusic();
+    }
+
+    playMusic() {
+        const music = document.getElementById('thinking-music');
+        music.play();
     }
 
     clickApplesPeek() {
@@ -327,6 +333,9 @@ class Level3Proper {
         }
         if (!lost) {
             alert('Nothing gets past you, professor!')
+            const sound = document.getElementById('thinking-music')
+            sound.pause();
+            sound.currentTime = 0;
             while (this.screen.firstChild) {
                 this.screen.removeChild(this.screen.firstChild);
             }

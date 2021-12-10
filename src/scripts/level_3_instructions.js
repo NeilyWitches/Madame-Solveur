@@ -5,8 +5,14 @@ class Level3Instructions {
         this.screen = document.getElementById('screen');
         this.clickNext = this.clickNext.bind(this);
         this.clickBack = this.clickBack.bind(this);
-        this.renderInstructions();
         this.clicked = 0;
+        this.renderInstructions();
+        this.playMusic();
+    }
+
+    playMusic() {
+        const music = document.getElementById('thinking-music');
+        music.play();
     }
 
     renderInstructions() {

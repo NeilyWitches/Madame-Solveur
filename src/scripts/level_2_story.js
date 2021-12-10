@@ -5,8 +5,14 @@ class Level2Story {
         this.screen = document.getElementById('screen');
         this.clickNext = this.clickNext.bind(this);
         this.clickSkip = this.clickSkip.bind(this);
-        this.renderScreen();
         this.clicked = 0;
+        this.renderScreen();
+        this.playMusic();
+    }
+
+    playMusic() {
+        const music = document.getElementById('story-music');
+        music.play();
     }
 
     renderScreen() {
@@ -75,6 +81,9 @@ class Level2Story {
 
     clickSkip() {
         this.screen = document.getElementById('screen')
+        const sound = document.getElementById('story-music')
+        sound.pause();
+        sound.currentTime = 0;
         while (this.screen.firstChild) {
             this.screen.removeChild(this.screen.firstChild);
         }
@@ -116,6 +125,9 @@ class Level2Story {
             this.dialogue.innerText = `After they exchanged pleasantries, the student presented the physicist with a game she had come up with...`;
         } else {
             this.nextButton.removeEventListener('click', this.clickNext);
+            const sound = document.getElementById('story-music')
+            sound.pause();
+            sound.currentTime = 0;
             while (this.screen.firstChild) {
                 this.screen.removeChild(this.screen.firstChild);
             }

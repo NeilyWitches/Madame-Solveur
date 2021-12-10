@@ -641,6 +641,9 @@ class Level1Proper {
                     new Level1Instructions();
                 } else if (mass === 101) {
                     alert('Good work, professor! Did you know you can be certain of which ball is the heavy one in only two clicks of the weigh button?');
+                    const sound = document.getElementById('thinking-music')
+                    sound.pause();
+                    sound.currentTime = 0;
                     while (that.screen.firstChild) {
                         that.screen.removeChild(that.screen.firstChild);
                     }

@@ -97,6 +97,9 @@ class StartMenu {
         while (this.screen.firstChild) {
             this.screen.removeChild(this.screen.firstChild);
         }
+        const sound = document.getElementById('start-menu-music')
+        sound.pause();
+        sound.currentTime = 0;
         new Level1Story();
     }
 }

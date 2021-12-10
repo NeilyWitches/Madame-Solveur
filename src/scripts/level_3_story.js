@@ -5,8 +5,14 @@ class Level3Story {
         this.screen = document.getElementById('screen');
         this.clickNext = this.clickNext.bind(this);
         this.clickSkip = this.clickSkip.bind(this);
-        this.renderScreen();
         this.clicked = 0;
+        this.renderScreen();
+        this.playMusic();
+    }
+
+    playMusic() {
+        const music = document.getElementById('story-music');
+        music.play();
     }
 
     renderScreen() {
@@ -63,6 +69,9 @@ class Level3Story {
 
     clickSkip() {
         this.screen = document.getElementById('screen')
+        const sound = document.getElementById('story-music')
+        sound.pause();
+        sound.currentTime = 0;
         while (this.screen.firstChild) {
             this.screen.removeChild(this.screen.firstChild);
         }
@@ -111,6 +120,9 @@ class Level3Story {
             this.dialogue.innerText = `Speaking of "limited ability to observe," one of the professor's students offered a puzzle to the class...`;
         } else {
             this.nextButton.removeEventListener('click', this.clickNext);
+            const sound = document.getElementById('story-music')
+            sound.pause();
+            sound.currentTime = 0;
             while (this.screen.firstChild) {
                 this.screen.removeChild(this.screen.firstChild);
             }

@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Gwendolyn&family=Outfit:wght@700&display=swap');
 
+#enable-sound {
+  position: absolute;
+  border-radius: 40px;
+  top: 250px;
+  left: 50px;
+  background-color: lavender;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+#back {
+  margin-top: 50px;
+}
+
+#enable-sound-txt {
+  margin-bottom: 50px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#sound-button {
+  margin-bottom: 50px;
+}
+
 #start-button {
   margin-top: 10%;
 }
