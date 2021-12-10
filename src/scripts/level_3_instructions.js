@@ -94,6 +94,7 @@ class Level3Instructions {
             this.screen.appendChild(level_3_instructions_gif);
             level_3_instructions_gif.src = 'assets/level_3_instructions_gif_2.gif';
         } else if (this.clicked === 5) {
+            this.instructions.style.marginTop = "100px"
             this.instructions.innerText = `When you think you have labeled all the barrels correctly, click the "Submit" button...`;
             this.screen.removeChild(document.getElementById('lvl-3-instructions-gif-2'))
             this.nextButton.innerText = 'Start';

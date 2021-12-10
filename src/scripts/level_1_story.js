@@ -44,7 +44,6 @@ class Level1Story {
         mme.setAttribute('id', 'mme-1');
         this.screen.appendChild(mme);
         mme.src = "assets/mme_solveur.png";
-
     }
 
     renderNextButton() {
@@ -93,6 +92,8 @@ class Level1Story {
             
             function moveStudent() {
                 if (pos == 350) {
+                    const knocking = document.getElementById('door-knocking')
+                    knocking.play()
                     clearInterval(studentKnocks);
                 } else {
                     pos--;

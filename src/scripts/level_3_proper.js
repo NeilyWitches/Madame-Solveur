@@ -316,6 +316,8 @@ class Level3Proper {
     handleDrop(event) {
         event.preventDefault();
         if (event.target.className === 'label') {
+            const sound = document.getElementById('swap');
+            sound.play()
             let draggedParent = this.dragged.parentNode;
             event.target.parentNode.appendChild(this.dragged);
             draggedParent.appendChild(event.target);
@@ -329,6 +331,8 @@ class Level3Proper {
         const barrels = document.getElementById('barrels-div').children;
         for (let i = 0; i < barrels.length; i++) {
             if (barrels[i].getAttribute('fruit') !== barrels[i].children[2].getAttribute('fruit')) {
+                const wrong = document.getElementById('wrong');
+                wrong.play()
                 alert('The barrels were not correctly labeled! Try again.')
                 while (this.screen.firstChild) {
                     this.screen.removeChild(this.screen.firstChild);
@@ -342,10 +346,12 @@ class Level3Proper {
             }
         }
         if (!lost) {
+            const right = document.getElementById('right');
+            right.play();
             alert('Nothing gets past you, professor!')
-            const sound = document.getElementById('thinking-music')
-            sound.pause();
-            sound.currentTime = 0;
+            const music = document.getElementById('thinking-music')
+            music.pause();
+            music.currentTime = 0;
             while (this.screen.firstChild) {
                 this.screen.removeChild(this.screen.firstChild);
             }

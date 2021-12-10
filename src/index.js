@@ -97,4 +97,40 @@ function createAllSound() {
     buttonPress.src = 'assets/sounds/effects/clicksoundeffect.mp3'
     buttonPress.setAttribute('class', 'sound');
     buttonPress.setAttribute('id', 'button-press');
+
+    const knocking = new Audio();
+    body.appendChild(knocking);
+    knocking.src = 'assets/sounds/effects/door-knocking.mp3'
+    knocking.setAttribute('class', 'sound');
+    knocking.setAttribute('id', 'door-knocking');
+
+    const clink = new Audio();
+    body.appendChild(clink);
+    clink.src = 'assets/sounds/effects/clink.mp3'
+    clink.setAttribute('class', 'sound');
+    clink.setAttribute('id', 'clink');
+
+    const right = new Audio();
+    body.appendChild(right);
+    right.src = 'assets/sounds/effects/correct.mp3'
+    right.setAttribute('class', 'sound');
+    right.setAttribute('id', 'right');
+
+    const wrong = new Audio();
+    body.appendChild(wrong);
+    wrong.src = 'assets/sounds/effects/answer-wrong.mp3'
+    wrong.setAttribute('class', 'sound');
+    wrong.setAttribute('id', 'wrong');
+
+    const speed_away = new Audio();
+    body.appendChild(speed_away);
+    speed_away.src = 'assets/sounds/effects/speed_away.mp3'
+    speed_away.setAttribute('class', 'sound');
+    speed_away.setAttribute('id', 'speed-away');
+
+    const swap = new Audio();
+    body.appendChild(swap);
+    swap.src = 'assets/sounds/effects/swap.mp3'
+    swap.setAttribute('class', 'sound');
+    swap.setAttribute('id', 'swap');
 }

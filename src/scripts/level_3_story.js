@@ -85,6 +85,8 @@ class Level3Story {
         sound.play()
         this.clicked += 1;
         if (this.clicked === 1) {
+            const speed_away = document.getElementById('speed-away')
+            speed_away.play();
             this.dialogue.innerText = `After hastily but politely excusing herself, she darted out of the café and beelined to the Physics Lecture Hall.`;
 
             this.screen.removeChild(document.getElementById('mme-1'))

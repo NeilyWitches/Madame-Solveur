@@ -608,6 +608,9 @@ class Level1Proper {
     dragAndDrop() {
         let dragged;
         const that = this;
+        const sound = document.getElementById('clink')
+        const wrong = document.getElementById('wrong')
+        const right = document.getElementById('right')
 
         document.addEventListener('dragstart', handleDragStart);
         function handleDragStart(event) {
@@ -624,6 +627,9 @@ class Level1Proper {
         document.addEventListener('drop', handleDrop);
         function handleDrop(event) {
             event.preventDefault();
+            if (event.target.className.includes("ball-div") || event.target.id === "div-right" || event.target.id === "div-left") {
+                sound.play()
+            }
             if (event.target.className.includes("dropzone")) {
                 dragged.parentNode.removeChild(dragged);
                 event.target.appendChild(dragged);
@@ -634,16 +640,18 @@ class Level1Proper {
                 document.removeEventListener('dragover', handleDragOver);
                 document.removeEventListener('drop', handleDrop);
                 if (mass === 100) {
+                    wrong.play()
                     while (that.screen.firstChild) {
                         that.screen.removeChild(that.screen.firstChild);
                     }
                     alert("That was not the heavy ball! Restart the level!");
                     new Level1Instructions();
                 } else if (mass === 101) {
+                    right.play()
                     alert('Good work, professor! Did you know you can be certain of which ball is the heavy one in only two clicks of the weigh button?');
-                    const sound = document.getElementById('thinking-music')
-                    sound.pause();
-                    sound.currentTime = 0;
+                    const music = document.getElementById('thinking-music')
+                    music.pause();
+                    music.currentTime = 0;
                     while (that.screen.firstChild) {
                         that.screen.removeChild(that.screen.firstChild);
                     }

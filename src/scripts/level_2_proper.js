@@ -1,4 +1,4 @@
-import Level2Instructions from "./level_2_story";
+import Level2Instructions from "./level_2_instructions";
 import Level3Password from "./level_3_password";
 
 class Level2Proper {
@@ -89,12 +89,16 @@ class Level2Proper {
     }
 
     handleInput(i, mmePrevNum, studPrevNum) {
+        const music = document.getElementById('thinking-music')
         let studPrevNumVal = parseInt(studPrevNum.innerText);
         if (studPrevNumVal === 50) {
             studPrevNum.innerText = '50!'
             setTimeout(() => {
+                const wrong = document.getElementById('wrong');
+                wrong.play()
                 alert("The student says 50! You lose! Restart the level.")
                 this.button.removeEventListener('click', handleClick);
+                music.pause()
                 while (this.screen.firstChild) {
                     this.screen.removeChild(this.screen.firstChild);
                 }
@@ -117,10 +121,11 @@ class Level2Proper {
                 if (inputVal === 50) {
                     mmePrevNum.innerText = '50!';
                     setTimeout(() => {
+                        const right = document.getElementById('right');
+                        right.play()
                         alert("Amazing! The professor managed to beat her student at her own game.");
-                        const sound = document.getElementById('thinking-music')
-                        sound.pause();
-                        sound.currentTime = 0;
+                        music.pause();
+                        music.currentTime = 0;
                         while (that.screen.firstChild) {
                             that.screen.removeChild(that.screen.firstChild);
                         }
