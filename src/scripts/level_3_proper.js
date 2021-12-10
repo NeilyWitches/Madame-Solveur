@@ -24,6 +24,8 @@ class Level3Proper {
     }
 
     clickApplesPeek() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         if (!this.clicked) {
             const modal = document.createElement('div');
             this.screen.appendChild(modal);
@@ -56,6 +58,8 @@ class Level3Proper {
     }
 
     clickOrangesPeek() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         if (!this.clicked) {
             const modal = document.createElement('div');
             this.screen.appendChild(modal);
@@ -88,6 +92,8 @@ class Level3Proper {
     }
 
     clickBothPeek() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         if (!this.clicked) {
             const modal = document.createElement('div');
             this.screen.appendChild(modal);
@@ -160,7 +166,9 @@ class Level3Proper {
     }
 
     clickInstructions() {
-         alert(`Before you are three barrels, identical in appearance, each of which contains fruit. One of the barrels contains only apples, another only oranges, and the last contains a mixture of both. You do not know which barrels contain what. They have all been incorrectly labeled! Drag and drop the labels to swap them until all of the barrels are all labeled correctly. You may peek inside only one of the barrels only one time. When you think you have labeled all the barrels correctly, click the "Submit" button...`);
+        const sound = document.getElementById('button-press')
+        sound.play()
+        alert(`Before you are three barrels, identical in appearance, each of which contains fruit. One of the barrels contains only apples, another only oranges, and the last contains a mixture of both. You do not know which barrels contain what. They have all been incorrectly labeled! Drag and drop the labels to swap them until all of the barrels are all labeled correctly. You may peek inside only one of the barrels only one time. When you think you have labeled all the barrels correctly, click the "Submit" button...`);
     }
 
     shuffle(array) {
@@ -315,6 +323,8 @@ class Level3Proper {
     }
 
     clickSubmit() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         let lost = false;
         const barrels = document.getElementById('barrels-div').children;
         for (let i = 0; i < barrels.length; i++) {

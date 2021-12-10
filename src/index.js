@@ -91,5 +91,10 @@ function createAllSound() {
     comingSoon.src = 'assets/sounds/coming_soon.mp3'
     comingSoon.setAttribute('class', 'sound');
     comingSoon.setAttribute('id', 'coming-soon-music');
-    comingSoon.loop = true;
+
+    const buttonPress = new Audio();
+    body.appendChild(buttonPress);
+    buttonPress.src = 'assets/sounds/effects/clicksoundeffect.mp3'
+    buttonPress.setAttribute('class', 'sound');
+    buttonPress.setAttribute('id', 'button-press');
 }

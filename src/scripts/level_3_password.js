@@ -43,6 +43,8 @@ class Level3Password {
     }
 
     clickContinue() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         const button = document.getElementById('start-button');
         while (this.screen.firstChild) {
             this.screen.removeChild(this.screen.firstChild);

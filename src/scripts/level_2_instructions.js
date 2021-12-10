@@ -67,6 +67,8 @@ class Level2Instructions {
     }
 
     clickNext() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         this.clicked += 1
         if (this.clicked === 1) {
             this.instructions.innerText = 'She and the student will take turns saying numbers aloud. The first number spoken must be a number from 1 - 10.'
@@ -106,6 +108,8 @@ class Level2Instructions {
     }
 
     clickBack() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         if (this.clicked === 1) {
             this.screen.removeChild(this.backButton);
             this.screen.removeChild(document.getElementById('four-bubble'));

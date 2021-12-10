@@ -67,6 +67,8 @@ class Level1Instructions {
     }
 
     clickBack() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         if (this.clicked === 1) {
             this.screen.removeChild(this.backButton);
             this.clicked = 0;
@@ -111,6 +113,8 @@ class Level1Instructions {
     }
 
     clickNext() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         this.clicked += 1
         if (this.clicked === 1) {
             this.instructions.innerText = "They all weigh exactly the same except for one which is slightly heavier.";

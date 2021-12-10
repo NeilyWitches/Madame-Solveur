@@ -62,6 +62,8 @@ class Level3Instructions {
     }
 
     clickNext() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         this.clicked += 1
         if (this.clicked === 1) {
             this.instructions.innerText = `One of the barrels contains only apples, another only oranges, and the last contains a mixture of both. You do not know which barrels contain what.`;
@@ -104,6 +106,8 @@ class Level3Instructions {
     }
 
     clickBack() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         if (this.clicked === 1) {
             this.screen.removeChild(this.backButton);
             this.clicked = 0;

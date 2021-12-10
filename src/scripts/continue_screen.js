@@ -38,6 +38,8 @@ class ContinueScreen {
     }
 
     clickSubmit() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         const inputVal = document.getElementById('password-input').value;
         this.screen = document.getElementById('screen');
         if (inputVal === 'dusk') {
@@ -62,6 +64,8 @@ class ContinueScreen {
     }
 
     clickBack() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         this.screen = document.getElementById('screen'); 
         while (this.screen.firstChild) {
             this.screen.removeChild(this.screen.firstChild);

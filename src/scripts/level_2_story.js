@@ -80,10 +80,12 @@ class Level2Story {
     }
 
     clickSkip() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         this.screen = document.getElementById('screen')
-        const sound = document.getElementById('story-music')
-        sound.pause();
-        sound.currentTime = 0;
+        const music = document.getElementById('story-music')
+        music.pause();
+        music.currentTime = 0;
         while (this.screen.firstChild) {
             this.screen.removeChild(this.screen.firstChild);
         }
@@ -91,6 +93,8 @@ class Level2Story {
     }
 
     clickNext() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         this.clicked += 1;
         if (this.clicked === 1) {
             this.dialogue.innerText = `Shortly afterwards, the professor felt hungry so she made her way to the quad and sat down at the café.`
@@ -125,9 +129,9 @@ class Level2Story {
             this.dialogue.innerText = `After they exchanged pleasantries, the student presented the physicist with a game she had come up with...`;
         } else {
             this.nextButton.removeEventListener('click', this.clickNext);
-            const sound = document.getElementById('story-music')
-            sound.pause();
-            sound.currentTime = 0;
+            const music = document.getElementById('story-music')
+            music.pause();
+            music.currentTime = 0;
             while (this.screen.firstChild) {
                 this.screen.removeChild(this.screen.firstChild);
             }

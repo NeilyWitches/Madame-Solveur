@@ -56,13 +56,15 @@ class Level1Story {
     }
 
     clickSkip() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         this.screen = document.getElementById('screen')
         while (this.screen.firstChild) {
             this.screen.removeChild(this.screen.firstChild);
         }
-        const sound = document.getElementById('story-music')
-        sound.pause();
-        sound.currentTime = 0;
+        const music = document.getElementById('story-music')
+        music.pause();
+        music.currentTime = 0;
         new Level1Instructions();
     }
 
@@ -75,6 +77,8 @@ class Level1Story {
     }
 
     clickNext() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         this.clicked += 1
         if (this.clicked === 1) {
             
@@ -107,9 +111,9 @@ class Level1Story {
         }
         else if (this.clicked === 5) {
             this.nextButton.removeEventListener('click', this.clickNext);
-            const sound = document.getElementById('story-music')
-            sound.pause();
-            sound.currentTime = 0;
+            const music = document.getElementById('story-music')
+            music.pause();
+            music.currentTime = 0;
             while (this.screen.firstChild) {
                 this.screen.removeChild(this.screen.firstChild);
                 }

@@ -1,8 +1,8 @@
 class ComingSoon {
     constructor() {
         this.screen = document.getElementById('screen');
-        this.renderScreen();
         this.playMusic();
+        this.renderScreen();
     }
 
     playMusic() {

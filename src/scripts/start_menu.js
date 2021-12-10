@@ -84,6 +84,8 @@ class StartMenu {
     }
 
     clickContinue() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         this.screen = document.getElementById('screen')
         while (this.screen.firstChild) {
             this.screen.removeChild(this.screen.firstChild);
@@ -92,14 +94,16 @@ class StartMenu {
     }
 
     clickNewGame() {
+        const sound = document.getElementById('button-press')
+        sound.play()
         const button = document.getElementById('start-button');
         button.removeEventListener('click', this.clickNewGame);
         while (this.screen.firstChild) {
             this.screen.removeChild(this.screen.firstChild);
         }
-        const sound = document.getElementById('start-menu-music')
-        sound.pause();
-        sound.currentTime = 0;
+        const music = document.getElementById('start-menu-music')
+        music.pause();
+        music.currentTime = 0;
         new Level1Story();
     }
 }
