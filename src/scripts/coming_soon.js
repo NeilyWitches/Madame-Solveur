@@ -28,25 +28,29 @@ class ComingSoon {
         this.screen.appendChild(this.dialogue);
         this.dialogue.setAttribute('class', 'text-box');
         this.dialogue.setAttribute('id', 'coming-soon-text');
-        this.dialogue.innerText = 'Thank you for playing my game made entirely with vanilla JavaScript--no external libraries--pushing the boundaries of what it can do. If you are interested in seeing my other projects, please click on one of the links above. Music by '
+        this.dialogue.innerText = 'Thank you for playing my game made entirely with vanilla JavaScript--no external libraries--pushing the boundaries of what it can do. If you are interested in seeing my other projects, please click on one of the links above.'
 
+        const AnishDiv = document.createElement('div');
+        this.dialogue.append(AnishDiv);
+        AnishDiv.setAttribute('id', 'anish-credit')
+        AnishDiv.innerText = 'Music by '
         const obliviga = document.createElement('a');
-        obliviga.innerText = 'Anish Kshatriya, '
-        this.dialogue.appendChild(obliviga);
-        obliviga.setAttribute('href', 'http://www.freepik.com')
+        obliviga.innerText = 'Anish Kshatriya.'
+        AnishDiv.appendChild(obliviga);
+        obliviga.setAttribute('href', 'https://soundcloud.com/obliviga')
         obliviga.setAttribute('rel', "noopener noreferrer");
         obliviga.setAttribute('target',"_blank");
 
-        const ImagesBy = document.createElement('div');
-        ImagesBy.innerText = 'Images by '
-        this.dialogue.appendChild(ImagesBy);
-
-        const repo = document.createElement('a');
-        repo.innerText = 'freepik.'
-        this.dialogue.appendChild(repo);
-        repo.setAttribute('href', 'http://www.freepik.com')
-        repo.setAttribute('rel', "noopener noreferrer");
-        repo.setAttribute('target',"_blank");
+        const FreepikDiv = document.createElement('div');
+        this.dialogue.append(FreepikDiv);
+        FreepikDiv.setAttribute('id', 'freepik-credit')
+        FreepikDiv.innerText = 'Images by '
+        const freepik = document.createElement('a');
+        freepik.innerText = 'freepik.'
+        FreepikDiv.appendChild(freepik);
+        freepik.setAttribute('href', 'http://www.freepik.com')
+        freepik.setAttribute('rel', "noopener noreferrer");
+        freepik.setAttribute('target',"_blank");
     }
 
     renderAttributions() {
