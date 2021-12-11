@@ -9,7 +9,7 @@ The game is heavily inspired by the Professor Layton Series of games. The game w
 
 ![lvl_1_instructions_1](https://user-images.githubusercontent.com/59269773/145656572-727e35a8-7165-4b29-b672-d307e8fbbc2e.gif)
 
-- Leveraged OOP to create ball objects atrributing mass to their image elements.
+- Leveraged OOP to create ball objects attributing mass to their image elements.
 - Built animations and algorithm to add up the masses and simulate the behavior of a scale.
 
 ```javascript
