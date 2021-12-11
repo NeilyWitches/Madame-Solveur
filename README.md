@@ -141,7 +141,7 @@ handleInput(i, mmePrevNum, studPrevNum) {
 
 ![level_3_instructions_2_gif](https://user-images.githubusercontent.com/59269773/145657027-780b120c-e8a0-42c1-aafd-f4ff6da604a9.gif)
 
-- Employed Fisher-Yates suffle algorithm in Level 3 ensuring the barrels are always random but that every label affixed to each barell is random yet always incorrectly labelled. 
+- Employed Fisher-Yates shuffle algorithm in Level 3 ensuring the barrels are always random but that every label affixed to each barell is random yet always incorrectly labelled. 
 
 ```javascript
 attachWrongLabels(barrelsArray, labelsArray) {
