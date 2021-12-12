@@ -4,6 +4,7 @@ import ComingSoon from './coming_soon';
 class Level3Proper {
     constructor() {
         this.screen = document.getElementById('screen');
+        this.lost = false;
         this.clicked = false;
         this.clickApplesPeek = this.clickApplesPeek.bind(this);
         this.clickOrangesPeek = this.clickOrangesPeek.bind(this);
@@ -23,7 +24,8 @@ class Level3Proper {
         music.play();
     }
 
-    clickApplesPeek() {
+    clickApplesPeek(e) {
+        
         const sound = document.getElementById('button-press')
         sound.play()
         if (!this.clicked) {
@@ -40,7 +42,9 @@ class Level3Proper {
 
             const apple = new Image();
             apple.setAttribute('id', 'apple');
+            apple.setAttribute('fruit', 'apples')
             modalContent.appendChild(apple);
+            this.checkInstantLoss(e, apple)
             apple.src = 'assets/apple.png';
             modal.style.display = 'block';
             close.onclick = function() {
@@ -57,7 +61,8 @@ class Level3Proper {
         }
     }
 
-    clickOrangesPeek() {
+    clickOrangesPeek(e) {
+        
         const sound = document.getElementById('button-press')
         sound.play()
         if (!this.clicked) {
@@ -74,7 +79,9 @@ class Level3Proper {
 
             const orange = new Image();
             orange.setAttribute('id', 'orange');
+            orange.setAttribute('fruit', 'oranges');
             modalContent.appendChild(orange);
+            this.checkInstantLoss(e, orange),
             orange.src = 'assets/orange.png';
             modal.style.display = 'block';
             close.onclick = function() {
@@ -91,7 +98,8 @@ class Level3Proper {
         }
     }
 
-    clickBothPeek() {
+    clickBothPeek(e) {
+        
         const sound = document.getElementById('button-press')
         sound.play()
         if (!this.clicked) {
@@ -108,17 +116,21 @@ class Level3Proper {
 
             const apple = new Image();
             apple.setAttribute('id', 'apple');
+            apple.setAttribute('fruit', 'apples');
             apple.src = 'assets/apple.png';
 
             const orange = new Image();
             orange.setAttribute('id', 'orange');
             orange.src = 'assets/orange.png';
+            orange.setAttribute('fruit', 'oranges');
 
             const coinFlip = Math.floor(Math.random() * 2)
             if (coinFlip === 0) {
                 modalContent.appendChild(apple);
+                this.checkInstantLoss(e, apple);
             } else {
                 modalContent.appendChild(orange);
+                this.checkInstantLoss(e, orange);
             }
 
             modal.style.display = 'block';
@@ -327,7 +339,19 @@ class Level3Proper {
     clickSubmit() {
         const sound = document.getElementById('button-press')
         sound.play()
-        let lost = false;
+        if (this.lost) {
+                const wrong = document.getElementById('wrong');
+                wrong.play()
+                alert('The barrels were not correctly labeled! Try again.')
+                while (this.screen.firstChild) {
+                    this.screen.removeChild(this.screen.firstChild);
+                }
+                document.removeEventListener('dragstart', this.handleDragStart);
+                document.removeEventListener('dragover', this.handleDragOver);
+                document.removeEventListener('drop', this.handleDrop);
+                new Level3Instructions();
+                return
+        }
         const barrels = document.getElementById('barrels-div').children;
         for (let i = 0; i < barrels.length; i++) {
             if (barrels[i].getAttribute('fruit') !== barrels[i].children[2].getAttribute('fruit')) {
@@ -337,25 +361,31 @@ class Level3Proper {
                 while (this.screen.firstChild) {
                     this.screen.removeChild(this.screen.firstChild);
                 }
-                lost = true;
                 document.removeEventListener('dragstart', this.handleDragStart);
                 document.removeEventListener('dragover', this.handleDragOver);
                 document.removeEventListener('drop', this.handleDrop);
                 new Level3Instructions();
-                break
+                return
             }
         }
-        if (!lost) {
-            const right = document.getElementById('right');
-            right.play();
-            alert('Nothing gets past you, professor!')
-            const music = document.getElementById('thinking-music')
-            music.pause();
-            music.currentTime = 0;
-            while (this.screen.firstChild) {
-                this.screen.removeChild(this.screen.firstChild);
-            }
-            new ComingSoon();
+        const right = document.getElementById('right');
+        right.play();
+        alert('Nothing gets past you, professor!')
+        const music = document.getElementById('thinking-music')
+        music.pause();
+        music.currentTime = 0;
+        while (this.screen.firstChild) {
+            this.screen.removeChild(this.screen.firstChild);
+        }
+        new ComingSoon();
+    }
+
+    checkInstantLoss(e, image) {
+        console.log(image.getAttribute('fruit'));
+        const label = e.target.parentNode.querySelector(".label")
+        const fruitLabel = label.getAttribute('fruit')
+        if (fruitLabel !== 'both' && image.getAttribute('fruit') !== fruitLabel) {
+            this.lost = true;
         }
     }
 }
