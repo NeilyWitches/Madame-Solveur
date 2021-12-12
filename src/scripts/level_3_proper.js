@@ -339,6 +339,9 @@ class Level3Proper {
     clickSubmit() {
         const sound = document.getElementById('button-press')
         sound.play()
+
+        if (!this.clicked) this.lost = true;
+
         if (this.lost) {
                 const wrong = document.getElementById('wrong');
                 wrong.play()
@@ -352,6 +355,7 @@ class Level3Proper {
                 new Level3Instructions();
                 return
         }
+
         const barrels = document.getElementById('barrels-div').children;
         for (let i = 0; i < barrels.length; i++) {
             if (barrels[i].getAttribute('fruit') !== barrels[i].children[2].getAttribute('fruit')) {
@@ -368,6 +372,7 @@ class Level3Proper {
                 return
             }
         }
+
         const right = document.getElementById('right');
         right.play();
         alert('Nothing gets past you, professor!')
