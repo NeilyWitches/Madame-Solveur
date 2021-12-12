@@ -86,7 +86,7 @@ class Level3Instructions {
             this.screen.appendChild(level_3_instructions_gif);
             level_3_instructions_gif.src = 'assets/level_3_instructions_gif_1.gif';
         } else if (this.clicked === 4) {
-            this.instructions.innerText = `You may peek inside only one of the barrels only one time. Peeking inside a barrel will expose only 1 fruit, no matter the barrel.`;
+            this.instructions.innerText = `You may peek inside only one of the barrels only one time. Peeking inside a barrel will expose only 1 fruit in that barrel.`;
             this.screen.removeChild(document.getElementById('lvl-3-instructions-gif-1'));
 
             const level_3_instructions_gif = new Image();
@@ -136,7 +136,7 @@ class Level3Instructions {
         } else if (this.clicked === 5) {
             this.instructions.style.marginTop = "0"
             this.nextButton.innerText = 'Next';
-            this.instructions.innerText = `You may peek inside only one of the barrels only one time. Peeking inside a barrel will expose only 1 fruit, no matter the barrel.`;
+            this.instructions.innerText = `You may peek inside only one of the barrels only one time. Peeking inside a barrel will expose only 1 fruit in that barrel.`;
 
             const level_3_instructions_gif = new Image();
             level_3_instructions_gif.setAttribute('id', 'lvl-3-instructions-gif-2');
