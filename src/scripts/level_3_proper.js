@@ -25,7 +25,6 @@ class Level3Proper {
     }
 
     clickApplesPeek(e) {
-        
         const sound = document.getElementById('button-press')
         sound.play()
         if (!this.clicked) {
@@ -358,6 +357,7 @@ class Level3Proper {
         }
 
         const barrels = document.getElementById('barrels-div').children;
+        
         for (let i = 0; i < barrels.length; i++) {
             if (barrels[i].getAttribute('fruit') !== barrels[i].children[2].getAttribute('fruit')) {
                 const wrong = document.getElementById('wrong');
@@ -387,7 +387,6 @@ class Level3Proper {
     }
 
     checkInstantLoss(e, image) {
-        console.log(image.getAttribute('fruit'));
         const label = e.target.parentNode.querySelector(".label")
         const fruitLabel = label.getAttribute('fruit')
         if (fruitLabel !== 'both' && image.getAttribute('fruit') !== fruitLabel) {
